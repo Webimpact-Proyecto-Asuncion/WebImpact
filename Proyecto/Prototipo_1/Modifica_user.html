@@ -2,20 +2,15 @@
 <html>
 
 <head>
-    <title>Prototipo 1</title>
-    <meta charset="utf-8">
+    <title>Modifica Usuario</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-<<<<<<< HEAD
     <link rel="stylesheet" href="Prototipo_1.css">
-=======
-    <link rel="stylesheet" href="Prototipo_1.css 1.css">
->>>>>>> origin/Prototipo_auxiliar
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+	 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
 
-        <img src="./images/logo.jpg" alt="Asuncion logo" style="height: 100px; width: 100px;"> &nbsp;&nbsp;&nbsp;
+        <img src="./images/logo.jpg" alt="Asuncion logo" > &nbsp;&nbsp;&nbsp;
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -39,31 +34,34 @@
             </ul>
         </div>
     </nav>
-    <br><br><br><br>
-    <div class="container inicio">
-        <h4>Inicio de sesión</h4>
+	<br><br>
+	<div class="container">
+		<h4>Modificar Usuario</h4>
+	</div>
+
+	<div class="container alert alert-primary">
+		<div class="form-row">
+			<div class="form-group col-md-5">
+				<label>ID Paciente</label>
+				<input type="text" class="form-control" id="inputPassword4">
+			</div>
+			<div class="form-group col-md-5">
+				<label>Nombre</label>
+				<input type="text" class="form-control" id="inputPassword4">
+			</div>
+			
+		</div>
+	</div>
+
+	<div class="container">
+		<img src="images/tabla.jpg" style="height: 500px; width: 1000px;">
+	</div>
+
+    <div class="container">
+        <button class="btn btn-success">Modificar</button>
     </div>
-    <div class="container alert alert-primary">
-        <br>
-        <form>
-            <div class="form-group">
-                <label for="usuario" class="usr">Usuario</label>
-                <input type="text" class="form-control" id="usuario">
-            </div>
-            <div class="form-group">
-                <label for="password" class="usr">Contraseña</label>
-                <input type="password" class="form-control" id="password">
-            </div>
-            <br>
-            <button type="button" class="btn btn-success sub">Submit</button>
-            <br><br>
-        </form>
-    </div>
+
 
 </body>
-
-
-
-
 
 </html>
