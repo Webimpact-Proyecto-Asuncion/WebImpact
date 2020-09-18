@@ -1,13 +1,15 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-	<title></title>
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-    <link rel="stylesheet" href="./css/Prototipo_1.css 1.css">
+    <title>Crear usuario</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="./css/Prototipo_1.css">
 </head>
+
 <body>
 
-	 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
 
         <img src="./images/logo.jpg" alt="Asuncion logo" style="height: 100px; width: 100px;"> &nbsp;&nbsp;&nbsp;
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -36,63 +38,63 @@
 
     <br><br>
     <div class="container inicio">
-    	<h4>Crear nuevo usuario</h4>
+        <h4 class="inicio">Crear nuevo usuario</h4>
     </div>
 
     <div class="container alert alert-primary">
-    <form>
-        <div class="form-row">
-        <div class="form-group col-md-12">
-            <label for="inputEmail4">Nombre(s)</label>
-            <input type="text" class="form-control" id="inputEmail4" required>
-        </div>
-        </div>
-        <div class="form-row">
-            <div class="form-group col-md-6">
-                <label for="inputPassword4">Apellido Paterno</label>
-                <input type="text" class="form-control" id="inputPassword4">
+        <form>
+            <div class="form-row">
+                <div class="form-group col-md-12">
+                    <label for="inputEmail4">Nombre(s)</label>
+                    <input type="text" class="form-control" id="inputEmail4" required>
+                </div>
             </div>
-            <div class="form-group col-md-6">
-                <label for="inputPassword4">Apellido Materno</label>
-                <input type="text" class="form-control" id="inputPassword4">
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="inputPassword4">Apellido Paterno</label>
+                    <input type="text" class="form-control" id="inputPassword4">
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="inputPassword4">Apellido Materno</label>
+                    <input type="text" class="form-control" id="inputPassword4">
+                </div>
             </div>
-        </div>
-        <div class="form-row">
-            <div class="form-group col-md-3">
-                <label for="fechaNacimiento">Fecha de Nacimiento</label>
-                <input type="date" class="form-control" id="inputPassword4">
-            </div>
-            <div class="form-group col-md-3">
-                <label for="fechaNacimiento">Edad</label>
-                <input type="number" class="form-control" id="inputPassword4">
-            </div>
-            <div class="form-group col-md-3">
-                <label for="fechaNacimiento">Sexo</label>
-                <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
+            <div class="form-row">
+                <div class="form-group col-md-3">
+                    <label for="fechaNacimiento">Fecha de Nacimiento</label>
+                    <input type="date" class="form-control" id="inputPassword4">
+                </div>
+                <div class="form-group col-md-3">
+                    <label for="fechaNacimiento">Edad</label>
+                    <input type="number" class="form-control" id="inputPassword4">
+                </div>
+                <div class="form-group col-md-3">
+                    <label for="fechaNacimiento">Sexo</label>
+                    <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
                     <option selected>Choose...</option>
                     <option value="1">Hombre</option>
                     <option value="2">Mujer</option>
                     <option value="2">Otros</option>
                   </select>
+                </div>
             </div>
-        </div>
-        <div class="form-row">
-            <div class="form-group col-md-5">
-                <label for="fechaNacimiento">Nacionalidad</label>
-                <input type="text" class="form-control" id="inputPassword4">
-                
+            <div class="form-row">
+                <div class="form-group col-md-5">
+                    <label for="fechaNacimiento">Nacionalidad</label>
+                    <input type="text" class="form-control" id="inputPassword4">
+
+                </div>
+                <div class="form-group col-md-5">
+                    <label for="fechaNacimiento">Estado</label>
+                    <input type="text" class="form-control" id="inputPassword4">
+
+                </div>
+
             </div>
-            <div class="form-group col-md-5">
-                <label for="fechaNacimiento">Estado</label>
-                <input type="text" class="form-control" id="inputPassword4">
-                
-            </div>
-            
-        </div>
-        <div class="form-row">
-            <div class="form-group col-md-3">
-                <label for="fechaNacimiento">Ocupación</label>
-                <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
+            <div class="form-row">
+                <div class="form-group col-md-3">
+                    <label for="fechaNacimiento">Ocupación</label>
+                    <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
                     <option selected>Choose...</option>
                     <option value="1">Estudiante</option>
                     <option value="2">Empleado</option>
@@ -100,10 +102,10 @@
                     <option value="4">Ama de casa</option>
                     <option value="5">Otro</option>
                   </select>
-            </div>
-            <div class="form-group col-md-3">
-                <label for="fechaNacimiento">Escolaridad</label>
-                <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
+                </div>
+                <div class="form-group col-md-3">
+                    <label for="fechaNacimiento">Escolaridad</label>
+                    <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
                     <option selected>Choose...</option>
                     <option value="1">N/A</option>
                     <option value="2">Primaria</option>
@@ -112,42 +114,43 @@
                     <option value="5">Profesional</option>
                     <option value="6">Otro</option>
                   </select>
+                </div>
             </div>
-        </div>
-        <div class="form-row">
-            <div class="form-group col-md-6">
-                <label for="fechaNacimiento">Calle</label>
-                <input type="text" class="form-control" id="inputPassword4">
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="fechaNacimiento">Calle</label>
+                    <input type="text" class="form-control" id="inputPassword4">
+                </div>
+                <div class="form-group col-md-3">
+                    <label for="fechaNacimiento">Numero exterior</label>
+                    <input type="text" class="form-control" id="inputPassword4">
+                </div>
+                <div class="form-group col-md-3">
+                    <label for="fechaNacimiento">Numero interior</label>
+                    <input type="text" class="form-control" id="inputPassword4">
+                </div>
             </div>
-            <div class="form-group col-md-3">
-                <label for="fechaNacimiento">Numero exterior</label>
-                <input type="text" class="form-control" id="inputPassword4">
+            <div class="form-row">
+                <div class="form-group col-md-4">
+                    <label for="fechaNacimiento">Colonia</label>
+                    <input type="text" class="form-control" id="inputPassword4">
+                </div>
             </div>
-            <div class="form-group col-md-3">
-                <label for="fechaNacimiento">Numero interior</label>
-                <input type="text" class="form-control" id="inputPassword4">
+            <div class="form-row">
+                <div class="form-group col-md-12">
+                    <label for="fechaNacimiento">Empresa donde labora</label>
+                    <input type="text" class="form-control" id="inputPassword4" disabled>
+                </div>
             </div>
-        </div>
-        <div class="form-row">
-            <div class="form-group col-md-4">
-                <label for="fechaNacimiento">Colonia</label>
-                <input type="text" class="form-control" id="inputPassword4">
+            <div class="form-row">
+                <div class="form-group col-md-12">
+                    <label for="fechaNacimiento">Jubilado o pensionado de</label>
+                    <input type="text" class="form-control" id="inputPassword4" disabled>
+                </div>
             </div>
-        </div>
-        <div class="form-row">
-            <div class="form-group col-md-12">
-                <label for="fechaNacimiento">Empresa donde labora</label>
-                <input type="text" class="form-control" id="inputPassword4" disabled>
-            </div>
-        </div>
-        <div class="form-row">
-            <div class="form-group col-md-12">
-                <label for="fechaNacimiento">Jubilado o pensionado de</label>
-                <input type="text" class="form-control" id="inputPassword4" disabled>
-            </div>
-        </div>
-        <button type="submit" class="btn btn-success">Aceptar</button>
-    </form>
-</div>
+            <button type="submit" class="btn btn-success">Aceptar</button>
+        </form>
+    </div>
 </body>
+
 </html>
