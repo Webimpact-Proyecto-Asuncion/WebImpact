@@ -42,11 +42,13 @@ background-color: rgba(0,0,0,.75) !important;
     color: white;
 }
 
-img{
-    align-content: center;
-    position: relative;
-    align-items: center;
-    text-align: center;
+.formulario{
+  background-color: rgba(0,0,0,.75) !important;
+  color: white;
+}
+
+.blanco{
+  color: white;
 }
 
 /*Navbar*/
