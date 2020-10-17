@@ -3,9 +3,9 @@
      function conectDB(){
         
         $servername = "localhost";
-        $username = "root";
-        $password = "";
-        $dbname = "historialclinico";
+        $username = "WITEAM";
+        $password = "WebImpact$2020";
+        $dbname = "asuncion";
 
         $conexion = mysqli_connect($servername, $username, $password, $dbname);
 
@@ -30,7 +30,7 @@
     $conn = conectDB();
       
              
-    $sql= 'SELECT * FROM historialclinico';
+    $sql= 'SELECT * FROM HistorialClinico';
   
         
     $resultado = mysqli_query($conn, $sql);

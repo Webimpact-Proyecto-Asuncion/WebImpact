@@ -4,28 +4,30 @@
     require_once("historial.php");
         
     $result = getHistorialClinico();
-
-   
-    if(mysqli_num_rows($result)>0){
-        
+    var_dump($result);
     echo"<br>";
     echo"Tabla General de Datos";
     echo"<br>";
     echo"<table class ='table container shadow'> <br>";
+   
+    if(mysqli_num_rows($result)>0){
+        
+   
     while($row = mysqli_fetch_assoc($result)){
         
         echo "<tr>";
-        echo "<td>".$row["COL 1"]."</td>";
-        echo "<td>".$row["COL 2"]."</td>";
-        echo "<td>".$row["COL 3"]."</td>";
-        echo "<td>".$row["COL 4"]."</td>";
-        echo "<td>".$row["COL 5"]."</td>";
-        echo "<td>".$row["COL 6"]."</td>";
-        echo "<td>".$row["COL 7"]."</td>";
-        echo "<td>".$row["COL 8"]."</td>";
-        echo "<td>".$row["COL 9"]."</td>";
-        echo "<td>".$row["COL 10"]."</td>";
-        echo "<td>".$row["COL 11"]."</td>";
+        echo "<td>".$row["Tipo"]."</td>";
+        echo "<td>".$row["NumeroEmpleado"]."</td>";
+        echo "<td>".$row["NombreEmpleado"]."</td>";
+        echo "<td>".$row["NumeroPaciente"]."</td>";
+        echo "<td>".$row["NombrePaciente"]."</td>";
+        echo "<td>".$row["ApellidoPaterno"]."</td>";
+        echo "<td>".$row["ApellidoMaterno"]."</td>";
+        echo "<td>".$row["Edad"]."</td>";
+        echo "<td>".$row["Ingreso"]."</td>";
+        echo "<td>".$row["Diagnostico"]."</td>";
+        echo "<td>".$row["Tratamiento"]."</td>";
+        echo "<td>".$row["Fecha"]."</td>";
         echo "</tr>";
 
     }
