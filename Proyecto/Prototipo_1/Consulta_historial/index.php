@@ -4,11 +4,10 @@
     require_once("historial.php");
         
     $result = getHistorialClinico();
-    var_dump($result);
     echo"<br>";
     echo"Tabla General de Datos";
     echo"<br>";
-    echo"<table class ='table container shadow'> <br>";
+    echo"<table class ='table table-striped table-sm'> <br>";
    
     if(mysqli_num_rows($result)>0){
         
