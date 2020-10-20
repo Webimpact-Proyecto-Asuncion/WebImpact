@@ -32,59 +32,59 @@
 
 
     <div class="container formulario">
-        <form method="post" id="creaUsuario" action="uploadPic.php">
+        <form method="post" id="creaUsuario">
             <div class="form-row">
                 <div class="form-group col-md-12">
                     <br>
-                    <label for="Nombre" class="bold">Nombre(s)</label>
-                    <input type="text" class="form-control" id="nombre" name="nombre" required>
+                    <label for="inputEmail4" class="bold">Nombre(s)</label>
+                    <input type="text" class="form-control" id="nombre" required>
                 </div>
             </div>
             <div class="form-row">
                 <div class="form-group col-md-6">
-                    <label for="Apellido Paterno" class="bold">Apellido Paterno</label>
-                    <input type="text" class="form-control" id="apellidoP" name="apellidoP">
+                    <label for="inputPassword4" class="bold">Apellido Paterno</label>
+                    <input type="text" class="form-control" id="apellidoP">
                 </div>
                 <div class="form-group col-md-6">
-                    <label for="Apellido Materno" class="bold">Apellido Materno</label>
-                    <input type="text" class="form-control" id="apellidoM" name="apellidoM">
+                    <label for="inputPassword4" class="bold">Apellido Materno</label>
+                    <input type="text" class="form-control" id="apellidoM">
                 </div>
             </div>
             <div class="form-row">
                 <div class="form-group col-md-3">
                     <label for="fechaNacimiento" class="bold">Fecha de Nacimiento</label>
-                    <input type="date" class="form-control" id="nacimiento" name="nacimiento">
+                    <input type="date" class="form-control" id="nacimiento">
                 </div>
-
                 <div class="form-group col-md-3">
-                    <label for="Genero" class="bold">Género</label>
-                    <select class="custom-select mr-sm-2" id="genero" name="genero">
-                    <option selected>Selecciona...</option>
-                    <option value="1">Masculino</option>
-                    <option value="2">Femenino</option>
-                    <option value="3">Otro</option>
+                    <label for="fechaNacimiento" class="bold">Edad</label>
+                    <input type="number" class="form-control" id="edad" disabled>
+                </div>
+                <div class="form-group col-md-3">
+                    <label for="fechaNacimiento" class="bold">Sexo</label>
+                    <select class="custom-select mr-sm-2" id="sexo">
+                    <option selected>Choose...</option>
+                    <option value="1">M</option>
+                    <option value="2">F</option>
                   </select>
                 </div>
             </div>
-
-            <div class="form-row">
-                <div class="form-group col-md-12">
-                    <label for="tel" class="bold">Teléfono</label>
-                    <input type="text" class="form-control" id="tel" name="telefono">
-                </div>
-            </div>
-
             <div class="form-row">
                 <div class="form-group col-md-12">
                     <label for="Correo" class="bold">Correo Electrónico</label>
-                    <input type="text" class="form-control" id="correo" name="correo">
+                    <input type="text" class="form-control" id="correo">
                 </div>
             </div>
 
             <div class="form-row">
+                <div class="form-group col-md-12">
+                    <label for="fechaNacimiento" class="bold">Lugar de nacimiento</label>
+                    <input type="text" class="form-control" id="lugarNacimiento">
+                </div>
+            </div>
+            <div class="form-row">
                 <div class="form-group col-md-3">
                     <label for="fechaNacimiento" class="bold">Ocupación</label>
-                    <select class="custom-select mr-sm-2" id="ocupacion" name="ocupacion">
+                    <select class="custom-select mr-sm-2" id="ocupacion">
                     <option selected>Choose...</option>
                     <option value="1">Estudiante</option>
                     <option value="2">Empleado</option>
@@ -93,12 +93,10 @@
                     <option value="5">Otro</option>
                   </select>
                 </div>
-
                 &nbsp;&nbsp;&nbsp;&nbsp;
-
                 <div class="form-group col-md-3">
                     <label for="fechaNacimiento" class="bold">Escolaridad</label>
-                    <select class="custom-select mr-sm-2" id="escolaridad" name="escolaridad">
+                    <select class="custom-select mr-sm-2" id="escolaridad">
                     <option selected>Choose...</option>
                     <option value="1">N/A</option>
                     <option value="2">Primaria</option>
@@ -109,15 +107,26 @@
                   </select>
                 </div>
             </div>
-
-
             <div class="form-row">
-                <div class="form-group col-md-12">
-                    <label for="domicilio" class="bold">Domicilio</label>
-                    <input type="text" class="form-control" id="domicilio" name="domicilio">
+                <div class="form-group col-md-6">
+                    <label for="fechaNacimiento" class="bold">Calle</label>
+                    <input type="text" class="form-control" id="calle">
+                </div>
+                <div class="form-group col-md-3">
+                    <label for="fechaNacimiento" class="bold">Número exterior</label>
+                    <input type="text" class="form-control" id="numeroExt">
+                </div>
+                <div class="form-group col-md-3">
+                    <label for="fechaNacimiento" class="bold">Número interior</label>
+                    <input type="text" class="form-control" id="numeroInt">
                 </div>
             </div>
-
+            <div class="form-row">
+                <div class="form-group col-md-12">
+                    <label for="fechaNacimiento" class="bold">Colonia</label>
+                    <input type="text" class="form-control" id="colonia">
+                </div>
+            </div>
             <div class="form-row">
                 <div class="form-group col-md-12">
                     <label for="estado" class="bold">Estado</label>
@@ -127,44 +136,44 @@
             <div class="form-row">
                 <div class="form-group col-md-12">
                     <label for="municipio" class="bold">Municipio</label>
-                    <input type="text" class="form-control" id="municipio" name="municipio">
+                    <input type="text" class="form-control" id="municipio">
                 </div>
             </div>
 
             <div class="form-row">
                 <div class="form-group col-md-12">
                     <label for="fechaNacimiento" class="bold">Empresa donde labora</label>
-                    <input type="text" class="form-control" id="empresa" name="empresa" disabled>
+                    <input type="text" class="form-control" id="empresa" disabled>
                 </div>
             </div>
             <div class="form-row">
                 <div class="form-group col-md-12">
                     <label for="fechaNacimiento" class="bold">Jubilado o pensionado de</label>
-                    <input type="text" class="form-control" id="jubilado" name="jubilado" disabled>
+                    <input type="text" class="form-control" id="jubilado" disabled>
                 </div>
             </div>
             <div class="form-row">
                 <div class="form-group col-md-12">
                     <label for="Diagnostico" class="bold">Diagnóstico</label>
-                    <input type="text" class="form-control" name="diagnostico" id="diagnostico">
+                    <input type="text" class="form-control" id="diagnostico">
                 </div>
             </div>
             <div class="form-row">
                 <div class="form-group col-md-12">
                     <label for="Lesion" class="bold">Lesión</label>
-                    <input type="text" class="form-control" id="lesion" name="lesion">
+                    <input type="text" class="form-control" id="lesion">
                 </div>
             </div>
             <div class="form-row">
                 <div class="form-group col-md-3">
                     <label for="ingreso" class="bold">Ingreso</label>
-                    <input type="date" class="form-control" id="ingreso" name="ingreso">
+                    <input type="date" class="form-control" id="ingreso">
                 </div>
             </div>
             <div class="form-row">
                 <div class="form-group col-md-12">
                     <label for="Dependencia" class="bold">Dependencia</label>
-                    <input type="text" class="form-control" id="dependencia" name="dependencia">
+                    <input type="text" class="form-control" id="dependencia">
                 </div>
             </div>
             <div class="form-row">
