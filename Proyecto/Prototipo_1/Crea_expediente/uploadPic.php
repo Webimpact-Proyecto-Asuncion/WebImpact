@@ -25,19 +25,31 @@
 
     function crearPaciente($nombre, $apellidoP, $apellidoM, $nacimiento, $genero, $correo, $domicilio, $estado, $municipio, $diagnostico, $lesion, $ingreso, $telefono)
     {
+<<<<<<< HEAD
         $lastPaciente = 99;
+=======
+        $lastPaciente = 100;
+>>>>>>> 178c915a22f404ffe7c24d7b9e474d72d1173c75
         $lastPaciente++;  
 
         $conn = connectDB(); 
 
         $sql = "INSERT INTO nuevopaciente(`NumeroPaciente`, `NombrePaciente`, `ApellidoPaterno`, `ApellidoMaterno`, `Domicilio`, `Telefono`, `FechaNacimiennto`, `Genero`, `Diagnostico`, `Lesion`, `Ingreso`) VALUES ((\"". $lastPaciente . "\",\"" . $nombre . "\",\"" . $apellidoP. "\",\"" . $apellidoM . "\",\"" . $domicilio . "\",\"" . $telefono . "\",\"" . $nacimiento . "\",\"" . $genero . "\",\"" . $diagnostico . "\",\"" . $lesion . "\",\"" . $ingreso . "\")";
 
+<<<<<<< HEAD
         
         if(mysqli_query($conn,$sql))
         {
             echo "Paciente creado exitosamente!!"; 
             disconnectDB($conn);  
             return true;      
+=======
+        if(mysqli_query($conn,$sql))
+        {
+            echo "Paciente creado exitosamente!!"; 
+            disconnectDB($conn); 
+            return(true);       
+>>>>>>> 178c915a22f404ffe7c24d7b9e474d72d1173c75
         }
         else
         {
