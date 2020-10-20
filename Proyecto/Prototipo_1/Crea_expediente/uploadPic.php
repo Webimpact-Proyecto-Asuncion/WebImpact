@@ -1,6 +1,10 @@
 <?php
     
-    require_once('./dbUtil.php'); 
+    require_once('dbUtil.php'); 
+    include('CreaPaciente.html'); 
+
+
+
     
     function clean($entrada)
     {
@@ -22,7 +26,7 @@
     {
        $conn = connectDB(); 
 
-       $sql = "SELECT TOP 1 NumeroPaciente FROM Pacientes ORDER BY NumeroPaciente DESC";
+       $sql = "SELECT TOP 1 NumeroPaciente FROM Pacientes ORDER BY NumeroPaciente DES";
 
        if($result = mysqli_query($conn, $sql))
        {
@@ -49,13 +53,12 @@
 
     function crearPaciente($nombre, $apellidoP, $apellidoM, $nacimiento, $genero, $correo, $domicilio, $estado, $municipio, $diagnostico, $lesion, $ingreso, $telefono)
     {
-        echo "lalsdf";
-        $lastPaciente = intval(getLastPaciente());
+        $lastPaciente = 100;
         $lastPaciente++;  
 
         $conn = connectDB(); 
 
-        $sql = "INSERT INTO Pacientes (`NumeroPaciente`, `NombrePaciente`, `ApellidoPaterno`, `ApellidoMaterno`, `Domicilio`, `Telefono`, `FechaNacimiennto`, `Genero`, `Diagnostico`, `Lesion`, `Ingreso`) VALUES ((\"". $lastPaciente . "\",\"" . $nombre . "\",\"" . $apellidoP. "\",\"" . $apellidoM . "\",\"" . $domicilio . "\",\"" . $telefono . "\",\"" . $nacimiento . "\",\"" . $genero . "\",\"" . $diagnostico . "\",\"" . $lesion . "\",\"" . $ingreso . "\")";
+        $sql = "INSERT INTO Pacientes (NumeroPaciente, NombrePaciente, ApellidoPaterno, ApellidoMaterno, Domicilio, Telefono, FechaNacimiennto, Genero, Diagnostico, Lesion, Ingreso) VALUES (\"". $lastPaciente . "\",\"" . $nombre . "\",\"" . $apellidoP. "\",\"" . $apellidoM . "\",\"" . $domicilio . "\",\"" . $telefono . "\",\"" . $nacimiento . "\",\"" . $genero . "\",\"" . $diagnostico . "\",\"" . $lesion . "\",\"" . $ingreso . "\");";
 
         if($result = mysqli_query($conn,$sql))
         {
@@ -71,13 +74,14 @@
         
     }
 
+   
 
 
     $nombre = $_POST["nombre"]; 
-    $apellidoP = $_POST["apellidoP"];
+    $apellidoP = $_POST["apellidoP"]; 
     $apellidoM = $_POST["apellidoM"]; 
-    $nacimiento = $_POST["nacimiento"];
-    $sexo = $_POST["genero"]; 
+    $nacimiento = $_POST["nacimiento"]; 
+    $genero = $_POST["genero"]; 
     $correo = $_POST["correo"]; 
    // $ocupacion = $_POST["ocupacion"]; 
     //$escolaridad = $_POST["escolaridad"]; 
@@ -89,9 +93,23 @@
     $diagnostico = $_POST["diagnostico"]; 
     $lesion = $_POST["lesion"]; 
     $ingreso = $_POST["ingreso"]; 
+    $telefono = $_POST["tel"];
     //$dependencia = $_POST["dependencia"]; 
-    $telefono=$_POST["telefono"];
-    $genero=$_POST["genero"];
+
+    echo "NOMBRE: ".$nombre. "\n";
+    echo "Apellido P: ". $apellidoP. "\n"; 
+    echo "Apellido M: " . $apellidoM ."\n";
+    echo "Fecha de nacimiento: " . $nacimiento. "\n";
+    echo "Genero: " . $nacimiento . "\n"; 
+    echo "Correo: " . $correo . "\n"; 
+    echo "Domicilio: " . $domicilio . "\n"; 
+    echo "Estado: " . $estado . "\n"; 
+    echo "Municipio: " . $municipio . "\n";
+    echo "diagnostico: " . $diagnostico . "\n"; 
+    echo "lesion: " . $lesion . "\n"; 
+    echo "Ingreso: " . $ingreso . "\n"; 
+    echo "telefono: " . $telefono . "\n";
+
 
     //files
     $foto = $_POST["foto"]; 
@@ -100,17 +118,18 @@
     $comprobante = $_POST["comprobante"]; 
     $expediente = $_POST["expediente"]; 
     $recomendacion = $_POST["recomendacion"];
-    echo ("antes del mega if");
 
     if(isset($_POST["nombre"]) && !empty($_POST["nombre"]) && isset($_POST["apellidoP"]) && !empty($_POST["apellidoP"]) && isset($_POST["apellidoM"]) 
     && !empty($_POST["apellidoM"]) && isset($_POST["nacimiento"]) && !empty($_POST["nacimiento"]) && isset($_POST["genero"]) && !empty($_POST["genero"]) 
-    && isset($_POST["correo"]) && !empty($_POST["correo"]) 
     && isset($_POST["domicilio"]) && !empty($_POST["domicilio"]) && isset($_POST["estado"]) 
     && !empty($_POST["estado"]) && isset($_POST["municipio"]) && !empty($_POST["municipio"]) && isset($_POST["diagnostico"]) && !empty($_POST["diagnostico"]) 
     && isset($_POST["lesion"]) && !empty($_POST["lesion"]) && isset($_POST["ingreso"]) && !empty($_POST["ingreso"]))
     {
-        echo ("entro en el mega if");
-        crearPaciente($nombre, $apellidoP, $apellidoM, $nacimiento, $genero, $correo, $domicilio, $estado, $municipio, $diagnostico, $lesion, $ingreso, $telefono);
+        crearPaciente($nombre, $apellidoP, $apellidoM, $nacimiento, $genero, $correo, $domicilio, $estado, $municipio, $diagnostico, $lesion, $ingreso,$telefono); 
+    }
+    else
+    {
+        echo "ERROR NO SE HIZO NADA!!";
     }
 
 
