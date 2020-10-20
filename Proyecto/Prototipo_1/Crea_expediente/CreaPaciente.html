@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Asuncion</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="../Prototipo_1.css">
+</head>
+
+<body>
+
+
+
+    <header>
+        <nav>
+            <div class="menu-icon">
+                <i class="fa fa-bars fa-2x"></i>
+            </div>
+
+            <div class="menu">
+                <ul>
+                    <li><a href="../Prototipo_1.html">Inicio</a></li>
+                    <li><a href="../Administracion.html">Administracion</a></li>
+                    <li><a href="../Prototipo1_consultas.html">Consultas</a></li>
+                    <li><a href="#">Pacientes</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+
+
+    <div class="container formulario">
+        <form method="post" id="creaUsuario">
+            <div class="form-row">
+                <div class="form-group col-md-12">
+                    <br>
+                    <label for="Nombre" class="bold">Nombre(s)</label>
+                    <input type="text" class="form-control" id="nombre" name="nombre" required>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="Apellido Paterno" class="bold">Apellido Paterno</label>
+                    <input type="text" class="form-control" id="apellidoP">
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="Apellido Materno" class="bold">Apellido Materno</label>
+                    <input type="text" class="form-control" id="apellidoM">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-3">
+                    <label for="fechaNacimiento" class="bold">Fecha de Nacimiento</label>
+                    <input type="date" class="form-control" id="nacimiento" name="nacimiento">
+                </div>
+
+                <div class="form-group col-md-3">
+                    <label for="Genero" class="bold">Género</label>
+                    <select class="custom-select mr-sm-2" id="genero" name="genero">
+                    <option selected>Selecciona...</option>
+                    <option value="1">Masculino</option>
+                    <option value="2">Femenino</option>
+                    <option value="3">Otro</option>
+                  </select>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group col-md-12">
+                    <label for="tel" class="bold">Teléfono</label>
+                    <input type="text" class="form-control" id="tel" name="tel">
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group col-md-12">
+                    <label for="Correo" class="bold">Correo Electrónico</label>
+                    <input type="text" class="form-control" id="correo" name="correo">
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group col-md-3">
+                    <label for="fechaNacimiento" class="bold">Ocupación</label>
+                    <select class="custom-select mr-sm-2" id="ocupacion" name="ocupacion">
+                    <option selected>Choose...</option>
+                    <option value="1">Estudiante</option>
+                    <option value="2">Empleado</option>
+                    <option value="3">Desempleado</option>
+                    <option value="4">Ama de casa</option>
+                    <option value="5">Otro</option>
+                  </select>
+                </div>
+
+                &nbsp;&nbsp;&nbsp;&nbsp;
+
+                <div class="form-group col-md-3">
+                    <label for="fechaNacimiento" class="bold">Escolaridad</label>
+                    <select class="custom-select mr-sm-2" id="escolaridad" name="escolaridad">
+                    <option selected>Choose...</option>
+                    <option value="1">N/A</option>
+                    <option value="2">Primaria</option>
+                    <option value="3">Secundaria</option>
+                    <option value="4">Preparatoria</option>
+                    <option value="5">Profesional</option>
+                    <option value="6">Otro</option>
+                  </select>
+                </div>
+            </div>
+
+
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="domicilio" class="bold">Domicilio</label>
+                    <input type="text" class="form-control" id="domicilio" name="domicilio">
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group col-md-12">
+                    <label for="estado" class="bold">Estado</label>
+                    <input type="text" class="form-control" id="estado" name="estado">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-12">
+                    <label for="municipio" class="bold">Municipio</label>
+                    <input type="text" class="form-control" id="municipio" name="municipio">
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group col-md-12">
+                    <label for="fechaNacimiento" class="bold">Empresa donde labora</label>
+                    <input type="text" class="form-control" id="empresa" name="empresa" disabled>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-12">
+                    <label for="fechaNacimiento" class="bold">Jubilado o pensionado de</label>
+                    <input type="text" class="form-control" id="jubilado" name="jubilado" disabled>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-12">
+                    <label for="Diagnostico" class="bold">Diagnóstico</label>
+                    <input type="text" class="form-control" name="diagnostico" id="diagnostico">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-12">
+                    <label for="Lesion" class="bold">Lesión</label>
+                    <input type="text" class="form-control" id="lesion" name="lesion">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-3">
+                    <label for="ingreso" class="bold">Ingreso</label>
+                    <input type="date" class="form-control" id="ingreso" name="ingreso">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-12">
+                    <label for="Dependencia" class="bold">Dependencia</label>
+                    <input type="text" class="form-control" id="dependencia" name="dependencia">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-4">
+                    <label for="foto" class="bold">Fotografía</label>
+                    <input type="file" name="foto" id="foto">
+                </div>
+            </div>
+            <br>
+            <div class="form-row">
+                <div class="form-group col-md-4">
+                    <label for="curp" class="bold">Curp</label>
+                    <br>
+                    <input type="file" name="curp" id="curp">
+                </div>
+            </div>
+            <br>
+            <div class="form-row">
+                <div class="form-group col-md-4">
+                    <label for="acta" class="bold">Acta de Nacimiento</label>
+                    <input type="file" name="acta" id="acta">
+                </div>
+            </div>
+            <br>
+            <div class="form-row">
+                <div class="form-group col-md-4">
+                    <label for="comprobante" class="bold">Comprobante de Domicilio</label>
+                    <input type="file" name="comprobante" id="comprobante">
+                </div>
+            </div>
+            <br>
+            <div class="form-row">
+                <div class="form-group col-md-4">
+                    <label for="expediente" class="bold">Expediente Médico</label>
+                    <input type="file" name="expediente" id="expediente">
+                </div>
+            </div>
+            <br>
+            <div class="form-row">
+                <div class="form-group col-md-4">
+                    <label for="recomendacion" class="bold">Recomendación Médica</label>
+                    <input type="file" name="recomendacion" id="recomendacion">
+                </div>
+            </div>
+            <br>
+            <button type="submit" class="btn btn-success" name="aceptar" id="aceptar">Aceptar</button>
+            <br><br>
+        </form>
+    </div>
+    <script src="CreaPaciente.js"></script>
+</body>
