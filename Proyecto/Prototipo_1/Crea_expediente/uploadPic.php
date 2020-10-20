@@ -22,53 +22,28 @@
 
     $_POST = cleanArr($_POST); 
 
-    function getLastPaciente()
-    {
-       $conn = connectDB(); 
-
-       $sql = "SELECT TOP 1 NumeroPaciente FROM Pacientes ORDER BY NumeroPaciente DES";
-
-       if($result = mysqli_query($conn, $sql))
-       {
-           echo "Ultimo paciente obtenido"; 
-           disconnectDB($conn);  
-
-           if(mysqli_num_rows($result) > 0)
-           {
-                while($row = mysqli_fetch_assoc($result))
-                {
-                    
-                    $numeroPaciente = $row["NumeroPaciente"]; 
-                }
-                return $numeroPaciente; 
-           }
-           
-       }
-       else
-       {
-            echo "ERROR!!"; 
-            disconnectDB($conn); 
-       }
-    }
 
     function crearPaciente($nombre, $apellidoP, $apellidoM, $nacimiento, $genero, $correo, $domicilio, $estado, $municipio, $diagnostico, $lesion, $ingreso, $telefono)
     {
-        $lastPaciente = intval(getLastPaciente());
+        $lastPaciente = 99;
         $lastPaciente++;  
 
         $conn = connectDB(); 
 
-        $sql = "INSERT INTO Pacientes (`NumeroPaciente`, `NombrePaciente`, `ApellidoPaterno`, `ApellidoMaterno`, `Domicilio`, `Telefono`, `FechaNacimiennto`, `Genero`, `Diagnostico`, `Lesion`, `Ingreso`) VALUES ((\"". $lastPaciente . "\",\"" . $nombre . "\",\"" . $apellidoP. "\",\"" . $apellidoM . "\",\"" . $domicilio . "\",\"" . $telefono . "\",\"" . $nacimiento . "\",\"" . $genero . "\",\"" . $diagnostico . "\",\"" . $lesion . "\",\"" . $ingreso . "\")";
+        $sql = "INSERT INTO nuevopaciente(`NumeroPaciente`, `NombrePaciente`, `ApellidoPaterno`, `ApellidoMaterno`, `Domicilio`, `Telefono`, `FechaNacimiennto`, `Genero`, `Diagnostico`, `Lesion`, `Ingreso`) VALUES ((\"". $lastPaciente . "\",\"" . $nombre . "\",\"" . $apellidoP. "\",\"" . $apellidoM . "\",\"" . $domicilio . "\",\"" . $telefono . "\",\"" . $nacimiento . "\",\"" . $genero . "\",\"" . $diagnostico . "\",\"" . $lesion . "\",\"" . $ingreso . "\")";
 
-        if($result = mysqli_query($conn,$sql))
+        
+        if(mysqli_query($conn,$sql))
         {
             echo "Paciente creado exitosamente!!"; 
-            disconnectDB($conn);        
+            disconnectDB($conn);  
+            return true;      
         }
         else
         {
             echo "ERROR al crear paciente!!"; 
             disconnectDB($conn); 
+            return false; 
         }
 
         
@@ -83,7 +58,7 @@
     $nacimiento = $_POST["nacimiento"]; 
     $genero = $_POST["genero"]; 
     $correo = $_POST["correo"]; 
-   // $ocupacion = $_POST["ocupacion"]; 
+    //$ocupacion = $_POST["ocupacion"]; 
     //$escolaridad = $_POST["escolaridad"]; 
     $domicilio = $_POST["domicilio"]; 
     $estado = $_POST["estado"]; 

@@ -1,9 +1,9 @@
 <?php
     function connectDB(){
         $servername="localhost";
-        $username="WITEAM";
-        $password="WebImpact$2020";
-        $dbname="asuncion";
+        $username="root";
+        $password="";
+        $dbname="paciente";
 
         $connection=mysqli_connect($servername,$username,$password,$dbname);
         if(!$connection){
