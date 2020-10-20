@@ -22,7 +22,7 @@
 
         }
     }else{
-        //no existe el usuario o la contrasena es incorrecta
+        include_once("no existe");
     }
     
 ?>
