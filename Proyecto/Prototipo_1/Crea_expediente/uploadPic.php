@@ -1,6 +1,9 @@
 <?php
     
     require_once('dbUtil.php'); 
+    include('CreaPaciente.html'); 
+
+
 
     
     function clean($entrada)
@@ -71,13 +74,14 @@
         
     }
 
+   
 
 
     $nombre = $_POST["nombre"]; 
     $apellidoP = $_POST["apellidoP"]; 
     $apellidoM = $_POST["apellidoM"]; 
     $nacimiento = $_POST["nacimiento"]; 
-    $sexo = $_POST["genero"]; 
+    $genero = $_POST["genero"]; 
     $correo = $_POST["correo"]; 
    // $ocupacion = $_POST["ocupacion"]; 
     //$escolaridad = $_POST["escolaridad"]; 
@@ -89,7 +93,22 @@
     $diagnostico = $_POST["diagnostico"]; 
     $lesion = $_POST["lesion"]; 
     $ingreso = $_POST["ingreso"]; 
+    $telefono = $_POST["tel"];
     //$dependencia = $_POST["dependencia"]; 
+
+    echo "NOMBRE: ".$nombre. "\n";
+    echo "Apellido P: ". $apellidoP. "\n"; 
+    echo "Apellido M: " . $apellidoM ."\n";
+    echo "Fecha de nacimiento: " . $nacimiento. "\n";
+    echo "Genero: " . $nacimiento . "\n"; 
+    echo "Correo: " . $correo . "\n"; 
+    echo "Domicilio: " . $domicilio . "\n"; 
+    echo "Estado: " . $estado . "\n"; 
+    echo "Municipio: " . $municipio . "\n";
+    echo "diagnostico: " . $diagnostico . "\n"; 
+    echo "lesion: " . $lesion . "\n"; 
+    echo "Ingreso: " . $ingreso . "\n"; 
+    echo "telefono: " . $telefono . "\n";
 
 
     //files
@@ -102,12 +121,15 @@
 
     if(isset($_POST["nombre"]) && !empty($_POST["nombre"]) && isset($_POST["apellidoP"]) && !empty($_POST["apellidoP"]) && isset($_POST["apellidoM"]) 
     && !empty($_POST["apellidoM"]) && isset($_POST["nacimiento"]) && !empty($_POST["nacimiento"]) && isset($_POST["genero"]) && !empty($_POST["genero"]) 
-    && isset($_POST["correo"]) && !empty($_POST["correo"]) && isset($_POST["lugarNacimiento"]) && !empty($_POST["lugarNacimiento"]) 
-    && isset( $_POST["ocupacion"]) && !empty( $_POST["ocupacion"]) && isset($_POST["domicilio"]) && !empty($_POST["domicilio"]) && isset($_POST["estado"]) 
+    && isset($_POST["domicilio"]) && !empty($_POST["domicilio"]) && isset($_POST["estado"]) 
     && !empty($_POST["estado"]) && isset($_POST["municipio"]) && !empty($_POST["municipio"]) && isset($_POST["diagnostico"]) && !empty($_POST["diagnostico"]) 
     && isset($_POST["lesion"]) && !empty($_POST["lesion"]) && isset($_POST["ingreso"]) && !empty($_POST["ingreso"]))
     {
-        
+        crearPaciente($nombre, $apellidoP, $apellidoM, $nacimiento, $genero, $correo, $domicilio, $estado, $municipio, $diagnostico, $lesion, $ingreso,$telefono); 
+    }
+    else
+    {
+        echo "ERROR NO SE HIZO NADA!!";
     }
 
 
