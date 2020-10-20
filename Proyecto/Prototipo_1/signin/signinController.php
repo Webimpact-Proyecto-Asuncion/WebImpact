@@ -12,7 +12,7 @@
     $rol=getRol($usuario);
     $permisos=getPermisos($rol);
     var_dump($permisos);
-    
+
     if($usuario&&$password){
         header('Location: https://royerdac99.codes/WebImpact/Proyecto/Prototipo_1/dashboard/dashboard.php');
     }
