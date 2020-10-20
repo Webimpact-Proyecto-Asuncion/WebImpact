@@ -1,7 +1,6 @@
 <?php
     
-    require_once('dbUtil.php'); 
-
+    require_once('./dbUtil.php'); 
     
     function clean($entrada)
     {
@@ -23,7 +22,7 @@
     {
        $conn = connectDB(); 
 
-       $sql = "SELECT TOP 1 NumeroPaciente FROM Pacientes ORDER BY NumeroPaciente DES";
+       $sql = "SELECT TOP 1 NumeroPaciente FROM Pacientes ORDER BY NumeroPaciente DESC";
 
        if($result = mysqli_query($conn, $sql))
        {
@@ -50,6 +49,7 @@
 
     function crearPaciente($nombre, $apellidoP, $apellidoM, $nacimiento, $genero, $correo, $domicilio, $estado, $municipio, $diagnostico, $lesion, $ingreso, $telefono)
     {
+        echo "lalsdf";
         $lastPaciente = intval(getLastPaciente());
         $lastPaciente++;  
 
@@ -74,9 +74,9 @@
 
 
     $nombre = $_POST["nombre"]; 
-    $apellidoP = $_POST["apellidoP"]; 
+    $apellidoP = $_POST["apellidoP"];
     $apellidoM = $_POST["apellidoM"]; 
-    $nacimiento = $_POST["nacimiento"]; 
+    $nacimiento = $_POST["nacimiento"];
     $sexo = $_POST["genero"]; 
     $correo = $_POST["correo"]; 
    // $ocupacion = $_POST["ocupacion"]; 
@@ -90,7 +90,8 @@
     $lesion = $_POST["lesion"]; 
     $ingreso = $_POST["ingreso"]; 
     //$dependencia = $_POST["dependencia"]; 
-
+    $telefono=$_POST["telefono"];
+    $genero=$_POST["genero"];
 
     //files
     $foto = $_POST["foto"]; 
@@ -99,15 +100,17 @@
     $comprobante = $_POST["comprobante"]; 
     $expediente = $_POST["expediente"]; 
     $recomendacion = $_POST["recomendacion"];
+    echo ("antes del mega if");
 
     if(isset($_POST["nombre"]) && !empty($_POST["nombre"]) && isset($_POST["apellidoP"]) && !empty($_POST["apellidoP"]) && isset($_POST["apellidoM"]) 
     && !empty($_POST["apellidoM"]) && isset($_POST["nacimiento"]) && !empty($_POST["nacimiento"]) && isset($_POST["genero"]) && !empty($_POST["genero"]) 
-    && isset($_POST["correo"]) && !empty($_POST["correo"]) && isset($_POST["lugarNacimiento"]) && !empty($_POST["lugarNacimiento"]) 
-    && isset( $_POST["ocupacion"]) && !empty( $_POST["ocupacion"]) && isset($_POST["domicilio"]) && !empty($_POST["domicilio"]) && isset($_POST["estado"]) 
+    && isset($_POST["correo"]) && !empty($_POST["correo"]) 
+    && isset($_POST["domicilio"]) && !empty($_POST["domicilio"]) && isset($_POST["estado"]) 
     && !empty($_POST["estado"]) && isset($_POST["municipio"]) && !empty($_POST["municipio"]) && isset($_POST["diagnostico"]) && !empty($_POST["diagnostico"]) 
     && isset($_POST["lesion"]) && !empty($_POST["lesion"]) && isset($_POST["ingreso"]) && !empty($_POST["ingreso"]))
     {
-        
+        echo ("entro en el mega if");
+        crearPaciente($nombre, $apellidoP, $apellidoM, $nacimiento, $genero, $correo, $domicilio, $estado, $municipio, $diagnostico, $lesion, $ingreso, $telefono);
     }
 
 
