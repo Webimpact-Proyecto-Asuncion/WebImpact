@@ -53,17 +53,18 @@
 
     function crearPaciente($nombre, $apellidoP, $apellidoM, $nacimiento, $genero, $correo, $domicilio, $estado, $municipio, $diagnostico, $lesion, $ingreso, $telefono)
     {
-        $lastPaciente = intval(getLastPaciente());
+        $lastPaciente = 100;
         $lastPaciente++;  
 
         $conn = connectDB(); 
 
         $sql = "INSERT INTO Pacientes (`NumeroPaciente`, `NombrePaciente`, `ApellidoPaterno`, `ApellidoMaterno`, `Domicilio`, `Telefono`, `FechaNacimiennto`, `Genero`, `Diagnostico`, `Lesion`, `Ingreso`) VALUES ((\"". $lastPaciente . "\",\"" . $nombre . "\",\"" . $apellidoP. "\",\"" . $apellidoM . "\",\"" . $domicilio . "\",\"" . $telefono . "\",\"" . $nacimiento . "\",\"" . $genero . "\",\"" . $diagnostico . "\",\"" . $lesion . "\",\"" . $ingreso . "\")";
 
-        if($result = mysqli_query($conn,$sql))
+        if(mysqli_query($conn,$sql))
         {
             echo "Paciente creado exitosamente!!"; 
-            disconnectDB($conn);        
+            disconnectDB($conn); 
+            return(true);       
         }
         else
         {
