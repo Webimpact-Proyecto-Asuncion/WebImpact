@@ -51,9 +51,11 @@ background-color: rgba(0,0,0,.75) !important;
   color: white;
 }
 
+
+
 /*Navbar*/
-html,body {
-background-image: url(images/fdblue.jpg); 
+html, body{
+background-color: #0A6CCD;
 background-size: cover;
 background-repeat: no-repeat;
 height: 100%;

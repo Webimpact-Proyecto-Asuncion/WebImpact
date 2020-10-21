@@ -13,7 +13,7 @@
 
     $salida = "";
 
-    $query = "SELECT * FROM historialclinico WHERE NombrePaciente NOT LIKE '' ORDER By NumeroEmpleado LIMIT 10";
+    $query = "SELECT * FROM historialclinico WHERE NombrePaciente NOT LIKE '' ORDER By NumeroEmpleado LIMIT 5";
 
      if (isset($_POST['consulta'])) {
         $q = $conn->real_escape_string($_POST['consulta']);
@@ -22,7 +22,7 @@
     
     $resultado = $conn->query($query);
 
-    if ($resultado->num_rows>0) {
+    if ($resultado->num_rows>1) {
         $salida.="<table border=1 class='tabla_datos'>
                 <thead>
                     <tr id='titulo'>
