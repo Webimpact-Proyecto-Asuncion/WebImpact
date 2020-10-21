@@ -12,7 +12,7 @@
         return $connection;
     }
     //close conection
-    function  disconectDB($connection){
+    function  disconnectDB($connection){
         mysqli_close($connection);
     }
 ?>
