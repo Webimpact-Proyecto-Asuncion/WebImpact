@@ -1,7 +1,6 @@
 <?php
     
-    require_once('dbUtil.php'); 
-    include('CreaPaciente.html'); 
+    //require_once "dbUtil.php"; 
 
 
 
@@ -23,43 +22,34 @@
     $_POST = cleanArr($_POST); 
 
 
-    function crearPaciente($nombre, $apellidoP, $apellidoM, $nacimiento, $genero, $correo, $domicilio, $estado, $municipio, $diagnostico, $lesion, $ingreso, $telefono)
+    function crearPaciente($nombre, $apellidoP, $apellidoM, $nacimiento, $genero,$domicilio, $diagnostico, $lesion, $ingreso, $telefono)
     {
-<<<<<<< HEAD
         $lastPaciente = 99;
-=======
         $lastPaciente = 100;
->>>>>>> 178c915a22f404ffe7c24d7b9e474d72d1173c75
         $lastPaciente++;  
 
         $conn = connectDB(); 
 
-        $sql = "INSERT INTO nuevopaciente(`NumeroPaciente`, `NombrePaciente`, `ApellidoPaterno`, `ApellidoMaterno`, `Domicilio`, `Telefono`, `FechaNacimiennto`, `Genero`, `Diagnostico`, `Lesion`, `Ingreso`) VALUES ((\"". $lastPaciente . "\",\"" . $nombre . "\",\"" . $apellidoP. "\",\"" . $apellidoM . "\",\"" . $domicilio . "\",\"" . $telefono . "\",\"" . $nacimiento . "\",\"" . $genero . "\",\"" . $diagnostico . "\",\"" . $lesion . "\",\"" . $ingreso . "\")";
+        $sql = "INSERT INTO creapaciente (NumeroPaciente, NombrePaciente, ApellidoPaterno, ApellidoMaterno, Domicilio, Telefono, FechaNacimiennto, Genero, Diagnostico, Lesion, Ingreso) VALUES (\"". $lastPaciente . "\",\"" . $nombre . "\",\"" . $apellidoP. "\",\"" . $apellidoM . "\",\"" . $domicilio . "\",\"" . $telefono . "\",\"" . $nacimiento . "\",\"" . $genero . "\",\"" . $diagnostico . "\",\"" . $lesion . "\",\"" . $ingreso . "\")";
 
-<<<<<<< HEAD
+       
         
         if(mysqli_query($conn,$sql))
         {
             echo "Paciente creado exitosamente!!"; 
             disconnectDB($conn);  
-            return true;      
-=======
-        if(mysqli_query($conn,$sql))
-        {
-            echo "Paciente creado exitosamente!!"; 
-            disconnectDB($conn); 
-            return(true);       
->>>>>>> 178c915a22f404ffe7c24d7b9e474d72d1173c75
-        }
+            return true;
+        }      
         else
         {
             echo "ERROR al crear paciente!!"; 
             disconnectDB($conn); 
             return false; 
         }
+    }
 
         
-    }
+        
 
    
 
@@ -69,7 +59,7 @@
     $apellidoM = $_POST["apellidoM"]; 
     $nacimiento = $_POST["nacimiento"]; 
     $genero = $_POST["genero"]; 
-    $correo = $_POST["correo"]; 
+    //$correo = $_POST["correo"]; 
     //$ocupacion = $_POST["ocupacion"]; 
     //$escolaridad = $_POST["escolaridad"]; 
     $domicilio = $_POST["domicilio"]; 
@@ -88,7 +78,7 @@
     echo "Apellido M: " . $apellidoM ."\n";
     echo "Fecha de nacimiento: " . $nacimiento. "\n";
     echo "Genero: " . $nacimiento . "\n"; 
-    echo "Correo: " . $correo . "\n"; 
+    //echo "Correo: " . $correo . "\n"; 
     echo "Domicilio: " . $domicilio . "\n"; 
     echo "Estado: " . $estado . "\n"; 
     echo "Municipio: " . $municipio . "\n";
@@ -108,15 +98,14 @@
 
     if(isset($_POST["nombre"]) && !empty($_POST["nombre"]) && isset($_POST["apellidoP"]) && !empty($_POST["apellidoP"]) && isset($_POST["apellidoM"]) 
     && !empty($_POST["apellidoM"]) && isset($_POST["nacimiento"]) && !empty($_POST["nacimiento"]) && isset($_POST["genero"]) && !empty($_POST["genero"]) 
-    && isset($_POST["domicilio"]) && !empty($_POST["domicilio"]) && isset($_POST["estado"]) 
-    && !empty($_POST["estado"]) && isset($_POST["municipio"]) && !empty($_POST["municipio"]) && isset($_POST["diagnostico"]) && !empty($_POST["diagnostico"]) 
+    && isset($_POST["domicilio"]) && !empty($_POST["domicilio"]) && isset($_POST["diagnostico"]) && !empty($_POST["diagnostico"]) 
     && isset($_POST["lesion"]) && !empty($_POST["lesion"]) && isset($_POST["ingreso"]) && !empty($_POST["ingreso"]))
     {
-        crearPaciente($nombre, $apellidoP, $apellidoM, $nacimiento, $genero, $correo, $domicilio, $estado, $municipio, $diagnostico, $lesion, $ingreso,$telefono); 
+        crearPaciente($nombre, $apellidoP, $apellidoM, $nacimiento, $genero, $domicilio,  $diagnostico, $lesion, $ingreso,$telefono); 
     }
     else
     {
-        echo "ERROR NO SE HIZO NADA!!";
+        echo "ERROR, NO SE CUMPLIO EL IF!!";
     }
 
 

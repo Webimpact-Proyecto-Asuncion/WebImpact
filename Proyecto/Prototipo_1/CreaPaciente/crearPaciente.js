@@ -6,6 +6,7 @@ $(document).ready(function() {
         }
 
     );
+
     request.done(function(response, textStatus, jqXHR) {
         console.log(response);
         $('#table').html(response);
@@ -39,7 +40,7 @@ $(document).ready(function() {
             $('#form').each(function() {
                 this.reset();
             });
-            //$('#table').html(response);
+            $('#table').html(response);
         });
 
         //In case of errors:

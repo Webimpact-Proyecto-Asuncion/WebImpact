@@ -32,12 +32,12 @@
 
 
     <div class="container formulario">
-        <form id="creaPaciente" method="post" action="uploadPic.php">
+        <form id="form">
             <div class="form-row">
                 <div class="form-group col-md-12">
                     <br>
                     <label for="Nombre" class="bold">Nombre(s)</label>
-                    <input type="text" class="form-control" id="nombre" name="nombre" required>
+                    <input type="text" class="form-control" id="nombre" name="nombre">
                 </div>
             </div>
             <div class="form-row">
@@ -77,14 +77,14 @@
             <div class="form-row">
                 <div class="form-group col-md-12">
                     <label for="Correo" class="bold">Correo Electrónico</label>
-                    <input type="text" class="form-control" id="correo" name="correo">
+                    <input type="text" class="form-control" id="correo" name="correo" disabled>
                 </div>
             </div>
 
             <div class="form-row">
                 <div class="form-group col-md-3">
                     <label for="fechaNacimiento" class="bold">Ocupación</label>
-                    <select class="custom-select mr-sm-2" id="ocupacion" name="ocupacion">
+                    <select class="custom-select mr-sm-2" id="ocupacion" name="ocupacion" disabled>
                     <option selected>Choose...</option>
                     <option value="1">Estudiante</option>
                     <option value="2">Empleado</option>
@@ -98,7 +98,7 @@
 
                 <div class="form-group col-md-3">
                     <label for="fechaNacimiento" class="bold">Escolaridad</label>
-                    <select class="custom-select mr-sm-2" id="escolaridad" name="escolaridad">
+                    <select class="custom-select mr-sm-2" id="escolaridad" name="escolaridad" disabled>
                     <option selected>Choose...</option>
                     <option value="1">N/A</option>
                     <option value="2">Primaria</option>
@@ -164,13 +164,13 @@
             <div class="form-row">
                 <div class="form-group col-md-12">
                     <label for="Dependencia" class="bold">Dependencia</label>
-                    <input type="text" class="form-control" id="dependencia" name="dependencia">
+                    <input type="text" class="form-control" id="dependencia" name="dependencia" disabled>
                 </div>
             </div>
             <div class="form-row">
                 <div class="form-group col-md-4">
                     <label for="foto" class="bold">Fotografía</label>
-                    <input type="file" name="foto" id="foto">
+                    <input type="file" name="foto" id="foto" disabled>
                 </div>
             </div>
             <br>
@@ -178,41 +178,42 @@
                 <div class="form-group col-md-4">
                     <label for="curp" class="bold">Curp</label>
                     <br>
-                    <input type="file" name="curp" id="curp">
+                    <input type="file" name="curp" id="curp" disabled>
                 </div>
             </div>
             <br>
             <div class="form-row">
                 <div class="form-group col-md-4">
                     <label for="acta" class="bold">Acta de Nacimiento</label>
-                    <input type="file" name="acta" id="acta">
+                    <input type="file" name="acta" id="acta" disabled>
                 </div>
             </div>
             <br>
             <div class="form-row">
                 <div class="form-group col-md-4">
                     <label for="comprobante" class="bold">Comprobante de Domicilio</label>
-                    <input type="file" name="comprobante" id="comprobante">
-                </div>
-            </div>
-            <br>
-            <div class="form-row">
-                <div class="form-group col-md-4">
-                    <label for="expediente" class="bold">Expediente Médico</label>
-                    <input type="file" name="expediente" id="expediente">
+                    <input type="file" name="comprobante" id="comprobante" disabled>
                 </div>
             </div>
             <br>
             <div class="form-row">
                 <div class="form-group col-md-4">
                     <label for="recomendacion" class="bold">Recomendación Médica</label>
-                    <input type="file" name="recomendacion" id="recomendacion">
+                    <input type="file" name="recomendacion" id="recomendacion" disabled>
                 </div>
             </div>
             <br>
-            <button type="submit" class="btn btn-success" name="aceptar" id="aceptar">Aceptar</button>
+            <input type="submit" class="btn btn-success" value="Aceptar"></input>
             <br><br>
         </form>
     </div>
+    <div id="table"></div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
+    </script>
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="CreaPaciente.js"></script>
+
 </body>
+
+</html>
