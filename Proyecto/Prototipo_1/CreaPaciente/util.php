@@ -34,7 +34,7 @@
 
     }
 
-    function insertPatient($numero,$nombre,$apellidoP,$apellidoM, $domicilio, $telefono, $fechaNacimiento,$genero, $diagnostico, $lesion, $ingreso, $dependencia, $correo, $municipio, $estado, $foto, $curp, $acta, $comprobante, $recomendacion)
+    function insertPatient($numero,$nombre,$apellidoP,$apellidoM, $domicilio, $telefono, $fechaNacimiento,$genero, $diagnostico, $lesion, $ingreso, $dependencia, $correo, $municipio, $estado)
     {
         
         $conn = connectDb(); 
@@ -47,7 +47,7 @@
     
         if(mysqli_query($conn, $sql))
         {
-            echo "Nuevo paciente creado exitosamente!!"; 
+            echo '<script>alert("Nuevo paciente creado exitosamente!");</script>';
             closeDb($conn);
             return true; 
 

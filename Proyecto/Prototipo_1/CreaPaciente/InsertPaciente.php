@@ -35,14 +35,14 @@
 
 
     //archivos
-    $foto = $_FILES["foto"]; 
+    /*$foto = $_FILES["foto"]; 
     $curp = $_FILES["curp"]; 
     $acta = $_FILES["acta"]; 
     $comprobante = $_FILES["comprobante"];
-    $recomendacion = $_FILES["recomendacion"];
+    $recomendacion = $_FILES["recomendacion"];*/
 
 
-    if(isset($_FILES['foto']) && !empty($_FILES['foto'])){
+    /*if(isset($_FILES['foto']) && !empty($_FILES['foto'])){
          
         $allowed = ['png', 'jpeg', 'jpg'];
         $fl_name = $_FILES['foto']['name'];
@@ -65,7 +65,7 @@
     function img($fl_extn, $fl_temp) {
       $file_path = 'Fotos/' . substr(md5(time()), 0, 10) . '.' . $fl_extn;
       move_uploaded_file($fl_temp, $file_path);
-    }
+    }*/
     
     
 
@@ -74,7 +74,7 @@
     && isset($_POST["domicilio"]) && !empty($_POST["domicilio"]) && isset($_POST["diagnostico"]) && !empty($_POST["diagnostico"]) 
     && isset($_POST["lesion"]) && !empty($_POST["lesion"]) && isset($_POST["ingreso"]) && !empty($_POST["ingreso"]))
     {
-        insertPatient($numero,$nombre,$apellidoP,$apellidoM, $domicilio, $telefono, $fechaNacimiento,$genero, $diagnostico, $lesion, $ingreso, $dependencia, $correo, $municipio, $estado, $foto, $curp, $acta, $comprobante, $recomendacion); 
+        insertPatient($numero,$nombre,$apellidoP,$apellidoM, $domicilio, $telefono, $fechaNacimiento,$genero, $diagnostico, $lesion, $ingreso, $dependencia, $correo, $municipio, $estado); 
     }
     else
     {
