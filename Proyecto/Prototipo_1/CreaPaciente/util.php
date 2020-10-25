@@ -2,9 +2,9 @@
 
     function connectDb()
     {
-        $servername = "localhost"; 
-        $username = "root"; 
-        $password = ""; 
+        $servername = "35.193.95.221"; 
+        $username = "WITEAM"; 
+        $password = "WebImpact$2020"; 
         $dbname = "asuncion"; 
 
         $conn = mysqli_connect($servername,$username,$password,$dbname);
@@ -39,7 +39,7 @@
         
         $conn = connectDb(); 
 
-        $sql = "INSERT INTO pacientes (NumeroPaciente, NombrePaciente, ApellidoPaterno, ApellidoMaterno, Domicilio, Telefono, FechaNacimiento, Genero, Diagnostico, Lesion, Ingreso, Dependencia, Correo, Municipio, Estado) VALUES (\"". $numero . "\",\"" . $nombre . "\",\"" . $apellidoP. "\",\"" . $apellidoM . "\",\"" . $domicilio . "\",\"" . $telefono . "\",\"" . $fechaNacimiento . "\",\"" . $genero . "\",\"" . $diagnostico . "\",\"" . $lesion . "\",\"" . $ingreso . "\",\"" . $dependencia . "\",\"" . $correo .  "\",\"" . $municipio  .  "\",\"" . $estado . "\")";  
+        $sql = "INSERT INTO Pacientes (NumeroPaciente, NombrePaciente, ApellidoPaterno, ApellidoMaterno, Domicilio, Telefono, FechaNacimiento, Genero, Diagnostico, Lesion, Ingreso, Dependencia, Correo, Municipio, Estado) VALUES (\"". $numero . "\",\"" . $nombre . "\",\"" . $apellidoP. "\",\"" . $apellidoM . "\",\"" . $domicilio . "\",\"" . $telefono . "\",\"" . $fechaNacimiento . "\",\"" . $genero . "\",\"" . $diagnostico . "\",\"" . $lesion . "\",\"" . $ingreso . "\",\"" . $dependencia . "\",\"" . $correo .  "\",\"" . $municipio  .  "\",\"" . $estado . "\")";  
 
         //$sql = "EXECUTE creaPaciente $numero . ':' . $nombre . ':' . $apellidoP . ':' . $apellidoM . ':' . $domicilio . ':' . $telefono . ':' . $fechaNacimiento . ':' . $genero . ':' . $diagnostico . ':' . $lesion . ':' . $ingreso . ':' . ':' . $dependencia . ':' . $correo . ':' . $municipio . ':' . $estado . ':' . $foto . ':' . $curp . ':' . $acta . ':' . $comprobante . ':' . ':' . $recomendacion";
         
