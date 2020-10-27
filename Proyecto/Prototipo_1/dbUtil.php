@@ -1,3 +1,4 @@
+//
 <?php
     function connectDB(){
         $servername="localhost";
