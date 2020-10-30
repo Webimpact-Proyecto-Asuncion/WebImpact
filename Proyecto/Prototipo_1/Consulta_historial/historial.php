@@ -1,5 +1,6 @@
 <?php
 
+<<<<<<< HEAD
      function conectDB(){
         
         $servername = "localhost";
@@ -43,4 +44,3 @@
     }
 
     
-?>

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <?php
     
     include("../_head.html");
