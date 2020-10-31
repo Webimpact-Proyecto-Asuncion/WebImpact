@@ -1,0 +1,33 @@
+.navigation {
+    font-size: 40px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.inicio {
+    padding-left: 0%;
+}
+
+.usr {
+    font-size: 20px;
+}
+
+.sub {
+    font-size: 25px;
+}
+
+.footer {
+    font-size: 20px;
+    color: white;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.espacio {
+    position: absolute;
+    top: 650px;
+    height: 717px;
+}
+
+.checkMark {
+    width: 320px;
+    height: 320px;
+}
