@@ -1,5 +1,5 @@
 .navigation {
-    font-size: 40px;
+    font-size: 20px;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
@@ -30,4 +30,121 @@
 .checkMark {
     width: 320px;
     height: 320px;
+}
+
+.card {
+    height: 270px;
+    width: 250px;
+    background-color: rgba(0, 0, 0, .75) !important;
+}
+
+.card-body {
+    color: white;
+}
+
+.formulario {
+    background-color: rgba(0, 0, 0, .75) !important;
+    color: white;
+}
+
+.blanco {
+    color: white;
+}
+
+
+
+
+/*Navbar*/
+
+html, body{
+background-color: #0A6CCD;
+background-size: cover;
+background-repeat: no-repeat;
+height: 100%;
+font-family: 'Numans', sans-serif;
+=======
+/*Navbar*/
+}
+
+
+header {
+    background-size: 300px 100px;
+    padding-bottom: 5px;
+}
+
+nav {
+    width: 100%;
+    line-height: 10px;
+}
+
+nav ul {
+    line-height: 60px;
+    list-style: none;
+    background: rgba(0, 0, 0, 0);
+    overflow: hidden;
+    color: #fff;
+    padding: 0;
+    text-align: right;
+    margin: 0;
+    padding-right: 40px;
+    transition: 1s;
+}
+
+nav.black ul {
+    background: #000;
+}
+
+nav ul li {
+    display: inline-block;
+    padding: 16px 40px;
+    ;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 16px;
+}
+
+.menu-icon {
+    line-height: 60px;
+    width: 100%;
+    background: #000;
+    text-align: right;
+    box-sizing: border-box;
+    padding: 15px 24px;
+    cursor: pointer;
+    color: #fff;
+    display: none;
+}
+
+@media(max-width: 786px) {
+    .logo {
+        position: fixed;
+        top: 0;
+        margin-top: 16px;
+    }
+    nav ul {
+        max-height: 0px;
+        background: #000;
+    }
+    nav.black ul {
+        background: #000;
+    }
+    .showing {
+        max-height: 34em;
+    }
+    nav ul li {
+        box-sizing: border-box;
+        width: 100%;
+        padding: 24px;
+        text-align: center;
+    }
+    .menu-icon {
+        display: block;
+    }
+}
+
+.bold {
+    font-weight: bold;
 }
