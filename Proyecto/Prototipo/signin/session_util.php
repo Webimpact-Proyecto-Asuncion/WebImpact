@@ -1,5 +1,4 @@
 <?php
-    //create connection
     include_once("../dbUtil.php");
 
     function isUser($username){
@@ -12,7 +11,7 @@
             if($row["Correo"]==$username){
                 return $row["NumeroEmpleado"];
             }else{
-                
+                return 0;
             }
         }
     }
