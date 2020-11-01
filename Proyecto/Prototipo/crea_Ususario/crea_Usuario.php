@@ -1,6 +1,5 @@
 <?php
     session_start();
     include_once("../_head.html");
-    include_once("../_navbar.html");
-    include_once("./_form.htmk");
+    include_once("./_form.html");
 ?>

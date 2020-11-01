@@ -43,7 +43,8 @@
 }
 
 .formulario {
-    background-color: rgba(0, 0, 0, .75) !important;
+    
+    background-color: #B9BECA  !important;
     color: white;
 }
 
@@ -51,13 +52,50 @@
     color: white;
 }
 
+/*_form.html(crea_Usuario.php)*/
 
+.creaUsuario{
+    
+    background-color:    #f8f9f9    ;
+    
+}
+
+.cuerpo1{
+    
+    
+    background-color: #F3F4F7   ;
+    
+}
+
+/*CreaPaciente.html*/
+
+.CreaPaciente {
+    
+    /*background-color: #E9967A;*/
+    background-color:    #f8f9f9    ;
+    
+}
+
+.cuerpo{
+    
+    
+    background-color: #F3F4F7   ;
+    
+}
+
+h5{
+    font-size: 50px;
+    font-family:"Times New Roman";
+    font-style:italic; 
+    
+}
 
 
 /*Navbar*/
 
 html, body{
-background-color: #0A6CCD;
+
+/*background-color: white;*/
 background-size: cover;
 background-repeat: no-repeat;
 height: 100%;
