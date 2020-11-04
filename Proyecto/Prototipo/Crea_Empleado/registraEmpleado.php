@@ -15,7 +15,7 @@
         $queryResult=mysqli_query($conn,$sql);
         if(mysqli_num_rows($queryResult)>0){
             while($row=mysqli_fetch_assoc($queryResult)){
-                echo "<option value=".$row["id_Especialidad"].">".$row[""]."</option>";
+                echo "<option value=".$row["id_Especialidad"].">".$row["Descripcion"]."</option>";
             }
         }
     }
