@@ -4,6 +4,7 @@ function verifyUserPassword(){
     $.post( "signinController.php", { usuario:usuariodata, password:passworddata} )
     .done(function( data ) {
         if(data!="false"){
+            console.log(data);
             location.href = data;
         }else{
             $("#alert").removeClass("invisible");
@@ -12,3 +13,5 @@ function verifyUserPassword(){
         
       });
 }
+
+$("#entrar").on("click",verifyUserPassword);

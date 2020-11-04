@@ -1,47 +1,51 @@
-<br>
-<br>
-<br>
-<br>
 <div class="container-fluid">
     <div class="row">
-        <div class="col-5">
-            <div id="alert" class="alert alert-danger invisible" role="alert">
-            El usuario o contraseña no coinciden.
-            </div>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-3 offset-1">
-                <div class="card text-white bg-dark" style="width: 25rem; height: 25rem;">
-                    <div class="card-header">
-                        <h3>Sign In</h3>
+        <div class="col-4 offset-8">
+                <br><br><br><br>
+                <div class="flex-column">
+                    <div class="d-flex justify-content-center">
+                        <h1><b>Asunción I.A.P</b></h1>
                     </div>
-                    <div class="card-body">
-                        <label>Usuario</label>
-                        <div class="input-group form-group">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text"><i class="fas fa-user"></i></span>
-                            </div>
-                            <input id="user" type="text" class="form-control" placeholder="Juan1234" name="usuario" />
-                        </div>
-                        <br />
-                        <label>Contraseña</label>
-                        <div class="input-group form-group">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text"><i class="fas fa-key"></i></span>
-                            </div>
-                            <input id="password" type="password" class="form-control" placeholder="password" name="password" />
-                        </div>
-                        <div class="row align-items-center remember"><input type="checkbox" />Remember Me</div>
+                </div>
+                <div id="alert" class="invisible">
+                    <div class="alert alert-danger" role="alert">
+                        El usuario o la contraseña son incorrectos
+                      </div>
+                </div>
+                <div class="flex-column">
+                    <div class="d-flex justify-content-center">
+                        <h5>Bienvenido al Centro de Rehabilitación La Asunción</h5>
+                    </div>
+                </div>
+                <br>
+                <div class="flex-column">
+                    <div class="d-flex justify-content-center">
+                        <img id="logo" src="./trasnparente.png">
+                    </div>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col-9 offset-2">
                         <div class="form-group">
-                            <button onclick="verifyUserPassword()" class="btn float-right login_btn p-3 mb-2 bg-success text-white">Login</button>
+                            <label for="exampleInputEmail1"><b>Usuario</b></label>
+                            <input id="user" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="asuncion@gmail.com">
                         </div>
                     </div>
                 </div>
-        </div>
-
-        <div class="col-6">
-            <img class="img-fluid" src="../images/cent.jpg" alt=""/>
+                <div class="row">
+                    <div class="col-9 offset-2">
+                        <div class="form-group">
+                            <label for="exampleInputEmail1"><b>Contraseña</b></label>
+                            <input id="password" type="password" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Contraseña">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col offset-7">
+                        <button id="entrar" type="button" class="btn btn-success btn-lg">Entrar</button>
+                    </div>
+                </div>
+                <br><br><br><br><br><br><br><br><br><br><br><br>
         </div>
     </div>
 </div>

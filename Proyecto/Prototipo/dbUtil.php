@@ -1,4 +1,3 @@
-//
 <?php
     function connectDB(){
         $servername="localhost";
@@ -12,7 +11,6 @@
         }
         return $connection;
     }
-    //close conection
     function  disconnectDB($connection){
         mysqli_close($connection);
     }
