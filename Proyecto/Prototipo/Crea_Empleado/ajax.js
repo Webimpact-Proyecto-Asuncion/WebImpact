@@ -13,8 +13,9 @@ function registrarEmpleado(){
     $.post("./controladorRegistraEmpleado.php",{nombre:$("#nombre").val(),
                                                 correo:$("#correo").val(),
                                                 especialidad:$("#especialidad").val(),
-                                                contrasena:$("#contrasena").val()})
+                                                contrasena:$("#contrasena").val()}).
     done(function( data ) {
+        console.log("se registro")
         });
 }
 

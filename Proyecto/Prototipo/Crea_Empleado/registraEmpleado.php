@@ -2,11 +2,13 @@
     include("../dbUtil.php");
     function registraEmpleado($nombre,$correo,$especialidad,$contraseña){
         $conn=connectDB();
-        $sql="CALL CrearEmpleado(";
-        $sql=$sql.$nombre.",".$correo.",".$especialidad.",".$contraseña;
+        $sql="CALL IniciarSesion(";
+        $sql=$sql."'".$nombre."'".","."'".$correo."'".",".$especialidad.","."'".$contraseña."'";
         $sql=$sql.")";
-        $queryResult=mysqli_query($conn,$sql);
-        disconnectDB($con);
+        if(mysqli_query($conn,$sql)){
+            echo("add new user");
+        }
+        disconnectDB($conn);
     }
 
     function queryEspecialidades(){
