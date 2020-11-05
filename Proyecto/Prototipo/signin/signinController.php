@@ -1,19 +1,18 @@
 <?php   
     session_start();
-    if(isset($_POST["usuario"])){
-        if(isset($_POST["password"])){
-            $_SESSION["usuario"]=$_POST["usuario"];
-            $_SESSION["password"]=$_POST["password"];
+    if(isset($_POST["correo"])&&isset($_POST["password"])){
+        include("session_util.php");
+        $correo=$_POST["correo"];
+        $password=$_POST["password"];
+        //echo(credentials($correo,$password));
+        
+        if(credentials($correo,$password)){
+            echo("https://rehabilitacionasuncion.000webhostapp.com//dashboard/dashboard.php");
+        }else{
+            echo("false");
         }
+        
     }
     
-    include("session_util.php");
-    $usuario=isUser($_SESSION["usuario"]);
-    $password=isPassword($usuario,$_SESSION["password"]);
-    if($usuario&&$password){
-        echo("https://royerdac99.codes/WebImpact/Proyecto/Prototipo/dashboard/dashboard.php");
-    }else{
-        echo("false");
-    }
     
 ?>

@@ -1,34 +1,22 @@
 <?php
     include_once("../dbUtil.php");
 
-    function isUser($username){
+    function credentials($correo,$password){
         $connection=connectDB();
-        $sql="SELECT NumeroEmpleado,Correo FROM Empleados WHERE Correo='".$username."'";
+        $sql="CALL IniciarSesion(";
+        $sql=$sql."'".$correo."'".","."'".$password."'";
+        $sql=$sql.")";
+        //echo($sql);
         $queryResult=mysqli_query($connection,$sql);
         disconnectDB($connection);
         if(mysqli_num_rows($queryResult)>0){
             $row=mysqli_fetch_assoc($queryResult);
-            if($row["Correo"]==$username){
-                return $row["NumeroEmpleado"];
-            }else{
-                return 0;
-            }
+            return $row["id"];
+        }else{
+            return false;
         }
-    }
 
-    function isPassword($NumeroEmpleado,$password){
-        $connection=connectDB();
-        $sql="SELECT password FROM Empleados WHERE NumeroEmpleado='".$NumeroEmpleado."'";
-        $queryResult=mysqli_query($connection,$sql);
-        disconnectDB($connection);
-        if(mysqli_num_rows($queryResult)>0){
-            $row=mysqli_fetch_assoc($queryResult);
-            if($row["password"]==$password){
-                return true;
-            }else{
 
-            }
-        }
     }
 
     function getRol($NumeroEmpleado){

@@ -1,7 +1,7 @@
 function verifyUserPassword(){
     let usuariodata=$("#user").val();
     let passworddata=$("#password").val();
-    $.post( "signinController.php", { usuario:usuariodata, password:passworddata} )
+    $.post( "signinController.php", { correo:usuariodata, password:passworddata} )
     .done(function( data ) {
         if(data!="false"){
             console.log(data);
