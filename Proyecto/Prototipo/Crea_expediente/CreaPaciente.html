@@ -6,19 +6,30 @@
     <meta charset="utf-8">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <link rel="stylesheet" href="../css/Prototipo_1.css">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet">
 </head>
 
 <body class="cuerpo">
 
-
-
     <header>
-     
+       <nav class="navbar navbar-dark bg-dark">
+            <div class="menu-icon">
+            </div>
+            <div class="menu">
+                <ul class="navBarFont">
+                    <img class="logo" src="../images/LOGO PNG.png" width="110" height="100" alt="Logo">
+                    <li><a href="../partials/Prototipo_1.html">Inicio</a></li>
+                    <li><a href="../partials/Administracion.html">Administración</a></li>
+                    <li><a href="../partials/Prototipo1_consultas.html">Consultas</a></li>
+                    <li><a href="#">Cerrar Sesión</a></li>
+                </ul>
+            </div>
+        </nav>
     </header>
 
     <br><br><br>
     <div class="container ">
-    <h5 class="container">Creación de Paciente</h5>
+    <h5 class="container">Registrar Paciente</h5>
     </div>
     
     <br><br><br>
@@ -200,11 +211,11 @@
             <div class="form-row">
                 <div class="form-group col-md-4">
                     <label for="recomendacion" class="bold">Recomendación Médica</label>
-                    <input type="file" name="recomendacion" id="recomendacion" disabled>
+                    <input type="text" name="recomendacion" id="recomendacion" disabled>
                 </div>
             </div>
             <br>
-            <input type="submit" class="btn btn-success" value="Aceptar"></input>
+            <input type="submit" class="btn btn-success" value="Aceptar">
             <br><br>
         </form>
     </div>
