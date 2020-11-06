@@ -3,6 +3,7 @@
 }
 .sidebar{
     background-color: #353535;
+    height: calc(100vh - 54px); 
 }
 
 .nav-link{

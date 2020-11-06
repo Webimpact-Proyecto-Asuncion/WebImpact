@@ -1,5 +1,8 @@
 $( document ).ready(function() {
     queryEspecialidades();
+    $('.carousel').carousel({
+        interval: false,
+      });
 });
 
 function queryEspecialidades(){
@@ -10,6 +13,7 @@ function queryEspecialidades(){
 }
 
 function registrarEmpleado(){
+    $('.carousel').carousel('next');
     $.post("./controladorRegistraEmpleado.php",{nombre:$("#nombre").val(),
                                                 correo:$("#correo").val(),
                                                 especialidad:$("#especialidad").val(),
