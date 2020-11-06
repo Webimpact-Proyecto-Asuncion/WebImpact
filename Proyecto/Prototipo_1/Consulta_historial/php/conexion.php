@@ -1,16 +1,13 @@
-<?
-	
+<?php
+
 	function conexion(){
+			$servidor="localhost";
+			$usuario="root";
+			$password="";
+			$bd="asuncion";
 
-		$server="localhost";
-		$user="root";
-		$password="";
-		$db="asuncion";
+			$conexion=mysqli_connect($servidor,$usuario,$password,$bd);
 
-		$conexion=mysqli_connect($server, $user, $password, $db);
-
-		return $conexion;
-	}
-
-
+			return $conexion;
+		}
 ?>
