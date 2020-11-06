@@ -5,21 +5,40 @@ require_once 'util.php';
 
 <body>
     <header>
-        <nav class="navbar navbar-dark bg-dark">
-            <div class="menu-icon">
-            </div>
-            <div class="menu">
-                <ul class="navBarFont">
-                    <img class="logo" src="../images/LOGO PNG.png" width="110" height="100" alt="Logo">
-                    <li><a href="../partials/Prototipo_1.html">Inicio</a></li>
-                    <li><a href="../partials/Administracion.html">Administración</a></li>
-                    <li><a href="../partials/Prototipo1_consultas.html">Consultas</a></li>
-                    <li><a href="#">Cerrar Sesión</a></li>
+    <nav class="navbar sticky-top  d-flex align-items-center" id="navbar">
+    <a id="brand" class="navbar-brand col-sm-3 col-md-2 mr-0 align-content-center" href="#"><h5>Asuncion</h5></a>
+    <ul class="navbar-nav px-3">
+        <li class="nav-item text-nowrap">
+            <a class="nav-link " href="#">Cerrar Sesión</a>
+        </li>
+    </ul>
+</nav>
+<div class="container-fluid">
+    <div class="row">
+        <nav  class="col-md-2 d-none d-md-block  sidebar">
+            <div class="sidebar-sticky">
+                <br>
+                <br>
+                <br>
+                <ul class="nav flex-column">
+                    <li id="sidebar" class="nav-item">
+                        <a  class="nav-link active" href="../dashboard/dashboard.php"><img src="../images/sidebarImages/home-24px.svg">Casa</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../dashboard/dashboard.php"><img src="../images/sidebarImages/engineering-24px.svg">Administracion</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../dashboard/dashboard.php"><img src="../images/sidebarImages/search-24px.svg">Consultas</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../Registra_Donacion/Registra_Donacion.html"><img src="../images/sidebarImages/monetization_on-24px.svg">Donaciones</a>
+                    </li>
                 </ul>
             </div>
         </nav>
     </header>
     <br><br>
+    <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
     <div class="container inicio negro">
         <h4>Registrar Donación</h4>
     </div>
@@ -56,6 +75,7 @@ require_once 'util.php';
         </form>
 
     </div>
+    </main>
 
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="ajaxDonacion.js"></script>
