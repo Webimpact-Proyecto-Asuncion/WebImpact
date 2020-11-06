@@ -6,57 +6,83 @@
     </div>
     <br>
     <br>
-    <div class="row">
-        <h3>Registro de empleado</h3>
+    <div id="carousel" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <div class="row">
+                    <div class="col">
+                        <h3>Registro de empleado</h3>
+                    </div>
+                </div>
+                <div id="form">
+                    <br><br>
+                    <div class="row">
+                        <div class="col">
+                            <label for="Nombres">Nombre Completo*</label>
+                            <input type="text" class="form-control" id="nombre" placeholder="Juan Antonio González García">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <label for="Correo">Correo*</label>
+                            <input type="email" class="form-control" id="correo">  
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <label for="Especialidad">Especialidad*</label>
+                            <select type="text"  class="form-control" id="especialidad">
+                            </select>  
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <label for="Contraseña">Contraseña*</label>
+                            <input type="password" class="form-control" id="contrasena">  
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <label for="recontraseña">Confirma contraseña*</label>
+                            <input type="password" class="form-control" id="recontrasena">  
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <Button type="button" class="btn btn-danger btn-lg">Cancelar</Button>
+                        <Button id="registrar" type="button" class="btn btn-success btn-lg">Registrar</Button>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <div class="col">
+                    <div class="row">
+                        <h3>Asignacion de privilegios</h3>
+                    </div>
+                </div>
+                <div id="form">
+                    <br><br>
+                    <div class="row">
+                        <div class="col">
+                            <label for="Nombres">Nombre Completo</label>
+                            <input type="text" class="form-control" id="nombre" placeholder="Juan Antonio González García">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <label for="Rol">Rol*</label>
+                            <select type="text"  class="form-control" id="Rol">
+                            </select>  
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <Button type="button" class="btn btn-danger btn-lg">Cancelar</Button>
+                        <Button id="registrar" type="button" class="btn btn-success btn-lg">Registrar</Button>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-    <div id="form">
-        <br><br>
-        <div class="row">
-            <div class="col">
-                <label for="Nombres">Nombre Completo</label>
-                <input type="text" class="form-control" id="nombre" placeholder="Juan Antonio González García">
-            </div>
-        </div>
-        <div class="row">
-            <div class="col">
-                <label for="Correo">Correo</label>
-                <input type="email" class="form-control" id="correo">  
-            </div>
-        </div>
-        <div class="row">
-            <div class="col">
-                <label for="Especialidad">Especialidad</label>
-                <select type="text"  class="form-control" id="especialidad">
-                  </select>  
-            </div>
-        </div>
-        <div class="row">
-            <div class="col">
-                <label for="Nombres">contraseña</label>
-                <input type="password" class="form-control" id="contrasena">  
-            </div>
-        </div>
-        <br>
-        <div class="row">
-            <Button type="button" class="btn btn-danger btn-lg">Cancelar</Button>
-            <Button id="registrar" type="button" class="btn btn-success btn-lg">Registrar</Button>
-        </div>
-    </div>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
+    
 </main>
