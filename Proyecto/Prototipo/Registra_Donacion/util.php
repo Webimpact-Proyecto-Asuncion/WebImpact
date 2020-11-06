@@ -35,7 +35,7 @@ function closeDb($mysql)
 
 function selectionDonadores($nombre,$id)
 {
-    $resultado = '<select id="'.$nombre.'" name="'.$nombre.'"class=form-control form-control-lg>'; 
+    $resultado = '<select id="donador" name="donador"class=form-control form-control-lg>'; 
     $resultado .= '<option value="" disabled selected>Selecciona un Donador </option>'; 
     $conn = connectDb(); 
 
@@ -56,7 +56,7 @@ function selectionDonadores($nombre,$id)
     return $resultado; 
 }
 
-function datosDonador($id)
+/*function datosDonador($id)
 {
     $conn = connectDb(); 
     
@@ -74,7 +74,36 @@ function datosDonador($id)
     return $resultado;
 
   
+}*/
+
+function addDonacion($razonSocial, $descripcion, $fecha)
+{
+    $conn = connectDb(); 
+
+    $sql = "CALL CrearDonacion($razonSocial,'$descripcion','$fecha');";
+
+    if(mysqli_query($conn, $sql))
+    {
+       echo "Donación registrada exitosamente!";
+       closeDb($conn); 
+       return true; 
+    }
+    else
+    {
+        //echo "ERROR: " . $sql . "<br>" . mysqli_error($conn); 
+        //echo "Porfavor llena todos los campos!";
+        closeDb($conn); 
+        return false;
+    }
+    closeDb($conn); 
+
+
 }
+
+
+
+
+
 
 
 

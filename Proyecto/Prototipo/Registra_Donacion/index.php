@@ -35,6 +35,7 @@ require_once 'util.php';
                     <?= selectionDonadores("RazonSocial","id")?>
                     
                     
+                    
                 </div>
             </div>
 
@@ -51,6 +52,7 @@ require_once 'util.php';
                 </div>
             </div>
             <br>
+            
             <input type="submit" class="btn btn-info" value="Registrar" name="submitDonacion" id="submitDonacion">
             <br><br>
         </form>
