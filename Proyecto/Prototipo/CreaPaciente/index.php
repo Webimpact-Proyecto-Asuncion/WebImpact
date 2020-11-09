@@ -2,7 +2,7 @@
 include_once '_header.html'; 
 ?>
 
-<body class="cuerpo">
+<body>
 <div class="page-wrapper chiller-theme toggled">
   <a id="show-sidebar" class="btn btn-sm btn-dark" href="#">
     <i class="fas fa-bars"></i>
@@ -12,7 +12,7 @@ include_once '_header.html';
       <div class="sidebar-brand">
         <img src="../images/LOGO PNG.png" style="width: 90px; height: 90px">
         &nbsp;&nbsp;&nbsp;&nbsp;
-        <a href="#">Asunción</a>
+        <a href="">Asunción</a>
        
       </div>
       
@@ -25,7 +25,6 @@ include_once '_header.html';
           <li class="header-menu">
             <span>General</span>
           </li>
-          <br>
           <li class="sidebar-dropdown">
             <a href="#">
               <i class="fas fa-users"></i>
@@ -47,7 +46,7 @@ include_once '_header.html';
               </ul>
             </div>
           </li>
-          <br><br>
+
           <li class="sidebar-dropdown">
             <a href="#">
               <i class="fas fa-address-card"></i>
@@ -67,7 +66,6 @@ include_once '_header.html';
                  </ul>
             </div>
           </li>
-          <br><br>
           <li class="sidebar-dropdown">
             <a href="#">
               <i class="fas fa-dollar-sign"></i>
@@ -88,7 +86,6 @@ include_once '_header.html';
               </ul>
             </div>
           </li>
-          <br><br>
           <li class="sidebar-dropdown">
             <a href="#">
               <i class="fas fa-file-alt"></i>
@@ -107,23 +104,18 @@ include_once '_header.html';
               </ul>
             </div>
           </li>
-          
-         
-        </ul>
+         </ul>
       </div>
       <!-- sidebar-menu  -->
     </div>
-    <!-- sidebar-content  -->
-
     <div class="sidebar-footer">
       <a href="#">
         <i class="fas fa-sign-out-alt"></i>
         <span>Cerrar sesion</span>
       </a>
     </div>
-   
+    <!-- sidebar-content  -->
   </nav>
-<!-- sin este div -->
 <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
 
     <br><br><br>
