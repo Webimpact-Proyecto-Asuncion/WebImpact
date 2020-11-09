@@ -15,7 +15,6 @@ include '_header.html';
         <a href="#">Asunción</a>
        
       </div>
-      
       <!-- sidebar-header  -->
      
       <div class="sidebar-menu">
@@ -101,12 +100,10 @@ include '_header.html';
                   <a href="#">Consultar Registros</a>
                 </li>
                 
-                </li>
+          
               </ul>
             </div>
-          </li>
-          
-         
+        
         </ul>
       </div>
       <!-- sidebar-menu  -->
@@ -120,16 +117,17 @@ include '_header.html';
       </a>
     </div>
   </nav>
+
 <!-- sin este div -->
 <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
-
-    <br><br><br>
-    <div class="container ">
+<br>
+ 
+    <div class="container-fluid">
         <h5 class="container">Creación de Paciente</h5>
-        <br><br><br>
+        <br><br>
     </div>
 
-    <div class="container CreaPaciente">
+    <div class="container formulario">
         <form id="form">
             <div class="form-row">
                 <div class="form-group col-md-12">
@@ -299,14 +297,19 @@ include '_header.html';
 
     <br><br>
     <div id="table">
-
     </div>
+    </div>
+  
 </main>
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="crearPaciente.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> 
+    <script src="index.js"></script>
+
+    
+    <footer></footer>
 
 </body>
 
