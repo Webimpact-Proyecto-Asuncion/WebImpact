@@ -9,7 +9,7 @@ require_once 'util.php';
     <a id="brand" class="navbar-brand col-sm-3 col-md-2 mr-0 align-content-center" href="#"><h5>Asuncion</h5></a>
     <ul class="navbar-nav px-3">
         <li class="nav-item text-nowrap">
-            <a class="nav-link " href="#">Cerrar Sesión</a>
+            <a class="nav-link-cerrar" href="#">Cerrar Sesión</a>
         </li>
     </ul>
 </nav>

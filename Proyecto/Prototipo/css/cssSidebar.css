@@ -6,6 +6,15 @@
 .nav-link {
     color: #ffffff;
     border-radius: 50;
+    padding-right: 0px;
+}
+
+.orientation {
+    margin-right: 150px;
+}
+
+.gears {
+    margin-right: 200px;
 }
 
 .navbar-nav {

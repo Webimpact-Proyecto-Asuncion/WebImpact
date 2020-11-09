@@ -45,6 +45,7 @@
 .formulario {
     background-color: #292b2c!important;
     color: white;
+    margin-top: 50%;
 }
 
 .blanco {
@@ -53,11 +54,6 @@
 
 .negro {
     color: black;
-}
-
-.navBarFont {
-    color: white;
-    font-size: 25px;
 }
 
 .logo {
@@ -74,7 +70,6 @@ body {
     background-repeat: no-repeat;
     height: 100%;
     font-family: 'Numans', sans-serif;
-    /*Navbar*/
 }
 
 header {

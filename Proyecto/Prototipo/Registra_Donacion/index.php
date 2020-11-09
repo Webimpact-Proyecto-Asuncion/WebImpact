@@ -4,45 +4,132 @@ require_once 'util.php';
 ?>
 
 <body>
-    <header>
-    <nav class="navbar sticky-top  d-flex align-items-center" id="navbar">
-    <a id="brand" class="navbar-brand col-sm-3 col-md-2 mr-0 align-content-center" href="#"><h5>Asuncion</h5></a>
-    <ul class="navbar-nav px-3">
-        <li class="nav-item text-nowrap">
-            <a class="nav-link " href="#">Cerrar Sesión</a>
-        </li>
-    </ul>
-</nav>
-<div class="container-fluid">
-    <div class="row">
-        <nav  class="col-md-2 d-none d-md-block  sidebar">
-            <div class="sidebar-sticky">
-                <br>
-                <br>
-                <br>
-                <ul class="nav flex-column">
-                    <li id="sidebar" class="nav-item">
-                        <a  class="nav-link active" href="../dashboard/dashboard.php"><img src="../images/sidebarImages/home-24px.svg">Casa</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="../dashboard/dashboard.php"><img src="../images/sidebarImages/engineering-24px.svg">Administracion</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="../dashboard/dashboard.php"><img src="../images/sidebarImages/search-24px.svg">Consultas</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="../Registra_Donacion/Registra_Donacion.html"><img src="../images/sidebarImages/monetization_on-24px.svg">Donaciones</a>
-                    </li>
-                </ul>
+<div class="page-wrapper chiller-theme toggled">
+  <a id="show-sidebar" class="btn btn-sm btn-dark" href="#">
+    <i class="fas fa-bars"></i>
+  </a>
+  <nav id="sidebar" class="sidebar-wrapper">
+    <div class="sidebar-content">
+      <div class="sidebar-brand">
+        <img src="../images/LOGO PNG.png" style="width: 90px; height: 90px">
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <a href="#">Asunción</a>
+       
+      </div>
+      
+      <!-- sidebar-header  -->
+     
+      
+      
+      <div class="sidebar-menu">
+        <ul>
+          <li class="header-menu">
+            <span>General</span>
+          </li>
+          <br>
+          <li class="sidebar-dropdown">
+            <a href="#">
+              <i class="fas fa-users"></i>
+              <span>Empleados</span>
+              
+            </a>
+            <div class="sidebar-submenu">
+              <ul>
+                <li>
+                  <a href="#">Crear Empleado</a>
+                </li>
+                <li>
+                  <a href="#">Consultar Empleados</a>
+                </li>
+                <li>
+                  <a href="#">Modificar/Eliminar Empleado</a>
+                </li>
+                 
+              </ul>
             </div>
-        </nav>
-    </header>
-    <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
-    <br><br>
-    
-    <div class="container inicio negro">
-        <h4>Registrar Donación</h4>
+          </li>
+          <br><br>
+          <li class="sidebar-dropdown">
+            <a href="#">
+              <i class="fas fa-address-card"></i>
+              <span>Pacientes</span>
+            </a>
+            <div class="sidebar-submenu">
+              <ul>
+                <li>
+                  <a href="#">Registrar Paciente</a>
+                </li>
+                <li>
+                  <a href="#">Modificar/Eliminar Paciente</a>
+                </li>
+                 <li>
+                  <a href="#">Consultar Paciente</a>
+                </li>
+                 </ul>
+            </div>
+          </li>
+          <br><br>
+          <li class="sidebar-dropdown">
+            <a href="#">
+              <i class="fas fa-dollar-sign"></i>
+              <span>Donaciones</span>
+            </a>
+            <div class="sidebar-submenu">
+              <ul>
+                <li>
+                  <a href="#">Registrar Donador</a>
+                </li>
+                <li>
+                  <a href="#">Registrar Donacion</a>
+                </li>
+                <li>
+                  <a href="#">Consultar Donaciones</a>
+                </li>
+               
+              </ul>
+            </div>
+          </li>
+          <br><br>
+          <li class="sidebar-dropdown">
+            <a href="#">
+              <i class="fas fa-file-alt"></i>
+              <span>Registros de Pacientes</span>
+            </a>
+            <div class="sidebar-submenu">
+              <ul>
+                <li>
+                  <a href="#">Crear Registro</a>
+                </li>
+                <li>
+                  <a href="#">Consultar Registros</a>
+                </li>
+                
+                </li>
+              </ul>
+            </div>
+          </li>
+          
+         
+        </ul>
+      </div>
+      <!-- sidebar-menu  -->
     </div>
+    <!-- sidebar-content  -->
+
+    <div class="sidebar-footer">
+      <a href="#">
+        <i class="fas fa-sign-out-alt"></i>
+        <span>Cerrar sesion</span>
+      </a>
+    </div>
+   
+  </nav>
+<!-- sin este div -->
+<main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
+
+  <div class="container ">
+    <div class="container inicio negro ubicacion">
+        <h4>Registrar Donación</h4>
 
     <div class="container formulario">
         <form id="formDonacion">
@@ -53,7 +140,9 @@ require_once 'util.php';
                     <label for="razonS" class="bold">Selecciona una Razón Social</label>
                     
                     <?= selectionDonadores("RazonSocial","id")?>
-                   
+                    
+                    
+                    
                 </div>
             </div>
 
@@ -76,7 +165,13 @@ require_once 'util.php';
         </form>
 
     </div>
-    </main>
+    </div>
+    <br><br>
+    
+</main>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> 
+    <script src="index.js"></script>
 
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="ajaxDonacion.js"></script>
