@@ -10,7 +10,7 @@ include '_header.html';
   <nav id="sidebar" class="sidebar-wrapper">
     <div class="sidebar-content">
       <div class="sidebar-brand">
-        <img src="../images/LOGO PNG.png" style="width: 90px; height: 90px">
+        <img src="../images/LOGO PNG.png" style="width: 95px; height: 90px">
         &nbsp;&nbsp;&nbsp;&nbsp;
         <a href="#">Asunción</a>
        
@@ -123,7 +123,7 @@ include '_header.html';
 <br>
  
     <div class="container-fluid">
-        <h5 class="container">Creación de Paciente</h5>
+        <h3 class="container">Registrar Paciente</h3>
         <br><br>
     </div>
 
@@ -132,83 +132,24 @@ include '_header.html';
             <div class="form-row">
                 <div class="form-group col-md-12">
                     <br>
-                    <label for="Nombre" class="bold">Numero del Paciente</label>
-                    <input type="text" class="form-control" id="numero" name="numero">
-                </div>
-            </div>
-            <div class="form-row">
-                <div class="form-group col-md-12">
                     <label for="Nombre" class="bold">Nombre(s)</label>
-                    <input type="text" class="form-control" id="nombre" name="nombre">
+                    <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Ej. José Manuel">
                 </div>
             </div>
             <div class="form-row">
                 <div class="form-group col-md-6">
                     <label for="Apellido Paterno" class="bold">Apellido Paterno</label>
-                    <input type="text" class="form-control" id="apellidoP" name="apellidoP">
+                    <input type="text" class="form-control" id="apellidoP" name="apellidoP" placeholder="Ej. Pérez">
                 </div>
                 <div class="form-group col-md-6">
                     <label for="Apellido Materno" class="bold">Apellido Materno</label>
-                    <input type="text" class="form-control" id="apellidoM" name="apellidoM">
+                    <input type="text" class="form-control" id="apellidoM" name="apellidoM" placeholder="Ej. Ramírez">
                 </div>
             </div>
             <div class="form-row">
                 <div class="form-group col-md-12">
                     <label for="domicilio" class="bold">Domicilio</label>
-                    <input type="text" class="form-control" id="domicilio" name="domicilio">
-                </div>
-            </div>
-            <div class="form-row">
-                <div class="form-group col-md-12">
-                    <label for="tel" class="bold">Teléfono</label>
-                    <input type="text" class="form-control" id="tel" name="tel">
-                </div>
-            </div>
-            <div class="form-row">
-                <div class="form-group col-md-3">
-                    <label for="fechaNacimiento" class="bold">Fecha de Nacimiento</label>
-                    <input type="date" class="form-control" id="nacimiento" name="nacimiento">
-                </div>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <div class="form-group col-md-3">
-                    <label for="Genero" class="bold">Género</label>
-                    <select class="custom-select mr-sm-2" id="genero" name="genero">
-                    <option selected>Selecciona...</option>
-                    <option value="Masculino">Masculino</option>
-                    <option value="Femenino">Femenino</option>
-                    <option value="Otro">Otro</option>
-                  </select>
-                </div>
-            </div>
-
-            <div class="form-row">
-                <div class="form-group col-md-12">
-                    <label for="Diagnostico" class="bold">Diagnóstico</label>
-                    <input type="text" class="form-control" name="diagnostico" id="diagnostico">
-                </div>
-            </div>
-            <div class="form-row">
-                <div class="form-group col-md-12">
-                    <label for="Lesion" class="bold">Lesión</label>
-                    <input type="text" class="form-control" id="lesion" name="lesion">
-                </div>
-            </div>
-            <div class="form-row">
-                <div class="form-group col-md-3">
-                    <label for="ingreso" class="bold">Ingreso</label>
-                    <input type="date" class="form-control" id="ingreso" name="ingreso">
-                </div>
-            </div>
-            <div class="form-row">
-                <div class="form-group col-md-12">
-                    <label for="dependencia" class="bold">Dependencia</label>
-                    <input type="text" class="form-control" id="dependencia" name="dependencia">
-                </div>
-            </div>
-            <div class="form-row">
-                <div class="form-group col-md-12">
-                    <label for=correo class="bold">Correo Electrónico</label>
-                    <input type="text" class="form-control" id="correo" name="correo">
+                    <input type="text" class="form-control" id="domicilio" name="domicilio" placeholder="Ej. Calle Robles #34 Col. El Paseo">
                 </div>
             </div>
             <div class="form-row">
@@ -258,10 +199,62 @@ include '_header.html';
                     </div>
                 </div>
             </div>
-
+            <div class="form-row">
+                <div class="form-group col-md-12">
+                    <label for="tel" class="bold">Teléfono</label>
+                    <input type="text" class="form-control" id="tel" name="tel" placeholder="Ej. 4421015623">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-12">
+                    <label for=correo class="bold">Correo Electrónico</label>
+                    <input type="text" class="form-control" id="correo" name="correo" placeholder="Ejemplo@gmail.com">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-3">
+                    <label for="fechaNacimiento" class="bold">Fecha de Nacimiento</label>
+                    <input type="date" class="form-control" id="nacimiento" name="nacimiento">
+                </div>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <div class="form-group col-md-3">
+                    <label for="Genero" class="bold">Género</label>
+                    <select class="custom-select mr-sm-2" id="genero" name="genero">
+                    <option selected>Selecciona...</option>
+                    <option value="Masculino">Masculino</option>
+                    <option value="Femenino">Femenino</option>
+                    <option value="Otro">Otro</option>
+                  </select>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-12">
+                    <label for="Diagnostico" class="bold">Diagnóstico</label>
+                    <input type="text" class="form-control" name="diagnostico" id="diagnostico" placeholder="Ej. El paciente padece...">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-12">
+                    <label for="Lesion" class="bold">Lesión</label>
+                    <input type="text" class="form-control" id="lesion" name="lesion" placeholder="Ej. Lesión en rodilla izquiera">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-3">
+                    <label for="ingreso" class="bold">Ingreso</label>
+                    <input type="date" class="form-control" id="ingreso" name="ingreso">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-12">
+                    <label for="dependencia" class="bold">Dependencia</label>
+                    <input type="text" class="form-control" id="dependencia" name="dependencia" placeholder="Ej. El paciente depende de... ">
+                </div>
+            </div>
             <div class="form-row">
                 <div class="form-group col-md-4">
                     <label for="foto" class="bold">Fotografía</label>
+                    <br>
                     <input type="file" name="foto" id="foto">
                 </div>
             </div>
@@ -291,7 +284,7 @@ include '_header.html';
                 </div>
             </div>
             <br>
-            <input type="submit" class="btn btn-success" value="Aceptar" name="submit" id="submit"></input>
+            <input type="submit" class="btn btn-info" value="Aceptar" name="submit" id="submit"></input>
             <br><br>
     </div>
 
