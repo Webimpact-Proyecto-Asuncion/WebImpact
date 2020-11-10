@@ -6,7 +6,7 @@
         $password="WebImpact$2020";
         $dbname="asuncion1";
 
-			$conexion=mysqli_connect($servidor,$usuario,$password,$bd);
+			$conexion=mysqli_connect($servername,$username,$password,$dbname);
 
 			return $conexion;
 		}

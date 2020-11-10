@@ -166,7 +166,7 @@
 
 <script type="text/javascript">
 	$(document).ready(function(){
-		$('#tabla').load('php/tabla.php');
+		$('#tabla').load('./php/tabla.php');
     
 	});
 </script>

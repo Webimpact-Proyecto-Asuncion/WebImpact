@@ -2,10 +2,10 @@
 
 function connectDb()
 {
-    $servername = "localhost"; 
-    $username = "root"; 
-    $password = ""; 
-    $dbname = 'asuncion'; 
+    $servername="localhost";
+        $username="WITEAM";
+        $password="WebImpact$2020";
+        $dbname="asuncion1";
 
     $conn = mysqli_connect($servername, $username, $password, $dbname); 
 
