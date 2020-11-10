@@ -1,5 +1,6 @@
 $( document ).ready(function() {
     queryEspecialidades();
+    queryRoles();
     $('.carousel').carousel({
         interval: false,
       });
@@ -8,23 +9,26 @@ $( document ).ready(function() {
 function queryEspecialidades(){
     $.get("./controladorEspecialidades.php",{}).
     done(function( data ) {
-        $("#especialidad").append(data);
+        $("#especialidad").html(data);
+        console.log("query");
         });
 }
 
-function queryEspecialidades(){
+function queryRoles(){
     $.get("./controladorroles.php",{}).
     done(function( data ) {
-        $("#rol").append(data);
+        $("#rol").html(data);
+        console.log(data);
         });
 }
 
 function registrarEmpleado(){
-    $('.carousel').carousel('next');
+    
     $.post("./controladorRegistraEmpleado.php",{nombre:$("#nombre").val(),
                                                 correo:$("#correo").val(),
                                                 especialidad:$("#especialidad").val(),
-                                                contrasena:$("#contrasena").val()}).
+                                                contrasena:$("#contrasena").val(),
+                                                rol:$("#rol").val()}).
     done(function( data ) {
         console.log("se registro")
         });
@@ -43,3 +47,13 @@ $("#contrasena").change(function(){
         alert("no es fuerte");
     }
 })
+
+$("#siguiente").on("click",function(){
+    $('.carousel').carousel('next');
+    $('.carousel').carousel({
+        interval: false,
+      });
+}    
+)
+
+queryEspecialidades();
