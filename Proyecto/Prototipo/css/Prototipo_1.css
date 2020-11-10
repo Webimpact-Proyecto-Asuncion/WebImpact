@@ -35,7 +35,7 @@
 .card {
     height: 270px;
     width: 250px;
-    background-color: rgba(0, 0, 0, .75) !important;
+    background-color: #F5FFFA!important;
 }
 
 .card-body {
@@ -43,67 +43,37 @@
 }
 
 .formulario {
-    
-    background-color: #B9BECA  !important;
+    background-color: #292b2c!important;
     color: white;
+    margin-top: 50%;
 }
 
 .blanco {
     color: white;
 }
 
-/*_form.html(crea_Usuario.php)*/
-
-.creaUsuario{
-    
-    background-color:    #f8f9f9    ;
-    
+.negro {
+    color: black;
 }
 
-.cuerpo1{
-    
-    
-    background-color: #F3F4F7   ;
-    
-}
-
-/*CreaPaciente.html*/
-
-.CreaPaciente {
-    
-    /*background-color: #E9967A;*/
-    background-color:    #f8f9f9    ;
-    
-}
-
-.cuerpo{
-    
-    
-    background-color: #F3F4F7   ;
-    
-}
-
-h5{
-    font-size: 50px;
-    font-family:"Times New Roman";
-    font-style:italic; 
-    
+.logo {
+    margin-left: 0px;
 }
 
 
 /*Navbar*/
 
-html, body{
 
-/*background-color: white;*/
-background-size: cover;
-background-repeat: no-repeat;
-height: 100%;
-font-family: 'Numans', sans-serif;
-=======
 /*Navbar*/
-}
 
+=======html,
+body {
+    background-color: #F8F9F9;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100%;
+    font-family: 'Numans', sans-serif;
+}
 
 header {
     background-size: 300px 100px;
@@ -120,7 +90,7 @@ nav ul {
     list-style: none;
     background: rgba(0, 0, 0, 0);
     overflow: hidden;
-    color: #fff;
+    color: #000;
     padding: 0;
     text-align: right;
     margin: 0;
@@ -135,13 +105,11 @@ nav.black ul {
 nav ul li {
     display: inline-block;
     padding: 16px 40px;
-    ;
 }
 
 nav ul li a {
     text-decoration: none;
-    color: #fff;
-    font-size: 16px;
+    color: white;
 }
 
 .menu-icon {
