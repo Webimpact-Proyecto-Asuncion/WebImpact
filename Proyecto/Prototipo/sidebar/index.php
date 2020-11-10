@@ -143,7 +143,19 @@
    <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
 
   <div class="container">
-      <h5>Consulta Donaciones</h5>
+      <div class="row">
+        <div class="col">
+          <h5>Consulta Donaciones</h5>  
+        </div>
+      </div>
+
+      <div class="row">
+        <div>
+          &nbsp;&nbsp;&nbsp;&nbsp;
+          <label for="nombre_pac">Filtro:</label>
+          <input type="text" name="nombre_pac" id="nombre_pac" placeholder="nombre">
+        </div>
+      </div>
   </div>
 
   <div class="container">
@@ -155,9 +167,9 @@
 
 
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-   
-    <script src="index.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="js/index.js"></script>
+    <script src="js/main.js"></script>
 
 
    
@@ -166,7 +178,7 @@
 
 <script type="text/javascript">
 	$(document).ready(function(){
-		$('#tabla').load('./php/tabla.php');
+		$('#tabla').load('php/tabla.php');
     
 	});
 </script>

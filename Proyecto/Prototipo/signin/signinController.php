@@ -8,7 +8,7 @@
             session_start();
             $_SESSION["rol"]=getRol($isuser);
             //$_SESSION[""]=;
-            echo("https://rehabilitacionasuncion.000webhostapp.com//dashboard/dashboard.php");
+            echo("https://royerdac99.codes/WebImpact/Proyecto/Prototipo/dashboard/dashboard.php");
         }else{
             echo("false");
         }

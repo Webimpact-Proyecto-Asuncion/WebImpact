@@ -1,6 +1,6 @@
 <?php
     session_start();
-    
+    echo($_SESSION["rol"]);
     if($_SESSION["rol"]=="Administracion"){
         include_once("./_head.html");
         include_once("../_navbar.html");
