@@ -3,11 +3,11 @@
 <html>
 <head>
 <!-- Para hacerlo mobile friendly -->
-<meta charset="utf-8">
+ <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Responsive sidebar template with sliding effect and dropdown menu based on bootstrap 3">
-	<title>Consulta Reportes</title>
+	<title>Consulta Donaciones</title>
 	 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
    <link rel="stylesheet" type="text/css" href="../node_modules/open-iconic/font/css/open-iconic-bootstrap.min.css">
    
@@ -143,7 +143,7 @@
    <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
 
   <div class="container">
-      <h5>Consulta Reportes</h5>
+      <h5>Consulta Donaciones</h5>
   </div>
 
   <div class="container">
@@ -158,6 +158,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
    
     <script src="index.js"></script>
+
 
    
 </body>
