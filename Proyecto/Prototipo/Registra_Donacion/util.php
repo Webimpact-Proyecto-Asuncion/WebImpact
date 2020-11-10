@@ -100,6 +100,11 @@ function addDonacion($razonSocial, $descripcion, $fecha)
 
 }
 
+function submitButton($submit)
+{
+    $submitError = "";
+}
+
 
 
 

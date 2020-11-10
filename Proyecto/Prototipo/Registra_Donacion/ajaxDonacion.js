@@ -38,7 +38,7 @@ $(document).ready(function() {
             $('#formDonacion').each(function() {
                 this.reset();
             });
-            alert(response);
+            //alert(response);
 
         });
 
@@ -51,3 +51,115 @@ $(document).ready(function() {
         });
     });
 });
+
+//*Donador:
+
+let submit = document.getElementById("submitDonacion"); //validar
+let donador = document.getElementById("donador");
+let donadorC = document.getElementById("donadorCorrecto");
+let donadorE = document.getElementById("donadorError");
+
+let descripcion = document.getElementById("descripcionDonacion");
+let spanDescripcionE = document.getElementById("descripcionError");
+let spanDescripcionC = document.getElementById("descripcionCorrecta");
+
+let fecha = document.getElementById("fechaDonacion");
+let spanFechaC = document.getElementById("fechaC");
+let spanFechaE = document.getElementById("fechaE");
+
+
+donadorC.hidden = true;
+donadorE.hidden = true;
+
+spanDescripcionE.hidden = true;
+spanDescripcionC.hidden = true;
+
+spanFechaC.hidden = true;
+spanFechaE.hidden = true;
+
+
+
+function razonSocial(razonS) {
+    if (!razonS) {
+        throw "Selecciona una Razón Social.";
+    }
+    return true;
+}
+
+function descripcionDonador(d) {
+    if (!d) {
+        throw "Ingresa una descripción.";
+    }
+    return true;
+}
+
+function fechaDonacion(f) {
+    if (!f) {
+        throw "Selecciona una fecha de ingreso."
+    }
+    return true;
+}
+
+function checarCampos() {
+
+    donante = donador.value;
+    desc = descripcion.value;
+    fechaD = fecha.value;
+
+
+
+    try {
+        razonSocial(donante);
+
+
+        donadorE.hidden = true;
+        donadorC.hidden = false;
+        donadorC.innerText = "✔" + " Razón Social Válida";
+        donadorE.innerText = "";
+
+
+
+    } catch (e) {
+
+        donadorC.hidden = true;
+        donadorE.hidden = false;
+        donadorC.innerText = "";
+        donadorE.innerText = "❌" + " " + e;
+
+
+    }
+
+    try {
+        descripcionDonador(desc);
+        spanDescripcionC.hidden = false;
+        spanDescripcionC.innerText = "✔" + " Descripción aceptada";
+        spanDescripcionE.innerText = "";
+        spanDescripcionE.hidden = true;
+
+
+    } catch (e) {
+        spanDescripcionE.hidden = false;
+        spanDescripcionC.hidden = true;
+        spanDescripcionC.innerText = "";
+        spanDescripcionE.innerText = "❌" + " " + e;
+
+    }
+
+    try {
+        fechaDonacion(fechaD);
+        spanFechaC.hidden = false;
+        spanFechaC.innerText = "✔" + " Fecha aceptada.";
+        spanFechaE.hidden = true;
+        spanFechaE.innerText = "";
+
+    } catch (e) {
+        spanFechaE.hidden = false;
+        spanFechaC.hidden = true;
+        spanFechaC.innerText = "";
+        spanFechaE.innerText = "❌" + " " + e;
+    }
+
+
+}
+
+submit.addEventListener("click", checarCampos);
