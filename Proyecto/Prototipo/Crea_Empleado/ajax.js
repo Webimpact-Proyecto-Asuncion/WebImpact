@@ -12,6 +12,13 @@ function queryEspecialidades(){
         });
 }
 
+function queryEspecialidades(){
+    $.get("./controladorroles.php",{}).
+    done(function( data ) {
+        $("#rol").append(data);
+        });
+}
+
 function registrarEmpleado(){
     $('.carousel').carousel('next');
     $.post("./controladorRegistraEmpleado.php",{nombre:$("#nombre").val(),
@@ -26,3 +33,13 @@ function registrarEmpleado(){
 
 
 $("#registrar").on("click",registrarEmpleado);
+
+$("#contrasena").change(function(){
+    console.log("entro");
+    var regex=  /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{8,15}$/;
+    if($("#contrasena").val().match(regex)){
+
+    }else{
+        alert("no es fuerte");
+    }
+})
