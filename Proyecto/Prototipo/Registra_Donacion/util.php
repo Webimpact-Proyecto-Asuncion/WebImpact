@@ -5,7 +5,7 @@ function connectDb()
     $servername = "localhost"; 
     $username = "root"; 
     $password = ""; 
-    $dbname = 'asuncion'; 
+    $dbname = "asuncion1"; 
 
     $conn = mysqli_connect($servername, $username, $password, $dbname); 
 
@@ -14,7 +14,8 @@ function connectDb()
         die("Connection failed: " . mysqli_connect_error()); 
     }
 
-    return $conn; 
+    return $conn;
+    echo "BIEN HECHO****"; 
 }
 
 function closeDb($mysql)
