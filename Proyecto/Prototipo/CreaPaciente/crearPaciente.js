@@ -64,6 +64,7 @@ $(document).ready(function() {
 });
 
 $("#siguiente").on("click", function() {
+    console.log("clicked");
     $('.carousel').carousel('next');
     $('.carousel').carousel({
         interval: false,
