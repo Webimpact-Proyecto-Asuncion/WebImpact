@@ -8,8 +8,8 @@ $(document).ready(function() {
     );
 
     request.done(function(response, textStatus, jqXHR) {
-        console.log(response);
-        $('#table').html(response);
+        //console.log(response);
+
     });
 
     $("#form").submit(function(event) {
@@ -40,7 +40,7 @@ $(document).ready(function() {
             $('#form').each(function() {
                 this.reset();
             });
-            $('#table').html(response);
+            //$('#table').html(response);
         });
 
         //In case of errors:
@@ -70,3 +70,44 @@ $("#siguiente").on("click", function() {
         interval: false,
     });
 });
+
+
+$("#siguiente2").on("click", function() {
+    console.log("clicked");
+    $('.carousel').carousel('next');
+    $('.carousel').carousel({
+        interval: false,
+    });
+});
+
+$("#anterior").on("click", function() {
+    console.log("clicked");
+    $('.carousel').carousel('prev');
+    $('.carousel').carousel({
+        interval: false,
+    });
+});
+
+$("#anterior2").on("click", function() {
+    console.log("clicked");
+    $('.carousel').carousel('prev');
+    $('.carousel').carousel({
+        interval: false,
+    });
+});
+
+$("#estado").change(function() {
+    console.log("CAMBIO");
+    console.log($('#estado').val());
+    $.get("controladorMunicipio.php", {
+        estado: $("#estado").val(),
+
+    }).
+    done(function(data) {
+        console.log(data)
+
+        $("#municipio").html(data);
+    });
+
+
+})
