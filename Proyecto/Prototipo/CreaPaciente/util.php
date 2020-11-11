@@ -5,7 +5,7 @@
         $servername = "localhost"; 
         $username = "root"; 
         $password = ""; 
-        $dbname = "asuncion"; 
+        $dbname = "asuncion1"; 
 
         $conn = mysqli_connect($servername,$username,$password,$dbname);
 
@@ -39,7 +39,7 @@
         
         $conn = connectDb(); 
 
-        $sql = "INSERT INTO Pacientes (NombrePaciente, ApellidoPaterno, ApellidoMaterno, Domicilio, Municipio, Estado, Telefono, Correo, FechaNacimiento, Genero, Diagnostico, Lesion, Ingreso, Dependencia) VALUES (\"" . $nombre . "\",\"" . $apellidoP. "\",\"" . $apellidoM . "\",\"" . $domicilio . "\",\"" . $municipio  .  "\",\"" . $estado . "\",\"" . $telefono . "\",\"" . $correo . "\",\"" . $fechaNacimiento . "\",\"" . $genero . "\",\"" . $diagnostico . "\",\"" . $lesion . "\",\"" . $ingreso . "\",\"" . $dependencia . "\")";  
+        $sql = "INSERT INTO Paciente (NombrePaciente, ApellidoPaterno, ApellidoMaterno, Domicilio, Municipio, Estado, Telefono, Correo, FechaNacimiento, Genero, Diagnostico, Lesion, Ingreso, Dependencia) VALUES (\"" . $nombre . "\",\"" . $apellidoP. "\",\"" . $apellidoM . "\",\"" . $domicilio . "\",\"" . $municipio  .  "\",\"" . $estado . "\",\"" . $telefono . "\",\"" . $correo . "\",\"" . $fechaNacimiento . "\",\"" . $genero . "\",\"" . $diagnostico . "\",\"" . $lesion . "\",\"" . $ingreso . "\",\"" . $dependencia . "\")";  
 
         //$sql = "EXECUTE creaPaciente $numero . ':' . $nombre . ':' . $apellidoP . ':' . $apellidoM . ':' . $domicilio . ':' . $telefono . ':' . $fechaNacimiento . ':' . $genero . ':' . $diagnostico . ':' . $lesion . ':' . $ingreso . ':' . ':' . $dependencia . ':' . $correo . ':' . $municipio . ':' . $estado . ':' . $foto . ':' . $curp . ':' . $acta . ':' . $comprobante . ':' . ':' . $recomendacion";
         
@@ -60,6 +60,30 @@
 
         closeDb($conn); 
     }
+
+    
+
+    /*function selectionMunicipios($estado)
+    {
+        $resultado = '<select id="municipio" name="municipio" class="custom-select mr-sm-2">';
+        $resultado .= '<option value="" disabled selected> Selecciona un Municipio </option>';
+        $conn = connectDb();
+        
+        $consulta = "CALL OpcionesMunicipio();"; 
+        $resultados_consulta = $conn->query($consulta); 
+
+        while($row = mysqli_fetch_array($resultados_consulta, MYSQLI_BOTH))
+        {
+            $resultado .= '<option value="'.$row[$nombre].'">'; 
+        }
+
+        mysqli_free_result($resultados_consulta);  // liberar memoria
+
+        $resultado .= '</select>'; 
+
+        closeDb($conn); 
+        return $resultado;
+    }*/
     
 
 ?>

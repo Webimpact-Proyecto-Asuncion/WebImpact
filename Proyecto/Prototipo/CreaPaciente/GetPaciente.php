@@ -3,7 +3,7 @@
 
     $result = getPatient();
 
-    if(mysqli_num_rows($result) > 0)
+    /*if(mysqli_num_rows($result) > 0)
     {
         
         echo "<div class='alert-success'>"; 
@@ -54,7 +54,7 @@
         echo "</table>"; 
         echo "</div>"; 
         echo "</div>"; 
-    }
+    }*/
 
 
 ?>
