@@ -1,61 +1,67 @@
 <?php
 	
 	require_once ("conexion.php");
-	$conect=conexion();
+	$conexion=conexion();
 		
 ?>
 
-<div class="tab-content" id="myTabContent">
-		<div class="tab-pane fade show active" id="compara" role="tabpanel" aria-labelledy="compara-tab">
-			<div class="table-responsive container" id="tabla">
-				<table class="table table-bordered table-hover ">
-					<thead class="thead-dark">
-						<tr >
+<table class="table table-bordered table-hover ">
+	<thead class="thead-dark">
+		<tr >
 							
-							<th>Num Empleado</th>
-							<th>Nombre Empleado</th>
-							<th>Correo</th>
-							<th>Especialidad</th>
-							<th>Modificar</th>
-							<th>Eliminar</th>
-						</tr>	
-					</thead>
+			<th>Num Empleado</th>
+			<th>Nombre Empleado</th>
+			<th>Correo</th>
+			<th>Especialidad</th>
+			<th>Modificar</th>
+			<th>Eliminar</th>
+		</tr>	
+	</thead>
 
-					<?php
+	<?php
 
-						$sql="CALL ImprimirEmpleados";
+		$sql="CALL ImprimirEmpleados";
 
-						$result=mysqli_query($conect, $sql);
+		if(isset($_POST["consulta"])){
 
-						while($ver=mysqli_fetch_row($result)){
+		$q = $conexion->real_escape_string($_POST['consulta']);
+		$sql = "SELECT E.NumeroEmpleado, E.NombreEmpleado, E.Correo, ES.Descripcion FROM Empleado E, Especialidad ES     WHERE E.id_Especialidad=ES.id_Especialidad and E.Visibilidad = 1 and E.NombreEmpleado LIKE '%".$q."%'";
 
-					?>
-							<tr>
+	}
 
-							<td><?php echo $ver[0] ?></td>
-							<td><?php echo $ver[1] ?></td>
-							<td><?php echo $ver[2] ?></td>
-							<td><?php echo $ver[3] ?></td>
+		$result=mysqli_query($conexion, $sql);
+
+		while($ver=mysqli_fetch_row($result)){
+			$datos=$ver[0]."||".
+				 	$ver[1]."||".
+					$ver[2]."||".
+					$ver[3];
+	?>
+			<tr>
+
+			<td><?php echo $ver[0] ?></td>
+			<td><?php echo $ver[1] ?></td>
+			<td><?php echo $ver[2] ?></td>
+			<td><?php echo $ver[3] ?></td>
 							
 							
-							<td>
-								<button class="btn btn-warning"><span class="oi oi-pencil"></span>Modificar </button>
-							</td>
+			<td>
+				<button class="btn btn-warning"><span class="oi oi-pencil"></span>Modificar </button>
+			</td>
 							
-							<td>
-								<button class="btn btn-danger"><span class="oi oi-trash"></span> Eliminar</button>
-							</td>
+			<td>
+				<button class="btn btn-danger" onclick="preguntarSiNo('<?php  echo $ver[0] ?>')"><span class="oi oi-trash"></span> Eliminar</button>
+			</td>
 
-							</tr>
+			</tr>
 
-							<?php
+			<?php
 
-							}
+			}
 
-							?>					
+			?>					
 
 					
-				</table>
-			</div>
-		</div>
-	</div>
+	</table>
+</div>
+	
