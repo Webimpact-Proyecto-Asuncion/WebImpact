@@ -1,4 +1,5 @@
 
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html>
 <head>
@@ -171,3 +172,14 @@
 	});
 </script>
 
+=======
+<?php
+  
+  include ('_header.html');
+  include ('_sidebar.html');
+  include('_main.html');
+  include ('_footer.html');
+  
+?>
+  
+>>>>>>> Filtro_consultas

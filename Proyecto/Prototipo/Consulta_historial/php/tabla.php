@@ -1,68 +1,71 @@
 <?php
 	
-	require_once ("conexion.php");
-	$conect=conexion();
+	require_once "conexion.php";
+	$conexion=conexion();
+
 		
 ?>
 
-<div class="tab-content" id="myTabContent">
-		<div class="tab-pane fade show active" id="compara" role="tabpanel" aria-labelledy="compara-tab">
-			<div class="table-responsive container" id="tabla">
-				<table class="table table-bordered table-hover ">
-					<thead class="thead-dark">
-						<tr >
+<table class="table table-bordered table-hover ">
+<thead class="thead-dark">
+	<tr >
 							
-							<th>Tipo</th>
-							<th>Encargado</th>
-							<th>Nombre</th>
-							<th>Apellido Paterno</th>
-							<th>Apellido Materno</th>
-							<th>Edad</th>
-							<th>Observaciones</th>
-							<th>Fecha</th>
-							<th>Modificar</th>
-							<th>Eliminar</th>
-						</tr>	
-					</thead>
+		<th>Tipo</th>
+		<th>Encargado</th>
+		<th>Nombre</th>
+		<th>Apellido Paterno</th>
+		<th>Apellido Materno</th>
+		<th>Edad</th>
+		<th>Observaciones</th>
+		<th>Fecha</th>
+		<th>Modificar</th>
+		<th>Eliminar</th>
+	</tr>	
+</thead>
 
-					<?php
+<?php
 
-						$sql="CALL ImprimirReporte";
+	$sql="CALL ImprimirReporte";
 
-						$result=mysqli_query($conect, $sql);
+	if(isset($_POST["consulta"])){
 
-						while($ver=mysqli_fetch_row($result)){
+		$q = $conexion->real_escape_string($_POST['consulta']);
+		$sql = "SELECT R.NumeroReporte, T.Nombre as 'Tipo', E.NombreEmpleado as 'Encargado', P.NombrePaciente as 'Nombre', P.ApellidoPaterno as 'A Paterno', P.ApellidoMaterno as 'A Materno', R.Edad, R.Observaciones, R.Fecha FROM TipoReporte T, Reporte R, Empleado E, Paciente P WHERE E.NumeroEmpleado = R.NumeroEmpleado and P.NumeroPaciente = R.NumeroPaciente and T.id_TipoReporte = R.id_Tipo and R.Visibilidad = 1 and  P.NombrePaciente LIKE '%".$q."%'";
 
-					?>
-							<tr>
+	}
 
-							<td><?php echo $ver[0] ?></td>
-							<td><?php echo $ver[1] ?></td>
-							<td><?php echo $ver[2] ?></td>
-							<td><?php echo $ver[3] ?></td>
-							<td><?php echo $ver[4] ?></td>
-							<td><?php echo $ver[5] ?></td>
-							<td><?php echo $ver[6] ?></td>
-							<td><?php echo $ver[7] ?></td>
+	$result=mysqli_query($conexion, $sql);
 
-							<td>
-								<button class="btn btn-warning"><span class="oi oi-pencil"></span>Modificar </button>
-							</td>
+	while($ver=mysqli_fetch_row($result)){
+
+?>
+		<tr>
+
+		<td><?php echo $ver[1] ?></td>
+		<td><?php echo $ver[2] ?></td>
+		<td><?php echo $ver[3] ?></td>
+		<td><?php echo $ver[4] ?></td>
+		<td><?php echo $ver[5] ?></td>
+		<td><?php echo $ver[6] ?></td>
+		<td><?php echo $ver[7] ?></td>
+		<td><?php echo $ver[8] ?></td>
+
+		<td>
+			<button class="btn btn-warning"><span class="oi oi-pencil"></span>Modificar </button>
+		</td>
 							
-							<td>
-								<button class="btn btn-danger"><span class="oi oi-trash"></span> Eliminar</button>
-							</td>
+		<td>
+			<button class="btn btn-danger" onclick="preguntarSiNo('<?php  echo $ver[0] ?>')"><span class="oi oi-trash"></span> Eliminar</button>
+		</td>
 
-							</tr>
+		</tr>
 
-							<?php
+		<?php
 
-							}
+		}
 
-							?>					
+		?>					
 
 					
-				</table>
-			</div>
-		</div>
-	</div>
+	</table>
+</div>

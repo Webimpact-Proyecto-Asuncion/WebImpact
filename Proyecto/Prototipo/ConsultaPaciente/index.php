@@ -1,8 +1,5 @@
-<!DOCTYPE html>
-<html>
-<head>
-<!-- Para hacerlo mobile friendly -->
 
+<<<<<<< HEAD
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -168,3 +165,14 @@
     
 	});
 </script>
+=======
+<?php
+  
+  include ('_header.html');
+  include ('_sidebar.html');
+  include('_main.html');
+  include ('_footer.html');
+  
+?>
+  
+>>>>>>> Filtro_consultas
