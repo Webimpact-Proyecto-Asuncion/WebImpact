@@ -8,7 +8,7 @@
         $queryResult=mysqli_query($conn,$sql);
         if(mysqli_num_rows($queryResult)>0){
             while($row=mysqli_fetch_assoc($queryResult)){
-                echo $row["NombreEmpleado"].",".$row["Correo"].",".$row["id_Especialidad"].",".$row["Password"].",".$row["Id_Rol"].",".$row["Visibilidad"];
+                echo $row["NombreEmpleado"].",".$row["Correo"].",".$row["id_Especialidad"].",".$row["Password"].",".$row["id"];
             }
         }
     }
