@@ -34,39 +34,34 @@
     $estado = $_POST["estado"];
     $municipio = $_POST["municipio"];
 
+/****************IMAGES***********************/
+    function setImage($targetFile)
+    {
+      return strtolower(pathinfo($targetFile,PATHINFO_EXTENSION)); 
+    }
 
-    //archivos
-    /*$foto = $_FILES["foto"]; 
-    $curp = $_FILES["curp"]; 
-    $acta = $_FILES["acta"]; 
-    $comprobante = $_FILES["comprobante"];
-    $recomendacion = $_FILES["recomendacion"];*/
+    $targetDir = "imagenes/";
+    $targetFile_ES = $targetDir.basename($_FILES["estudioS"]["name"]); 
+    $uploadOK = 1; 
+    $imageFileType_ES = setImage($targetFile_ES);
 
+    $check = getimagesize($_FILES["estudioS"]["tmp_name"]);
 
-    /*if(isset($_FILES['foto']) && !empty($_FILES['foto'])){
-         
-        $allowed = ['png', 'jpeg', 'jpg'];
-        $fl_name = $_FILES['foto']['name'];
-        $fl_extn = strtolower(end(explode('.', $fl_name)));
-        $fl_temp = $_Files['foto']['tmp_name'];
-    
-        if (in_array($fl_extn, $allowed)) {
-          img($fl_extn, $fl_temp);
-        } else {
-          echo 'El archivo que ingreso no es un a imagen';
-        }
-      
-    } 
+    if($imageFileType_ES  != "jpg" && $imageFileType_ES != "png" && $imageFileType_ES != "jpeg")
+    {
+        echo "El archivo debe ser una fotografía en formato JPG, PNG o JPEG.";
+        $uploadOK = 0; 
+    }
+
+    if($uploadOK == 0)
+    {
+        echo "No se pudo subir la foto."; 
+    }
     else
     {
-        echo '<script>alert("Necesitas insertar una imagen.");</script>';
+        $estudioSE = img($imageFileType_ES, $_FILES["estudioS"]["tmp_name"]); 
     }
-    
-    
-    function img($fl_extn, $fl_temp) {
-      $file_path = 'Fotos/' . substr(md5(time()), 0, 10) . '.' . $fl_extn;
-      move_uploaded_file($fl_temp, $file_path);
-    }*/
+      
     
     
 
@@ -74,7 +69,7 @@
     && !empty($_POST["apellidoM"]) && isset($_POST["domicilio"]) && !empty($_POST["domicilio"]) && isset($_POST["estado"]) && !empty($_POST["estado"]) && !empty($_POST["tel"]) && isset($_POST["tel"]) && !empty($_POST["correo"]) && isset($_POST["correo"]) && isset($_POST["nacimiento"]) && !empty($_POST["nacimiento"]) && isset($_POST["genero"]) && !empty($_POST["genero"]) 
     && isset($_POST["diagnostico"]) && !empty($_POST["diagnostico"]) && isset($_POST["lesion"]) && !empty($_POST["lesion"]) && isset($_POST["ingreso"]) && !empty($_POST["ingreso"]) && isset($_POST["dependencia"]) && !empty($_POST["dependencia"]))
     {
-        insertPatient($nombre,$apellidoP,$apellidoM, $domicilio, $estado, $municipio, $telefono, $correo, $fechaNacimiento,$genero, $diagnostico, $lesion, $ingreso, $dependencia); 
+        insertPatient($nombre,$apellidoP,$apellidoM, $domicilio, $estado, $municipio, $telefono, $correo, $fechaNacimiento,$genero, $diagnostico, $lesion, $ingreso, $dependencia, $estudioSE); 
     }
     else
     {
