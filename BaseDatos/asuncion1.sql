@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.5
+-- version 4.9.5deb2
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Nov 06, 2020 at 03:37 AM
--- Server version: 10.3.16-MariaDB
--- PHP Version: 7.3.23
+-- Generation Time: Nov 16, 2020 at 01:23 AM
+-- Server version: 8.0.22-0ubuntu0.20.04.2
+-- PHP Version: 7.4.3
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -19,77 +19,129 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `id15308786_asuncion`
+-- Database: `asuncion1`
 --
 
 DELIMITER $$
 --
 -- Procedures
 --
-CREATE DEFINER=`id15308786_webimpact`@`%` PROCEDURE `ContarFaltas` (IN `NumPaciente` INT(63))  SELECT COUNT(PC.Asistencia) as 'Faltas' FROM Paciente_Consulta PC
+CREATE DEFINER=`root`@`localhost` PROCEDURE `ContarFaltas` (IN `NumPaciente` INT(63))  SELECT COUNT(PC.Asistencia) as 'Faltas' FROM Paciente_Consulta PC
 WHERE PC.Asistencia = 0 and PC.NumeroPaciente = NumPaciente$$
 
-CREATE DEFINER=`id15308786_webimpact`@`%` PROCEDURE `CorreoDonador` (IN `id_Donador` INT(63))  NO SQL
+CREATE DEFINER=`root`@`localhost` PROCEDURE `CorreoDonador` (IN `id_Donador` INT(63))  NO SQL
 SELECT Correo
 FROM Donador
 WHERE Donador.id_Donador = id_Donador$$
 
-CREATE DEFINER=`id15308786_webimpact`@`%` PROCEDURE `CrearDonacion` (IN `id_Donador` INT(63), IN `Descripcion` VARCHAR(255) CHARSET utf8mb4, IN `Fecha` DATE)  NO SQL
+CREATE DEFINER=`root`@`localhost` PROCEDURE `CrearDonacion` (IN `id_Donador` INT(63), IN `Descripcion` VARCHAR(255) CHARSET utf8mb4, IN `Fecha` DATE)  NO SQL
 INSERT INTO `Donativos` (`Descripcion`,`id_Donador`, `Fecha`) VALUES (Descripcion,  id_Donador, Fecha)$$
 
-CREATE DEFINER=`id15308786_webimpact`@`%` PROCEDURE `CrearDonador` (IN `RazonSocial` VARCHAR(255) CHARSET utf8mb4, IN `RFC` VARCHAR(255) CHARSET utf8mb4, IN `Correo` VARCHAR(255) CHARSET utf8mb4, IN `Telefono` VARCHAR(12) CHARSET utf8mb4)  NO SQL
+CREATE DEFINER=`root`@`localhost` PROCEDURE `CrearDonador` (IN `RazonSocial` VARCHAR(255) CHARSET utf8mb4, IN `RFC` VARCHAR(255) CHARSET utf8mb4, IN `Correo` VARCHAR(255) CHARSET utf8mb4, IN `Telefono` VARCHAR(12) CHARSET utf8mb4)  NO SQL
 INSERT INTO Donador(RazonSocial, RFC, Correo, Telefono)
 Values(RazonSocial, RFC, Correo, Telefono)$$
 
-CREATE DEFINER=`id15308786_webimpact`@`%` PROCEDURE `CrearEmpleado` (IN `NombreEmpleado` VARCHAR(255) CHARSET utf8mb4, IN `Correo` VARCHAR(255) CHARSET utf8mb4, IN `Especialidad` INT(63), IN `Password` VARCHAR(255) CHARSET utf8mb4)  NO SQL
+CREATE DEFINER=`root`@`localhost` PROCEDURE `CrearEmpleado` (IN `NombreEmpleado` VARCHAR(255) CHARSET utf8mb4, IN `Correo` VARCHAR(255) CHARSET utf8mb4, IN `Especialidad` INT(63), IN `Password` VARCHAR(255) CHARSET utf8mb4)  NO SQL
 INSERT INTO `Empleado` (`NombreEmpleado`, `Correo`, `id_Especialidad`, `Password`) VALUES (NombreEmpleado, Correo, Especialidad, Password)$$
 
-CREATE DEFINER=`id15308786_webimpact`@`%` PROCEDURE `EliminarEmpleado` (IN `NumeroEmpleado` INT(63))  NO SQL
-DELETE FROM Empleado
-WHERE Empleado.NumeroEmpleado = NumeroEmpleado$$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `CrearEmpleado_ROL` (IN `nombre` VARCHAR(255) CHARSET utf8mb4, IN `correo1` VARCHAR(255) CHARSET utf8mb4, IN `especialidad` INT, IN `password1` VARCHAR(255) CHARSET utf8mb4, IN `rol` VARCHAR(30) CHARSET utf8mb4)  BEGIN
+INSERT INTO `Empleado` (`NombreEmpleado`, `Correo`, `id_Especialidad`, `Password`) VALUES (nombre,correo1,especialidad,password1);
+DO SLEEP(3);
+SET @id=(SELECT `NumeroEmpleado` FROM `Empleado` WHERE `Correo`= correo1);
+SET @rol=(SELECT `Id_Rol` FROM `roles` WHERE `id`= rol);
+INSERT INTO `roles_Empleados` (	`Id_Rol`,`NumeroEmpleado`) VALUES(@rol,@id);
+END$$
 
-CREATE DEFINER=`id15308786_webimpact`@`%` PROCEDURE `GestionEmpleado` ()  NO SQL
+CREATE DEFINER=`Matu`@`localhost` PROCEDURE `CrearPaciente` (IN `NombrePaciente` VARCHAR(255) CHARSET utf8mb4, IN `ApellidoPaterno` VARCHAR(255) CHARSET utf8mb4, IN `ApellidoMaterno` VARCHAR(255) CHARSET utf8mb4, IN `Domicilio` VARCHAR(255) CHARSET utf8mb4, IN `Estado` INT(63), IN `Municipio` INT(63), IN `Telefono` INT(12), IN `Correo` VARCHAR(255) CHARSET utf8mb4, IN `FechaNacimiento` DATE, IN `Genero` VARCHAR(255) CHARSET utf8mb4, IN `Diagnostico` VARCHAR(255) CHARSET utf8mb4, IN `Lesion` VARCHAR(255) CHARSET utf8mb4, IN `Ingreso` DATE, IN `Reingreso` DATE, IN `Egreso` DATE, IN `Dependencia` VARCHAR(255) CHARSET utf8mb4, IN `Fotografia` VARCHAR(255) CHARSET utf8mb4, IN `Curp` VARCHAR(255) CHARSET utf8mb4, IN `ActaNacimiento` VARCHAR(255) CHARSET utf8mb4, IN `ComprobanteDomicilio` VARCHAR(255) CHARSET utf8mb4, IN `ExpedienteMedico` VARCHAR(255) CHARSET utf8mb4, IN `RecomendacionMedica` VARCHAR(255) CHARSET utf8mb4)  NO SQL
+INSERT INTO `Paciente` (`NumeroPaciente`, `NombrePaciente`, `ApellidoPaterno`, `ApellidoMaterno`, `Domicilio`, `Estado`, `Municipio`, `Telefono`, `Correo`, `FechaNacimiento`, `Genero`, `Diagnostico`, `Lesion`, `Ingreso`, `Reingreso`, `Egreso`, `Dependencia`, `Fotografia`, `Curp`, `ActaNacimiento`, `ComprobanteDomicilio`, `ExpedienteMedico`, `RecomendacionMedica`) VALUES (NULL, NombrePaciente, ApellidoPaterno, ApellidoMaterno, Domicilio, Estado, Municipio, Telefono, Correo, FechaNacimiento, Genero, Diagnostico, Lesion, Ingreso, Reingreso, Egreso, Dependencia, Fotografia, Fotografia, Curp, ActaNacimiento, ComprobanteDomicilio, ExpedienteMedico, RecomendacionMedica)$$
+
+CREATE DEFINER=`Matu`@`localhost` PROCEDURE `EliminarDonacion` (IN `NumeroDonativo` INT(63))  NO SQL
+UPDATE Donativos
+SET Donativos.Visibilidad = 0
+WHERE Donativos.NumeroDonativo = NumeroDonativo$$
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `EliminarEmpleado` (IN `NumeroEmpleado` INT(63))  NO SQL
+UPDATE empleado
+SET Visibilidad = 0, Correo = CURRENT_TIMESTAMP()
+WHERE empleado.NumeroEmpleado = NumeroEmpleado$$
+
+CREATE DEFINER=`Matu`@`localhost` PROCEDURE `EliminarPaciente` (IN `numeroPaciente` INT(63))  NO SQL
+UPDATE paciente
+SET Visibilidad = 0
+WHERE paciente.NumeroPaciente = numeroPaciente$$
+
+CREATE DEFINER=`Matu`@`localhost` PROCEDURE `EliminarReporte` (IN `NumeroReporte` INT)  NO SQL
+Update reporte
+SET reporte.Visibilidad = 0
+where reporte.NumeroReporte = NumeroReporte$$
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `GestionEmpleado` ()  NO SQL
 SELECT *
 FROM Empleado$$
 
-CREATE DEFINER=`id15308786_webimpact`@`%` PROCEDURE `ImprimeDonacionCreada` (IN `id_Donador` INT(63), IN `Fecha` DATE, IN `Descripcion` VARCHAR(255) CHARSET utf8mb4)  NO SQL
+CREATE DEFINER=`root`@`localhost` PROCEDURE `getEmpleadoById` (IN `id` INT(63))  NO SQL
+SELECT `NombreEmpleado`, `Correo`, `id_Especialidad`, `Password`, roles.id,`Visibilidad` FROM Empleado ,roles_Empleados,roles WHERE Empleado.NumeroEmpleado=roles_Empleados.NumeroEmpleado AND  roles_Empleados.Id_Rol=roles.Id_Rol AND Empleado.NumeroEmpleado=id$$
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `ImprimeDonacionCreada` (IN `id_Donador` INT(63), IN `Fecha` DATE, IN `Descripcion` VARCHAR(255) CHARSET utf8mb4)  NO SQL
 SELECT Donador.RazonSocial, Donativos.Fecha, Donativos.Descripcion 
 FROM `Donativos`, `Donador`
-WHERE Donativos.id_Donador = Donador.id_Donador and Donativos.id_Donador = id_Donador and Donativos.Fecha = Fecha and Donativos.Descripcion = Descripcion$$
+WHERE Donativos.id_Donador = Donador.id_Donador and Donativos.id_Donador = id_Donador and Donativos.Fecha = Fecha and Donativos.Descripcion = Descripcion and donador.Visibilidad = 1$$
 
-CREATE DEFINER=`id15308786_webimpact`@`%` PROCEDURE `ImprimirReporte` ()  NO SQL
+CREATE DEFINER=`root`@`localhost` PROCEDURE `ImprimirDonaciones` ()  NO SQL
+SELECT DON.RazonSocial as 'Nombre Donador',  D.Descripcion as 'Descripcion', D.Fecha as 'Fecha'  FROM Donativos D, Donador DON WHERE D.id_Donador=DON.id_Donador and D.Visibilidad = 1$$
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `ImprimirEmpleados` ()  NO SQL
+SELECT E.NumeroEmpleado, E.NombreEmpleado, E.Correo, ES.Descripcion FROM Empleado E, Especialidad ES     WHERE E.id_Especialidad=ES.id_Especialidad and E.Visibilidad = 1$$
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `ImprimirPacientes` ()  NO SQL
+SELECT P.NumeroPaciente, P.NombrePaciente, P.ApellidoPaterno,  P.ApellidoMaterno, P.Telefono, P.Diagnostico, PC.Asistencia FROM Paciente P, Paciente_Consulta PC WHERE P.NumeroPaciente = PC.NumeroPaciente and P.Visibilidad = 1$$
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `ImprimirReporte` ()  NO SQL
 SELECT T.Nombre as 'Tipo', E.NombreEmpleado as 'Encargado', P.NombrePaciente as 'Nombre', P.ApellidoPaterno as 'A Paterno', P.ApellidoMaterno as 'A Materno', R.Edad, R.Observaciones, R.Fecha
 FROM TipoReporte T, Reporte R, Empleado E, Paciente P
-WHERE E.NumeroEmpleado = R.NumeroEmpleado and P.NumeroPaciente = R.NumeroPaciente and T.id_TipoReporte = R.id_Tipo$$
+WHERE E.NumeroEmpleado = R.NumeroEmpleado and P.NumeroPaciente = R.NumeroPaciente and T.id_TipoReporte = R.id_Tipo and R.Visibilidad = 1$$
 
-CREATE DEFINER=`id15308786_webimpact`@`%` PROCEDURE `IniciarSesion` (IN `Correo` VARCHAR(255) CHARSET utf8mb4, IN `Password` VARCHAR(255) CHARSET utf8mb4)  NO SQL
+CREATE DEFINER=`root`@`localhost` PROCEDURE `IniciarSesion` (IN `Correo` VARCHAR(255) CHARSET utf8mb4, IN `Password` VARCHAR(255) CHARSET utf8mb4)  NO SQL
 SELECT E.NumeroEmpleado as id
 FROM Empleado E
 WHERE E.Correo = Correo and E.Password = Password$$
 
-CREATE DEFINER=`id15308786_webimpact`@`%` PROCEDURE `OpcionesDonador` ()  NO SQL
+CREATE DEFINER=`root`@`localhost` PROCEDURE `OpcionesDonador` ()  NO SQL
 SELECT id_Donador as 'id', RazonSocial
-FROM Donador$$
+FROM Donador
+WHERE Visibilidad = 1$$
 
-CREATE DEFINER=`id15308786_webimpact`@`%` PROCEDURE `OpcionesEspecialidades` ()  SELECT * FROM Especialidad$$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `OpcionesEspecialidades` ()  SELECT * FROM Especialidad$$
 
-CREATE DEFINER=`id15308786_webimpact`@`%` PROCEDURE `OpcionesEstado` ()  NO SQL
+CREATE DEFINER=`root`@`localhost` PROCEDURE `OpcionesEstado` ()  NO SQL
 SELECT id_Entidad, NombreEstado
 FROM Entidad$$
 
-CREATE DEFINER=`id15308786_webimpact`@`%` PROCEDURE `OpcionesMunicipio` (IN `id_Estado` INT(63))  SELECT idMunicipio, nombreMunicipio as 'Municipio'
+CREATE DEFINER=`root`@`localhost` PROCEDURE `OpcionesMunicipio` (IN `id_Estado` INT(63))  SELECT idMunicipio, nombreMunicipio as 'Municipio'
 FROM Municipio M
 WHERE M.idEstado = id_Estado$$
 
-CREATE DEFINER=`id15308786_webimpact`@`%` PROCEDURE `RFCDonador` (IN `id_Donador` INT(63))  NO SQL
+CREATE DEFINER=`root`@`localhost` PROCEDURE `OpcionesRoles` ()  NO SQL
+SELECT id, Id_Rol FROM roles$$
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `RFCDonador` (IN `id_Donador` INT(63))  NO SQL
 SELECT RFC
 FROM Donador
 WHERE Donador.id_Donador = id_Donador$$
 
-CREATE DEFINER=`id15308786_webimpact`@`%` PROCEDURE `TelDonador` (IN `id_Donador` INT(63))  NO SQL
+CREATE DEFINER=`root`@`localhost` PROCEDURE `TelDonador` (IN `id_Donador` INT(63))  NO SQL
 SELECT Telefono
 FROM Donador
 WHERE Donador.id_Donador = id_Donador$$
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `UpdateEmpleadoById` (IN `NombreEmpleado` VARCHAR(255), IN `Correo` VARCHAR(255), IN `Especialidad` INT, IN `Password` VARCHAR(255), IN `rol` INT, IN `id` INT)  NO SQL
+BEGIN
+UPDATE `Empleado` SET `NombreEmpleado`=NombreEmpleado,`Correo`=Correo,`id_Especialidad`=Especialidad,`Password`=Password WHERE NumeroEmpleado=id;
+SET @rol=(SELECT `Id_Rol` FROM `roles` WHERE id= rol);
+SELECT @rol;
+UPDATE `roles_Empleados` SET 
+`Id_Rol`=@rol WHERE NumeroEmpleado=id;
+END$$
 
 DELIMITER ;
 
@@ -100,20 +152,22 @@ DELIMITER ;
 --
 
 CREATE TABLE `Donador` (
-  `id_Donador` int(11) NOT NULL,
-  `RazonSocial` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `RFC` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `Correo` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `Telefono` varchar(12) COLLATE utf8_unicode_ci NOT NULL
+  `id_Donador` int NOT NULL,
+  `RazonSocial` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `RFC` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `Correo` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `Telefono` varchar(12) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `Visibilidad` tinyint(1) NOT NULL DEFAULT '1'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table `Donador`
 --
 
-INSERT INTO `Donador` (`id_Donador`, `RazonSocial`, `RFC`, `Correo`, `Telefono`) VALUES
-(1, 'Alberto Matute', 'RFC0000111PRUEBA', 'webimpact20@gmail.com', '442-465-8631'),
-(2, 'Don Dimadome', 'DD05841266', 'DueñodelDimadomo@dedimsdale.com', '123-4567-890');
+INSERT INTO `Donador` (`id_Donador`, `RazonSocial`, `RFC`, `Correo`, `Telefono`, `Visibilidad`) VALUES
+(1, 'Alberto Matute', 'RFC0000111PRUEBA', 'webimpact20@gmail.com', '442-465-8631', 1),
+(2, 'Don Dimadome', 'DD05841266', 'DueñodelDimadomo@dedimsdale.com', '123-4567-890', 1),
+(3, 'Royer Arenas', 'AERC452345', 'A01209400@itesm.mx', '4611194779', 1);
 
 -- --------------------------------------------------------
 
@@ -122,33 +176,26 @@ INSERT INTO `Donador` (`id_Donador`, `RazonSocial`, `RFC`, `Correo`, `Telefono`)
 --
 
 CREATE TABLE `Donativos` (
-  `NumeroDonativo` int(11) NOT NULL,
-  `Descripcion` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `Fecha` timestamp NOT NULL DEFAULT current_timestamp(),
-  `id_Donador` int(11) NOT NULL
+  `NumeroDonativo` int NOT NULL,
+  `Descripcion` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `Fecha` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `id_Donador` int NOT NULL,
+  `Visibilidad` tinyint(1) NOT NULL DEFAULT '1'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table `Donativos`
 --
 
-INSERT INTO `Donativos` (`NumeroDonativo`, `Descripcion`, `Fecha`, `id_Donador`) VALUES
-(3, 'un tamal', '2020-11-03 08:36:00', 1),
-(4, 'un boobaloo', '2020-11-04 02:39:28', 1),
-(5, 'Hola', '2020-11-10 00:00:00', 1),
-(6, 'Hola', '2020-11-13 00:00:00', 1),
-(7, 'Dueño del domodin de dimsdale', '2020-11-16 00:00:00', 2),
-(8, 'Donó unas noche buenas y escarchado para miches y carne seca', '2020-11-14 00:00:00', 2),
-(9, 'Hola', '2020-11-30 00:00:00', 2),
-(10, 'carne', '2020-11-16 00:00:00', 2),
-(11, 'agua', '2020-11-10 00:00:00', 1),
-(12, 'Dueño del domodin de dimsdale', '2020-11-09 00:00:00', 1),
-(13, 'Hola', '2020-11-11 00:00:00', 2),
-(14, 'fruta', '2020-11-25 00:00:00', 1),
-(15, 'Ropa padre', '2020-11-17 00:00:00', 1),
-(16, 'Dueño del domodin de dimsdale', '2020-11-20 00:00:00', 1),
-(17, 'fruta deliciosa', '2020-11-09 00:00:00', 1),
-(18, 'Comida y un bacacho', '2020-11-19 00:00:00', 2);
+INSERT INTO `Donativos` (`NumeroDonativo`, `Descripcion`, `Fecha`, `id_Donador`, `Visibilidad`) VALUES
+(19, '$20', '2020-11-10 00:00:00', 2, 1),
+(20, '$100000', '2020-11-09 00:00:00', 1, 1),
+(21, '$2021', '2020-11-07 00:00:00', 2, 1),
+(22, 'Cubreboca', '2020-11-05 00:00:00', 1, 0),
+(23, '$300', '2020-11-10 00:00:00', 1, 1),
+(24, '$20', '2020-11-04 00:00:00', 2, 1),
+(25, '$100', '2020-11-09 00:00:00', 3, 1),
+(26, '$300', '2020-11-11 00:00:00', 2, 1);
 
 -- --------------------------------------------------------
 
@@ -157,22 +204,22 @@ INSERT INTO `Donativos` (`NumeroDonativo`, `Descripcion`, `Fecha`, `id_Donador`)
 --
 
 CREATE TABLE `Empleado` (
-  `NumeroEmpleado` int(63) NOT NULL,
-  `NombreEmpleado` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `Correo` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `id_Especialidad` int(63) NOT NULL,
-  `Password` varchar(255) COLLATE utf8_unicode_ci NOT NULL
+  `NumeroEmpleado` int NOT NULL,
+  `NombreEmpleado` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `Correo` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `id_Especialidad` int NOT NULL,
+  `Password` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `Visibilidad` tinyint(1) NOT NULL DEFAULT '1'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table `Empleado`
 --
 
-INSERT INTO `Empleado` (`NumeroEmpleado`, `NombreEmpleado`, `Correo`, `id_Especialidad`, `Password`) VALUES
-(1, 'Asuncion', 'Asuncion@gmail.com', 1, 'Asuncion01'),
-(3, 'Miles Morales', 'prueba@itesm.mx', 2, 'abc123'),
-(4, 'Royer Donnet', 'A01209400@itesm.mx', 1, '12345'),
-(5, 'Royer Donnet', 'royer@gmail.com', 2, 'aksdfjasldkfj');
+INSERT INTO `Empleado` (`NumeroEmpleado`, `NombreEmpleado`, `Correo`, `id_Especialidad`, `Password`, `Visibilidad`) VALUES
+(1, 'Asuncion1', 'asuncion@gmail.com', 2, 'asuncion01', 1),
+(3, 'Miles Morales', 'prueba@itesm.mx', 2, 'abc123', 1),
+(75, 'Royer Arenas', 'A01209400@itesm.mx', 1, 'Royito01$_', 1);
 
 -- --------------------------------------------------------
 
@@ -181,10 +228,10 @@ INSERT INTO `Empleado` (`NumeroEmpleado`, `NombreEmpleado`, `Correo`, `id_Especi
 --
 
 CREATE TABLE `Entidad` (
-  `id_Entidad` int(63) NOT NULL,
-  `NombreEstado` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `abreviacion` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `pais` varchar(255) COLLATE utf8_unicode_ci NOT NULL
+  `id_Entidad` int NOT NULL,
+  `NombreEstado` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `abreviacion` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `pais` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
@@ -232,8 +279,8 @@ INSERT INTO `Entidad` (`id_Entidad`, `NombreEstado`, `abreviacion`, `pais`) VALU
 --
 
 CREATE TABLE `Especialidad` (
-  `id_Especialidad` int(11) NOT NULL,
-  `Descripcion` varchar(30) COLLATE utf8_unicode_ci NOT NULL
+  `id_Especialidad` int NOT NULL,
+  `Descripcion` varchar(30) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
@@ -251,11 +298,11 @@ INSERT INTO `Especialidad` (`id_Especialidad`, `Descripcion`) VALUES
 --
 
 CREATE TABLE `Municipio` (
-  `idMunicipio` int(63) NOT NULL,
-  `idEstado` int(63) NOT NULL,
-  `nombreMunicipio` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `idCab` int(63) NOT NULL,
-  `nombreCab` varchar(255) COLLATE utf8_unicode_ci NOT NULL
+  `idMunicipio` int NOT NULL,
+  `idEstado` int NOT NULL,
+  `nombreMunicipio` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `idCab` int NOT NULL,
+  `nombreCab` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
@@ -2730,37 +2777,38 @@ INSERT INTO `Municipio` (`idMunicipio`, `idEstado`, `nombreMunicipio`, `idCab`, 
 --
 
 CREATE TABLE `Paciente` (
-  `NumeroPaciente` int(63) NOT NULL,
-  `NombrePaciente` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `ApellidoPaterno` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `ApellidoMaterno` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `Domicilio` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `Estado` int(63) NOT NULL,
-  `Municipio` int(63) NOT NULL,
-  `Telefono` varchar(12) COLLATE utf8_unicode_ci NOT NULL,
-  `Correo` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `NumeroPaciente` int NOT NULL,
+  `NombrePaciente` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `ApellidoPaterno` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `ApellidoMaterno` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `Domicilio` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `Estado` int NOT NULL,
+  `Municipio` int NOT NULL,
+  `Telefono` varchar(12) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `Correo` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
   `FechaNacimiento` date NOT NULL,
-  `Genero` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `Diagnostico` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `Lesion` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `Genero` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `Diagnostico` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `Lesion` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
   `Ingreso` date NOT NULL,
   `Reingreso` date NOT NULL,
   `Egreso` date NOT NULL,
-  `Dependencia` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `Fotografia` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `Curp` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `ActaNacimiento` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `ComprobanteDomicilio` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `ExpedienteMedico` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `RecomendacionMedica` varchar(255) COLLATE utf8_unicode_ci NOT NULL
+  `Dependencia` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `Fotografia` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `Curp` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `ActaNacimiento` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `ComprobanteDomicilio` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `ExpedienteMedico` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `RecomendacionMedica` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `Visibilidad` tinyint(1) NOT NULL DEFAULT '1'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table `Paciente`
 --
 
-INSERT INTO `Paciente` (`NumeroPaciente`, `NombrePaciente`, `ApellidoPaterno`, `ApellidoMaterno`, `Domicilio`, `Estado`, `Municipio`, `Telefono`, `Correo`, `FechaNacimiento`, `Genero`, `Diagnostico`, `Lesion`, `Ingreso`, `Reingreso`, `Egreso`, `Dependencia`, `Fotografia`, `Curp`, `ActaNacimiento`, `ComprobanteDomicilio`, `ExpedienteMedico`, `RecomendacionMedica`) VALUES
-(1, 'Alberto', 'Matute', 'Beltran', 'mi casa # 34 Col. Lomas', 1, 2, '442-456-9874', 'webimpact20@gmail.com', '2020-06-10', 'Masculino', 'Lesion de hombro', 'Ortopedia', '2019-10-06', '2020-09-01', '2020-11-02', 'Juan perez', 'NULL', 'NULL', 'NULL', 'NULL', 'NULL', 'NULL');
+INSERT INTO `Paciente` (`NumeroPaciente`, `NombrePaciente`, `ApellidoPaterno`, `ApellidoMaterno`, `Domicilio`, `Estado`, `Municipio`, `Telefono`, `Correo`, `FechaNacimiento`, `Genero`, `Diagnostico`, `Lesion`, `Ingreso`, `Reingreso`, `Egreso`, `Dependencia`, `Fotografia`, `Curp`, `ActaNacimiento`, `ComprobanteDomicilio`, `ExpedienteMedico`, `RecomendacionMedica`, `Visibilidad`) VALUES
+(1, 'Alberto', 'Matute', 'Beltran', 'mi casa # 34 Col. Lomas', 1, 2, '442-456-9874', 'webimpact20@gmail.com', '2020-06-10', 'Masculino', 'Lesion de hombro', 'Ortopedia', '2019-10-06', '2020-09-01', '2020-11-02', 'Juan perez', 'NULL', 'NULL', 'NULL', 'NULL', 'NULL', 'NULL', 1);
 
 -- --------------------------------------------------------
 
@@ -2769,9 +2817,9 @@ INSERT INTO `Paciente` (`NumeroPaciente`, `NombrePaciente`, `ApellidoPaterno`, `
 --
 
 CREATE TABLE `Paciente_Consulta` (
-  `Fecha` datetime NOT NULL DEFAULT current_timestamp(),
-  `NumeroEmpleado` int(63) NOT NULL,
-  `NumeroPaciente` int(11) NOT NULL,
+  `Fecha` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `NumeroEmpleado` int NOT NULL,
+  `NumeroPaciente` int NOT NULL,
   `Asistencia` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
@@ -2794,8 +2842,8 @@ INSERT INTO `Paciente_Consulta` (`Fecha`, `NumeroEmpleado`, `NumeroPaciente`, `A
 --
 
 CREATE TABLE `privilegios` (
-  `Id_Privilegio` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
-  `Accion` text COLLATE utf8_unicode_ci NOT NULL
+  `Id_Privilegio` varchar(30) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `Accion` text CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
@@ -2825,17 +2873,19 @@ INSERT INTO `privilegios` (`Id_Privilegio`, `Accion`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `Reporte`
+-- Table structure for table `reporte`
 --
 
-CREATE TABLE `Reporte` (
-  `id_Tipo` int(63) NOT NULL,
-  `NumeroEmpleado` int(63) NOT NULL,
-  `NumeroPaciente` int(63) NOT NULL,
-  `Edad` int(63) NOT NULL,
-  `Observaciones` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `Fecha` datetime NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+CREATE TABLE `reporte` (
+  `NumeroReporte` int NOT NULL,
+  `id_Tipo` int NOT NULL,
+  `NumeroEmpleado` int NOT NULL,
+  `NumeroPaciente` int NOT NULL,
+  `Edad` int NOT NULL,
+  `Observaciones` varchar(255) NOT NULL,
+  `Fecha` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `Visibilidad` tinyint(1) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- --------------------------------------------------------
 
@@ -2844,17 +2894,18 @@ CREATE TABLE `Reporte` (
 --
 
 CREATE TABLE `roles` (
-  `Id_Rol` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
-  `Descripcion_Rol` text COLLATE utf8_unicode_ci NOT NULL
+  `Id_Rol` varchar(30) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `Descripcion_Rol` text CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `id` int DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table `roles`
 --
 
-INSERT INTO `roles` (`Id_Rol`, `Descripcion_Rol`) VALUES
-('Administracion', 'Crea empleados, gestiona donativos y genera expedientes de pacientes'),
-('Terapeuta', 'Gestiona pacientes, crea reportes, toma asistencia');
+INSERT INTO `roles` (`Id_Rol`, `Descripcion_Rol`, `id`) VALUES
+('Administracion', 'Crea empleados, gestiona donativos y genera expedientes de pacientes', 1),
+('Terapeuta', 'Gestiona pacientes, crea reportes, toma asistencia', 2);
 
 -- --------------------------------------------------------
 
@@ -2863,8 +2914,8 @@ INSERT INTO `roles` (`Id_Rol`, `Descripcion_Rol`) VALUES
 --
 
 CREATE TABLE `roles_Empleados` (
-  `Id_Rol` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
-  `NumeroEmpleado` int(11) NOT NULL
+  `Id_Rol` varchar(30) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `NumeroEmpleado` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
@@ -2872,7 +2923,9 @@ CREATE TABLE `roles_Empleados` (
 --
 
 INSERT INTO `roles_Empleados` (`Id_Rol`, `NumeroEmpleado`) VALUES
-('Administracion', 1);
+('Terapeuta', 3),
+('Administracion', 1),
+('Administracion', 75);
 
 -- --------------------------------------------------------
 
@@ -2881,8 +2934,8 @@ INSERT INTO `roles_Empleados` (`Id_Rol`, `NumeroEmpleado`) VALUES
 --
 
 CREATE TABLE `roles_privilegios` (
-  `Id_Rol` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
-  `Id_Privilegio` varchar(30) COLLATE utf8_unicode_ci NOT NULL
+  `Id_Rol` varchar(30) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `Id_Privilegio` varchar(30) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
@@ -2916,8 +2969,8 @@ INSERT INTO `roles_privilegios` (`Id_Rol`, `Id_Privilegio`) VALUES
 --
 
 CREATE TABLE `TipoReporte` (
-  `id_TipoReporte` int(63) NOT NULL,
-  `Nombre` varchar(255) COLLATE utf8_unicode_ci NOT NULL
+  `id_TipoReporte` int NOT NULL,
+  `Nombre` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
@@ -2949,8 +3002,7 @@ ALTER TABLE `Donativos`
 -- Indexes for table `Empleado`
 --
 ALTER TABLE `Empleado`
-  ADD PRIMARY KEY (`NumeroEmpleado`),
-  ADD UNIQUE KEY `Correo` (`Correo`);
+  ADD PRIMARY KEY (`NumeroEmpleado`);
 
 --
 -- Indexes for table `Entidad`
@@ -2993,10 +3045,11 @@ ALTER TABLE `privilegios`
   ADD PRIMARY KEY (`Id_Privilegio`);
 
 --
--- Indexes for table `Reporte`
+-- Indexes for table `reporte`
 --
-ALTER TABLE `Reporte`
-  ADD PRIMARY KEY (`NumeroEmpleado`,`NumeroPaciente`,`Fecha`),
+ALTER TABLE `reporte`
+  ADD PRIMARY KEY (`NumeroReporte`,`Fecha`),
+  ADD KEY `NumeroEmpleado` (`NumeroEmpleado`),
   ADD KEY `NumeroPaciente` (`NumeroPaciente`);
 
 --
@@ -3033,37 +3086,43 @@ ALTER TABLE `TipoReporte`
 -- AUTO_INCREMENT for table `Donador`
 --
 ALTER TABLE `Donador`
-  MODIFY `id_Donador` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_Donador` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `Donativos`
 --
 ALTER TABLE `Donativos`
-  MODIFY `NumeroDonativo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `NumeroDonativo` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
 -- AUTO_INCREMENT for table `Empleado`
 --
 ALTER TABLE `Empleado`
-  MODIFY `NumeroEmpleado` int(63) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `NumeroEmpleado` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=76;
 
 --
 -- AUTO_INCREMENT for table `Especialidad`
 --
 ALTER TABLE `Especialidad`
-  MODIFY `id_Especialidad` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_Especialidad` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `Paciente`
 --
 ALTER TABLE `Paciente`
-  MODIFY `NumeroPaciente` int(63) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `NumeroPaciente` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `reporte`
+--
+ALTER TABLE `reporte`
+  MODIFY `NumeroReporte` int NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `TipoReporte`
 --
 ALTER TABLE `TipoReporte`
-  MODIFY `id_TipoReporte` int(63) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_TipoReporte` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- Constraints for dumped tables
@@ -3093,13 +3152,6 @@ ALTER TABLE `Paciente`
 ALTER TABLE `Paciente_Consulta`
   ADD CONSTRAINT `Paciente_Consulta_ibfk_1` FOREIGN KEY (`NumeroEmpleado`) REFERENCES `Empleado` (`NumeroEmpleado`),
   ADD CONSTRAINT `Paciente_Consulta_ibfk_2` FOREIGN KEY (`NumeroPaciente`) REFERENCES `Paciente` (`NumeroPaciente`);
-
---
--- Constraints for table `Reporte`
---
-ALTER TABLE `Reporte`
-  ADD CONSTRAINT `Reporte_ibfk_1` FOREIGN KEY (`NumeroEmpleado`) REFERENCES `Empleado` (`NumeroEmpleado`),
-  ADD CONSTRAINT `Reporte_ibfk_2` FOREIGN KEY (`NumeroPaciente`) REFERENCES `Paciente` (`NumeroPaciente`);
 
 --
 -- Constraints for table `roles_Empleados`
