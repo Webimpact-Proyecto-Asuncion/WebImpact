@@ -26,25 +26,25 @@ DELIMITER $$
 --
 -- Procedures
 --
-CREATE DEFINER=`root`@`localhost` PROCEDURE `ContarFaltas` (IN `NumPaciente` INT(63))  SELECT COUNT(PC.Asistencia) as 'Faltas' FROM Paciente_Consulta PC
+CREATE PROCEDURE `ContarFaltas` (IN `NumPaciente` INT(63))  SELECT COUNT(PC.Asistencia) as 'Faltas' FROM Paciente_Consulta PC
 WHERE PC.Asistencia = 0 and PC.NumeroPaciente = NumPaciente$$
 
-CREATE DEFINER=`root`@`localhost` PROCEDURE `CorreoDonador` (IN `id_Donador` INT(63))  NO SQL
+CREATE PROCEDURE `CorreoDonador` (IN `id_Donador` INT(63))  NO SQL
 SELECT Correo
 FROM Donador
 WHERE Donador.id_Donador = id_Donador$$
 
-CREATE DEFINER=`root`@`localhost` PROCEDURE `CrearDonacion` (IN `id_Donador` INT(63), IN `Descripcion` VARCHAR(255) CHARSET utf8mb4, IN `Fecha` DATE)  NO SQL
+CREATE PROCEDURE `CrearDonacion` (IN `id_Donador` INT(63), IN `Descripcion` VARCHAR(255) CHARSET utf8mb4, IN `Fecha` DATE)  NO SQL
 INSERT INTO `Donativos` (`Descripcion`,`id_Donador`, `Fecha`) VALUES (Descripcion,  id_Donador, Fecha)$$
 
-CREATE DEFINER=`root`@`localhost` PROCEDURE `CrearDonador` (IN `RazonSocial` VARCHAR(255) CHARSET utf8mb4, IN `RFC` VARCHAR(255) CHARSET utf8mb4, IN `Correo` VARCHAR(255) CHARSET utf8mb4, IN `Telefono` VARCHAR(12) CHARSET utf8mb4)  NO SQL
+CREATE PROCEDURE `CrearDonador` (IN `RazonSocial` VARCHAR(255) CHARSET utf8mb4, IN `RFC` VARCHAR(255) CHARSET utf8mb4, IN `Correo` VARCHAR(255) CHARSET utf8mb4, IN `Telefono` VARCHAR(12) CHARSET utf8mb4)  NO SQL
 INSERT INTO Donador(RazonSocial, RFC, Correo, Telefono)
 Values(RazonSocial, RFC, Correo, Telefono)$$
 
-CREATE DEFINER=`root`@`localhost` PROCEDURE `CrearEmpleado` (IN `NombreEmpleado` VARCHAR(255) CHARSET utf8mb4, IN `Correo` VARCHAR(255) CHARSET utf8mb4, IN `Especialidad` INT(63), IN `Password` VARCHAR(255) CHARSET utf8mb4)  NO SQL
+CREATE PROCEDURE `CrearEmpleado` (IN `NombreEmpleado` VARCHAR(255) CHARSET utf8mb4, IN `Correo` VARCHAR(255) CHARSET utf8mb4, IN `Especialidad` INT(63), IN `Password` VARCHAR(255) CHARSET utf8mb4)  NO SQL
 INSERT INTO `Empleado` (`NombreEmpleado`, `Correo`, `id_Especialidad`, `Password`) VALUES (NombreEmpleado, Correo, Especialidad, Password)$$
 
-CREATE DEFINER=`root`@`localhost` PROCEDURE `CrearEmpleado_ROL` (IN `nombre` VARCHAR(255) CHARSET utf8mb4, IN `correo1` VARCHAR(255) CHARSET utf8mb4, IN `especialidad` INT, IN `password1` VARCHAR(255) CHARSET utf8mb4, IN `rol` VARCHAR(30) CHARSET utf8mb4)  BEGIN
+CREATE PROCEDURE `CrearEmpleado_ROL` (IN `nombre` VARCHAR(255) CHARSET utf8mb4, IN `correo1` VARCHAR(255) CHARSET utf8mb4, IN `especialidad` INT, IN `password1` VARCHAR(255) CHARSET utf8mb4, IN `rol` VARCHAR(30) CHARSET utf8mb4)  BEGIN
 INSERT INTO `Empleado` (`NombreEmpleado`, `Correo`, `id_Especialidad`, `Password`) VALUES (nombre,correo1,especialidad,password1);
 DO SLEEP(3);
 SET @id=(SELECT `NumeroEmpleado` FROM `Empleado` WHERE `Correo`= correo1);
@@ -60,7 +60,7 @@ UPDATE Donativos
 SET Donativos.Visibilidad = 0
 WHERE Donativos.NumeroDonativo = NumeroDonativo$$
 
-CREATE DEFINER=`root`@`localhost` PROCEDURE `EliminarEmpleado` (IN `NumeroEmpleado` INT(63))  NO SQL
+CREATE PROCEDURE `EliminarEmpleado` (IN `NumeroEmpleado` INT(63))  NO SQL
 UPDATE empleado
 SET Visibilidad = 0, Correo = CURRENT_TIMESTAMP()
 WHERE empleado.NumeroEmpleado = NumeroEmpleado$$
@@ -75,66 +75,66 @@ Update reporte
 SET reporte.Visibilidad = 0
 where reporte.NumeroReporte = NumeroReporte$$
 
-CREATE DEFINER=`root`@`localhost` PROCEDURE `GestionEmpleado` ()  NO SQL
+CREATE PROCEDURE `GestionEmpleado` ()  NO SQL
 SELECT *
 FROM Empleado$$
 
-CREATE DEFINER=`root`@`localhost` PROCEDURE `getEmpleadoById` (IN `id` INT(63))  NO SQL
+CREATE PROCEDURE `getEmpleadoById` (IN `id` INT(63))  NO SQL
 SELECT `NombreEmpleado`, `Correo`, `id_Especialidad`, `Password`, roles.id,`Visibilidad` FROM Empleado ,roles_Empleados,roles WHERE Empleado.NumeroEmpleado=roles_Empleados.NumeroEmpleado AND  roles_Empleados.Id_Rol=roles.Id_Rol AND Empleado.NumeroEmpleado=id$$
 
-CREATE DEFINER=`root`@`localhost` PROCEDURE `ImprimeDonacionCreada` (IN `id_Donador` INT(63), IN `Fecha` DATE, IN `Descripcion` VARCHAR(255) CHARSET utf8mb4)  NO SQL
+CREATE PROCEDURE `ImprimeDonacionCreada` (IN `id_Donador` INT(63), IN `Fecha` DATE, IN `Descripcion` VARCHAR(255) CHARSET utf8mb4)  NO SQL
 SELECT Donador.RazonSocial, Donativos.Fecha, Donativos.Descripcion 
 FROM `Donativos`, `Donador`
 WHERE Donativos.id_Donador = Donador.id_Donador and Donativos.id_Donador = id_Donador and Donativos.Fecha = Fecha and Donativos.Descripcion = Descripcion and donador.Visibilidad = 1$$
 
-CREATE DEFINER=`root`@`localhost` PROCEDURE `ImprimirDonaciones` ()  NO SQL
+CREATE PROCEDURE `ImprimirDonaciones` ()  NO SQL
 SELECT DON.RazonSocial as 'Nombre Donador',  D.Descripcion as 'Descripcion', D.Fecha as 'Fecha'  FROM Donativos D, Donador DON WHERE D.id_Donador=DON.id_Donador and D.Visibilidad = 1$$
 
-CREATE DEFINER=`root`@`localhost` PROCEDURE `ImprimirEmpleados` ()  NO SQL
+CREATE PROCEDURE `ImprimirEmpleados` ()  NO SQL
 SELECT E.NumeroEmpleado, E.NombreEmpleado, E.Correo, ES.Descripcion FROM Empleado E, Especialidad ES     WHERE E.id_Especialidad=ES.id_Especialidad and E.Visibilidad = 1$$
 
-CREATE DEFINER=`root`@`localhost` PROCEDURE `ImprimirPacientes` ()  NO SQL
+CREATE PROCEDURE `ImprimirPacientes` ()  NO SQL
 SELECT P.NumeroPaciente, P.NombrePaciente, P.ApellidoPaterno,  P.ApellidoMaterno, P.Telefono, P.Diagnostico, PC.Asistencia FROM Paciente P, Paciente_Consulta PC WHERE P.NumeroPaciente = PC.NumeroPaciente and P.Visibilidad = 1$$
 
-CREATE DEFINER=`root`@`localhost` PROCEDURE `ImprimirReporte` ()  NO SQL
+CREATE PROCEDURE `ImprimirReporte` ()  NO SQL
 SELECT T.Nombre as 'Tipo', E.NombreEmpleado as 'Encargado', P.NombrePaciente as 'Nombre', P.ApellidoPaterno as 'A Paterno', P.ApellidoMaterno as 'A Materno', R.Edad, R.Observaciones, R.Fecha
 FROM TipoReporte T, Reporte R, Empleado E, Paciente P
 WHERE E.NumeroEmpleado = R.NumeroEmpleado and P.NumeroPaciente = R.NumeroPaciente and T.id_TipoReporte = R.id_Tipo and R.Visibilidad = 1$$
 
-CREATE DEFINER=`root`@`localhost` PROCEDURE `IniciarSesion` (IN `Correo` VARCHAR(255) CHARSET utf8mb4, IN `Password` VARCHAR(255) CHARSET utf8mb4)  NO SQL
+CREATE PROCEDURE `IniciarSesion` (IN `Correo` VARCHAR(255) CHARSET utf8mb4, IN `Password` VARCHAR(255) CHARSET utf8mb4)  NO SQL
 SELECT E.NumeroEmpleado as id
 FROM Empleado E
 WHERE E.Correo = Correo and E.Password = Password$$
 
-CREATE DEFINER=`root`@`localhost` PROCEDURE `OpcionesDonador` ()  NO SQL
+CREATE PROCEDURE `OpcionesDonador` ()  NO SQL
 SELECT id_Donador as 'id', RazonSocial
 FROM Donador
 WHERE Visibilidad = 1$$
 
-CREATE DEFINER=`root`@`localhost` PROCEDURE `OpcionesEspecialidades` ()  SELECT * FROM Especialidad$$
+CREATE PROCEDURE `OpcionesEspecialidades` ()  SELECT * FROM Especialidad$$
 
-CREATE DEFINER=`root`@`localhost` PROCEDURE `OpcionesEstado` ()  NO SQL
+CREATE PROCEDURE `OpcionesEstado` ()  NO SQL
 SELECT id_Entidad, NombreEstado
 FROM Entidad$$
 
-CREATE DEFINER=`root`@`localhost` PROCEDURE `OpcionesMunicipio` (IN `id_Estado` INT(63))  SELECT idMunicipio, nombreMunicipio as 'Municipio'
+CREATE PROCEDURE `OpcionesMunicipio` (IN `id_Estado` INT(63))  SELECT idMunicipio, nombreMunicipio as 'Municipio'
 FROM Municipio M
 WHERE M.idEstado = id_Estado$$
 
-CREATE DEFINER=`root`@`localhost` PROCEDURE `OpcionesRoles` ()  NO SQL
+CREATE PROCEDURE `OpcionesRoles` ()  NO SQL
 SELECT id, Id_Rol FROM roles$$
 
-CREATE DEFINER=`root`@`localhost` PROCEDURE `RFCDonador` (IN `id_Donador` INT(63))  NO SQL
+CREATE PROCEDURE `RFCDonador` (IN `id_Donador` INT(63))  NO SQL
 SELECT RFC
 FROM Donador
 WHERE Donador.id_Donador = id_Donador$$
 
-CREATE DEFINER=`root`@`localhost` PROCEDURE `TelDonador` (IN `id_Donador` INT(63))  NO SQL
+CREATE PROCEDURE `TelDonador` (IN `id_Donador` INT(63))  NO SQL
 SELECT Telefono
 FROM Donador
 WHERE Donador.id_Donador = id_Donador$$
 
-CREATE DEFINER=`root`@`localhost` PROCEDURE `UpdateEmpleadoById` (IN `NombreEmpleado` VARCHAR(255), IN `Correo` VARCHAR(255), IN `Especialidad` INT, IN `Password` VARCHAR(255), IN `rol` INT, IN `id` INT)  NO SQL
+CREATE PROCEDURE `UpdateEmpleadoById` (IN `NombreEmpleado` VARCHAR(255), IN `Correo` VARCHAR(255), IN `Especialidad` INT, IN `Password` VARCHAR(255), IN `rol` INT, IN `id` INT)  NO SQL
 BEGIN
 UPDATE `Empleado` SET `NombreEmpleado`=NombreEmpleado,`Correo`=Correo,`id_Especialidad`=Especialidad,`Password`=Password WHERE NumeroEmpleado=id;
 SET @rol=(SELECT `Id_Rol` FROM `roles` WHERE id= rol);
