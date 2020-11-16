@@ -1,6 +1,7 @@
 <?php
 
     require_once ('util.php'); 
+    session_start();
 
    
     $_POST["nombre"] = htmlspecialchars($_POST["nombre"]);
@@ -32,35 +33,105 @@
     $dependencia = $_POST["dependencia"]; 
     $correo = $_POST["correo"];
     $estado = $_POST["estado"];
-    $municipio = $_POST["municipio"];
+    //$municipio = $_POST["municipio"];
 
 /****************IMAGES***********************/
-    function setImage($targetFile)
-    {
-      return strtolower(pathinfo($targetFile,PATHINFO_EXTENSION)); 
-    }
+   
+    /*$image = $_FILES["estudioSE"]["name"];
 
-    $targetDir = "imagenes/";
-    $targetFile_ES = $targetDir.basename($_FILES["estudioS"]["name"]); 
     $uploadOK = 1; 
-    $imageFileType_ES = setImage($targetFile_ES);
+    $aux = explode('.', $image);
+    $imageFileType_ES = end($aux);
 
-    $check = getimagesize($_FILES["estudioS"]["tmp_name"]);
 
-    if($imageFileType_ES  != "jpg" && $imageFileType_ES != "png" && $imageFileType_ES != "jpeg")
+    if(isset($_FILES["estudioSE"]["name"]) && !empty($_FILES["estudioSE"]["name"]))
     {
-        echo "El archivo debe ser una fotografía en formato JPG, PNG o JPEG.";
-        $uploadOK = 0; 
-    }
-
-    if($uploadOK == 0)
-    {
-        echo "No se pudo subir la foto."; 
+      if($imageFileType_ES  != "jpg" && $imageFileType_ES != "png" && $imageFileType_ES != "jpeg")
+      {
+          echo "El archivo debe ser una fotografía en formato JPG, PNG o JPEG.";
+          $uploadOK = 0; 
+      }
+  
+  
+      if($uploadOK == 0)
+      {
+          echo "No se pudo subir la foto."; 
+      }
+      else
+      {
+          $estudioSE = img($imageFileType_ES, $_FILES["estudioSE"]["tmp_name"]); 
+         
+      }
     }
     else
     {
-        $estudioSE = img($imageFileType_ES, $_FILES["estudioS"]["tmp_name"]); 
-    }
+      echo "No hay foto"; 
+    }*/
+
+    $target_dir = "imagenes/"; //$target_dir = "uploads/" - specifies the directory where the file is going to be placed
+    $target_file = $target_dir.basename($_FILES["estudioSE"]["name"]); //$target_file specifies the path of the file to be uploaded
+    $uploadOk = 1;
+    $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION)); //$imageFileType holds the file extension of the file (in lower case)
+
+    //Check if image file is an actual image or a fake image
+
+        $check = getimagesize($_FILES["estudioSE"]["tmp_name"]); 
+        if($check !== false)
+        {
+            echo "<br/>"."File is an image - ".$check["mime"]."."; 
+            $uploadOk=1; 
+        }
+        else
+        {
+            echo "<br/><br/>"."File is not an image."; 
+            $uploadOk=0; 
+        }
+
+        //Check if file already exists
+        if(file_exists($target_file))
+        {
+            echo "<br/><br/>"."Sorry, this file already exists."; 
+            $uploadOk=0; 
+        }
+
+        //Check file size
+        if($_FILES["estudioSE"]["size"] > 500000)
+        {
+            echo "<br/><br/>"."Sorry, your file cannot exceed 500KB"; 
+            $uploadOk=0; 
+        }
+
+        //Allow certain file formats
+        if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg")
+        {
+            echo "<br/><br/>"."Sorry, file must be JPG, JPEG, PNG or GIF."; 
+            $uploadOk=0; 
+        }
+
+        //Check if $uploadOk is set to 0 by an error
+        if($uploadOk==0)
+        {
+            echo "<br/><br/>"."Sorry, your file could not be uploaded."; 
+        }
+        //Check if there was no error and try to upload file
+        else
+        {
+            if(move_uploaded_file($_FILES["estudioSE"]["tmp_name"],$target_file))
+            {
+                echo "<br/><br/>"."The file ".basename($_FILES["estudioSE"]["name"])." has been uploaded."; 
+                
+              
+
+            }
+            else
+            {
+                echo "<br/><br/>"."Sorry there was an error uploading your file."; 
+            }
+        }  exit();
+
+    
+
+  
       
     
     
@@ -69,7 +140,7 @@
     && !empty($_POST["apellidoM"]) && isset($_POST["domicilio"]) && !empty($_POST["domicilio"]) && isset($_POST["estado"]) && !empty($_POST["estado"]) && !empty($_POST["tel"]) && isset($_POST["tel"]) && !empty($_POST["correo"]) && isset($_POST["correo"]) && isset($_POST["nacimiento"]) && !empty($_POST["nacimiento"]) && isset($_POST["genero"]) && !empty($_POST["genero"]) 
     && isset($_POST["diagnostico"]) && !empty($_POST["diagnostico"]) && isset($_POST["lesion"]) && !empty($_POST["lesion"]) && isset($_POST["ingreso"]) && !empty($_POST["ingreso"]) && isset($_POST["dependencia"]) && !empty($_POST["dependencia"]))
     {
-        insertPatient($nombre,$apellidoP,$apellidoM, $domicilio, $estado, $municipio, $telefono, $correo, $fechaNacimiento,$genero, $diagnostico, $lesion, $ingreso, $dependencia, $estudioSE); 
+        insertPatient($nombre,$apellidoP,$apellidoM, $domicilio, $estado, $municipio, $telefono, $correo, $fechaNacimiento,$genero, $diagnostico, $lesion, $ingreso, $dependencia, $estudioSEE); 
     }
     else
     {
