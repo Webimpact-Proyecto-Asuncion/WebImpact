@@ -54,6 +54,8 @@ $(document).ready(function() {
         request.always(function() {
             $input.prop("disabled", false);
         });
+
+
     });
 
     $('.carousel').carousel({
@@ -61,10 +63,11 @@ $(document).ready(function() {
     });
 
 
+
+
 });
 
 $("#siguiente").on("click", function() {
-    console.log("clicked");
     $('.carousel').carousel('next');
     $('.carousel').carousel({
         interval: false,
@@ -73,7 +76,6 @@ $("#siguiente").on("click", function() {
 
 
 $("#siguiente2").on("click", function() {
-    console.log("clicked");
     $('.carousel').carousel('next');
     $('.carousel').carousel({
         interval: false,
@@ -81,7 +83,6 @@ $("#siguiente2").on("click", function() {
 });
 
 $("#anterior").on("click", function() {
-    console.log("clicked");
     $('.carousel').carousel('prev');
     $('.carousel').carousel({
         interval: false,
@@ -89,7 +90,6 @@ $("#anterior").on("click", function() {
 });
 
 $("#anterior2").on("click", function() {
-    console.log("clicked");
     $('.carousel').carousel('prev');
     $('.carousel').carousel({
         interval: false,

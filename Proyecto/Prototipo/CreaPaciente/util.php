@@ -61,13 +61,7 @@
         closeDb($conn); 
     }
 
-    function img($extension, $name )
-    {
-        $file_path = 'imagenes/' . substr(md5(time()),0,10) . '.' . $extension; 
-        move_uploaded_file($name, $file_path); 
-        $time = time(); 
-        return $file_path; 
-    }
+    
 
     
 
