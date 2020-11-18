@@ -61,31 +61,28 @@
         closeDb($conn); 
     }
 
-    
-
-    
-
-    /*function selectionMunicipios($estado)
+    function queryLastPaciente()
     {
-        $resultado = '<select id="municipio" name="municipio" class="custom-select mr-sm-2">';
-        $resultado .= '<option value="" disabled selected> Selecciona un Municipio </option>';
         $conn = connectDb();
-        
-        $consulta = "CALL OpcionesMunicipio();"; 
-        $resultados_consulta = $conn->query($consulta); 
 
-        while($row = mysqli_fetch_array($resultados_consulta, MYSQLI_BOTH))
-        {
-            $resultado .= '<option value="'.$row[$nombre].'">'; 
-        }
+        $query = "SELECT NumeroPaciente FROM Paciente ORDER BY NumeroPaciente DESC LIMIT 1";
 
-        mysqli_free_result($resultados_consulta);  // liberar memoria
-
-        $resultado .= '</select>'; 
+        $result = mysqli_query($conn, $query);
 
         closeDb($conn); 
-        return $resultado;
-    }*/
+
+        if(mysqli_num_rows($result) > 0)
+        {
+            $row = mysqli_fetch_assoc($result); 
+            
+        }
+        return $row['NumeroPaciente'];
+
+    }
+
+    
+
+
     
 
 ?>

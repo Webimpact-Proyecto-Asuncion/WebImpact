@@ -1,5 +1,9 @@
+var lastPaciente;
+var src;
+
 $(document).ready(function() {
 
+    queryLastPaciente();
 
     $('.carousel').carousel({
         interval: false,
@@ -22,9 +26,11 @@ $(document).ready(function() {
                 processData: false,
                 success: function(response) {
                     if (response != 0) {
-                        $("#img").attr("src", response);
+                        /*$("#img").attr("src", response);
                         $(".preview img").show(); // Display image element
-                        console.log(response);
+                        console.log(response);*/
+                        src = response;
+                        console.log("src: " + src);
                     } else {
                         alert('file not uploaded');
                     }
@@ -35,10 +41,8 @@ $(document).ready(function() {
         }
     });
 
-
-
-
 });
+
 
 $("#siguiente").on("click", function() {
     $('.carousel').carousel('next');
@@ -83,10 +87,10 @@ $("#estado").change(function() {
     });
 
 
+
 })
 
 function registrarPacientes() {
-    console.log("ENTRO");
     if ($("#nombre").val() == '' ||
         $("#apellidoP").val() == '' ||
         $("#apellidoM").val() == '' ||
@@ -103,6 +107,7 @@ function registrarPacientes() {
 
         alert('Porfavor llena todos los campos!!');
     }
+    console.log(src);
     $.post("./InsertPaciente.php", {
         nombre: $("#nombre").val(),
         apellidoP: $("#apellidoP").val(),
@@ -117,12 +122,24 @@ function registrarPacientes() {
         lesion: $("#lesion").val(),
         ingreso: $("#ingreso").val(),
         dependencia: $("#dependencia").val(),
+        estudioSE: src
     }).
     done(function(data) {
-        console.log(data)
-            //$("#municipio").html(data);
+        //console.log(data)
+        //$("#municipio").html(data);
     });
 }
 
 
 $("#registrarPaciente").on("click", registrarPacientes);
+
+function queryLastPaciente() {
+    $.get("controladorLastPaciente.php", {
+
+    }).
+    done(function(data) {
+        //lastPaciente = parseInt(data) + 1;
+        //console.log(lastPaciente);
+    });
+
+}

@@ -1,6 +1,14 @@
 <?php
 
+include("util.php"); 
+
+
+$lastPaciente = queryLastPaciente();
+$lastPaciente += 1;
+
+
 if(isset($_FILES['file']['name'])){
+
 
     /* Getting file name */
     $filename = $_FILES['file']['name'];
@@ -23,13 +31,11 @@ if(isset($_FILES['file']['name'])){
           $response = $location;
        }
     }
-    rename($location,"./imagenes/1.".$imageFileType);
-    $response = "./imagenes/1.".$imageFileType;
+    rename($location,"./imagenes/".$lastPaciente.".".$imageFileType);
+    $response = "./imagenes/".$lastPaciente.".".$imageFileType;
     echo $response;
     exit;
  }
- 
- echo 0;
 
 ?>
 
