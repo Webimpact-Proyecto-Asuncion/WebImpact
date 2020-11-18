@@ -1,0 +1,35 @@
+<script type="text/javascript">
+          
+            
+        function formSubmit(){
+               
+            $.ajax({
+               
+                type:'POST',
+                url:'insert.php',
+                data:$('#frmBox').serialize(),
+                success:function(response){
+                    
+                    $('form').trigger("reset");
+                    $('#success').fadeIn().html(response);
+                    
+                      setTimeout(function() {
+                                
+                                $('#success').fadeOut("slow");
+                    }, 3000);
+                    
+                }
+                
+                
+            });
+            
+            var form=document.getElementById('frmBox').reset();
+            return false;
+            
+  
+        }
+        
+        </script>
+        
+    </body>
+</html>
