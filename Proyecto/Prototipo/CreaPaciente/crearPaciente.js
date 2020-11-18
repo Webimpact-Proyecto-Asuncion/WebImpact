@@ -1,5 +1,5 @@
 $(document).ready(function() {
-    
+
 
     $('.carousel').carousel({
         interval: false,
@@ -85,44 +85,44 @@ $("#estado").change(function() {
 
 })
 
-function registrarPacientes(){
+function registrarPacientes() {
     console.log("ENTRO");
-    if($("#nombre").val()=='' ||
-    $("#apellidoP").val()=='' ||
-    $("#apellidoM").val()=='' || 
-    $("#domicilio").val()=='' || 
-    $("#estado").val()=='' ||
-    $("#tel").val()=='' ||
-    $("#correo").val()=='' || 
-    $("#nacimiento").val()=='' || 
-    $("#genero").val()=='' || 
-    $("#diagnostico").val()=='' || 
-    $("#lesion").val()=='' || 
-    $("#ingreso").val()=='' ||
-    $("#dependencia").val()=='' ){
-        
+    if ($("#nombre").val() == '' ||
+        $("#apellidoP").val() == '' ||
+        $("#apellidoM").val() == '' ||
+        $("#domicilio").val() == '' ||
+        $("#estado").val() == '' ||
+        $("#tel").val() == '' ||
+        $("#correo").val() == '' ||
+        $("#nacimiento").val() == '' ||
+        $("#genero").val() == '' ||
+        $("#diagnostico").val() == '' ||
+        $("#lesion").val() == '' ||
+        $("#ingreso").val() == '' ||
+        $("#dependencia").val() == '') {
+
         alert('Porfavor llena todos los campos!!');
     }
     $.post("./InsertPaciente.php", {
-        nombre:$("#nombre").val(),
-        apellidoP:$("#apellidoP").val(),
-        apellidoM:$("#apellidoM").val(), 
-        domicilio:$("#domicilio").val(), 
-        estado:$("#estado").val(),
-        tel:$("#tel").val(),
-        correo:$("#correo").val(), 
-        nacimiento:$("#nacimiento").val(), 
-        genero:$("#genero").val(), 
-        diagnostico:$("#diagnostico").val(), 
-        lesion:$("#lesion").val(), 
-        ingreso:$("#ingreso").val(),
-        dependencia:$("#dependencia").val(), 
+        nombre: $("#nombre").val(),
+        apellidoP: $("#apellidoP").val(),
+        apellidoM: $("#apellidoM").val(),
+        domicilio: $("#domicilio").val(),
+        estado: $("#estado").val(),
+        tel: $("#tel").val(),
+        correo: $("#correo").val(),
+        nacimiento: $("#nacimiento").val(),
+        genero: $("#genero").val(),
+        diagnostico: $("#diagnostico").val(),
+        lesion: $("#lesion").val(),
+        ingreso: $("#ingreso").val(),
+        dependencia: $("#dependencia").val(),
     }).
     done(function(data) {
         console.log(data)
-        //$("#municipio").html(data);
+            //$("#municipio").html(data);
     });
 }
 
 
-$("#registrarPaciente").on("click",registrarPacientes());
+$("#registrarPaciente").on("click", registrarPacientes);
