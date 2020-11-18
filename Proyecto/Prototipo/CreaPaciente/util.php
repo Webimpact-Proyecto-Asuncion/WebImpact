@@ -34,17 +34,14 @@
 
     }
 
-    function insertPatient($nombre,$apellidoP,$apellidoM, $domicilio, $municipio, $estado, $telefono, $correo, $fechaNacimiento,$genero, $diagnostico, $lesion, $ingreso, $dependencia)
+    function insertPatient($nombre,$apellidoP,$apellidoM, $domicilio, $estado, $municipio, $telefono, $correo, $fechaNacimiento,$genero, $diagnostico, $lesion, $ingreso, $dependencia, $estudioSE, $curp, $actaNacimiento, $comprobanteDomicilio, $expedienteMedico, $recomendacionMedica)
     {
         
         $conn = connectDb(); 
 
-        $sql = "INSERT INTO Paciente (NombrePaciente, ApellidoPaterno, ApellidoMaterno, Domicilio, Municipio, Estado, Telefono, Correo, FechaNacimiento, Genero, Diagnostico, Lesion, Ingreso, Dependencia) VALUES (\"" . $nombre . "\",\"" . $apellidoP. "\",\"" . $apellidoM . "\",\"" . $domicilio . "\",\"" . $municipio  .  "\",\"" . $estado . "\",\"" . $telefono . "\",\"" . $correo . "\",\"" . $fechaNacimiento . "\",\"" . $genero . "\",\"" . $diagnostico . "\",\"" . $lesion . "\",\"" . $ingreso . "\",\"" . $dependencia . "\")";  
+        $sql = "INSERT INTO Paciente(NombrePaciente, ApellidoPaterno, ApellidoMaterno, Domicilio, Estado, Municipio, Telefono, Correo, FechaNacimiento, Genero, Diagnostico, Lesion, Ingreso, Dependencia, Fotografia, Curp, ActaNacimiento, ComprobanteDomicilio, ExpedienteMedico, RecomendacionMedica) VALUES (\"" . $nombre . "\",\"" . $apellidoP. "\",\"" . $apellidoM . "\",\"" . $domicilio . "\",\"" . $estado .  "\",\"" . $municipio . "\",\"" . $telefono . "\",\"" . $correo . "\",\"" . $fechaNacimiento . "\",\"" . $genero . "\",\"" . $diagnostico . "\",\"" . $lesion . "\",\"" . $ingreso . "\",\"" . $dependencia . "\",\"" . $estudioSE . "\",\"".  $curp . "\",\"".  $actaNacimiento . "\",\"" .  $comprobanteDomicilio . "\",\"" .  $expedienteMedico .  "\",\"" .  $recomendacionMedica . "\")";  
 
-        //$sql = "EXECUTE creaPaciente $numero . ':' . $nombre . ':' . $apellidoP . ':' . $apellidoM . ':' . $domicilio . ':' . $telefono . ':' . $fechaNacimiento . ':' . $genero . ':' . $diagnostico . ':' . $lesion . ':' . $ingreso . ':' . ':' . $dependencia . ':' . $correo . ':' . $municipio . ':' . $estado . ':' . $foto . ':' . $curp . ':' . $acta . ':' . $comprobante . ':' . ':' . $recomendacion";
         
-
-    
         if(mysqli_query($conn, $sql))
         {
             echo '<script>alert("Nuevo paciente creado exitosamente!");</script>';
@@ -61,29 +58,28 @@
         closeDb($conn); 
     }
 
-    
-
-    /*function selectionMunicipios($estado)
+    function queryLastPaciente()
     {
-        $resultado = '<select id="municipio" name="municipio" class="custom-select mr-sm-2">';
-        $resultado .= '<option value="" disabled selected> Selecciona un Municipio </option>';
         $conn = connectDb();
-        
-        $consulta = "CALL OpcionesMunicipio();"; 
-        $resultados_consulta = $conn->query($consulta); 
 
-        while($row = mysqli_fetch_array($resultados_consulta, MYSQLI_BOTH))
-        {
-            $resultado .= '<option value="'.$row[$nombre].'">'; 
-        }
+        $query = "SELECT NumeroPaciente FROM Paciente ORDER BY NumeroPaciente DESC LIMIT 1";
 
-        mysqli_free_result($resultados_consulta);  // liberar memoria
-
-        $resultado .= '</select>'; 
+        $result = mysqli_query($conn, $query);
 
         closeDb($conn); 
-        return $resultado;
-    }*/
+
+        if(mysqli_num_rows($result) > 0)
+        {
+            $row = mysqli_fetch_assoc($result); 
+            
+        }
+        return $row['NumeroPaciente'];
+
+    }
+
+    
+
+
     
 
 ?>

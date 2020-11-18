@@ -1,6 +1,7 @@
 <?php
 
     require_once ('util.php'); 
+    
 
    
     $_POST["nombre"] = htmlspecialchars($_POST["nombre"]);
@@ -16,6 +17,8 @@
     $_POST["lesion"] = htmlspecialchars($_POST["lesion"]);
     $_POST["ingreso"] = htmlspecialchars($_POST["ingreso"]);
     $_POST["dependencia"] = htmlspecialchars($_POST["dependencia"]);
+
+    
     
 
   
@@ -32,54 +35,20 @@
     $dependencia = $_POST["dependencia"]; 
     $correo = $_POST["correo"];
     $estado = $_POST["estado"];
-    $municipio = $_POST["municipio"];
-
-
-    //archivos
-    /*$foto = $_FILES["foto"]; 
-    $curp = $_FILES["curp"]; 
-    $acta = $_FILES["acta"]; 
-    $comprobante = $_FILES["comprobante"];
-    $recomendacion = $_FILES["recomendacion"];*/
-
-
-    /*if(isset($_FILES['foto']) && !empty($_FILES['foto'])){
-         
-        $allowed = ['png', 'jpeg', 'jpg'];
-        $fl_name = $_FILES['foto']['name'];
-        $fl_extn = strtolower(end(explode('.', $fl_name)));
-        $fl_temp = $_Files['foto']['tmp_name'];
-    
-        if (in_array($fl_extn, $allowed)) {
-          img($fl_extn, $fl_temp);
-        } else {
-          echo 'El archivo que ingreso no es un a imagen';
-        }
-      
-    } 
-    else
-    {
-        echo '<script>alert("Necesitas insertar una imagen.");</script>';
-    }
+    $estudioSE = $_POST["estudioSE"];
+    $curp = $_POST["curp"];
+    $acta = $_POST["acta"];
+    $comprobanteDomicilio = $_POST["comprobante"];
+    $expedienteMedico = $_POST["expediente"];
+    $recomendacionMedica = $_POST["recomendacion"];
+   
     
     
-    function img($fl_extn, $fl_temp) {
-      $file_path = 'Fotos/' . substr(md5(time()), 0, 10) . '.' . $fl_extn;
-      move_uploaded_file($fl_temp, $file_path);
-    }*/
-    
-    
-
     if(isset($_POST["nombre"]) && !empty($_POST["nombre"]) && isset($_POST["apellidoP"]) && !empty($_POST["apellidoP"]) && isset($_POST["apellidoM"]) 
     && !empty($_POST["apellidoM"]) && isset($_POST["domicilio"]) && !empty($_POST["domicilio"]) && isset($_POST["estado"]) && !empty($_POST["estado"]) && !empty($_POST["tel"]) && isset($_POST["tel"]) && !empty($_POST["correo"]) && isset($_POST["correo"]) && isset($_POST["nacimiento"]) && !empty($_POST["nacimiento"]) && isset($_POST["genero"]) && !empty($_POST["genero"]) 
     && isset($_POST["diagnostico"]) && !empty($_POST["diagnostico"]) && isset($_POST["lesion"]) && !empty($_POST["lesion"]) && isset($_POST["ingreso"]) && !empty($_POST["ingreso"]) && isset($_POST["dependencia"]) && !empty($_POST["dependencia"]))
     {
-        insertPatient($nombre,$apellidoP,$apellidoM, $domicilio, $estado, $municipio, $telefono, $correo, $fechaNacimiento,$genero, $diagnostico, $lesion, $ingreso, $dependencia); 
-    }
-    else
-    {
-        echo '<script>alert("Porfavor llena todos los campos!!");</script>';
-
+        insertPatient($nombre,$apellidoP,$apellidoM, $domicilio, $estado, $municipio, $telefono, $correo, $fechaNacimiento,$genero, $diagnostico, $lesion, $ingreso, $dependencia, $estudioSE, $curp, $acta, $comprobanteDomicilio, $expedienteMedico, $recomendacionMedica); 
     }
     
   
