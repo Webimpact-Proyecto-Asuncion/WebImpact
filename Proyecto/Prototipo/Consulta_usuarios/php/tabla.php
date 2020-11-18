@@ -45,9 +45,9 @@
 			<td><?php echo $ver[3] ?></td>
 							
 							
-							<td>
-							<button class="btn btn-warning modificar" id="<?php echo $ver[0] ?>" onClick="modifyById(this.id)"><span class="oi oi-pencil"></span>Modificar </button>
-							</td>
+			<td>
+				<button class="btn btn-warning"><span class="oi oi-pencil"></span>Modificar </button>
+			</td>
 							
 			<td>
 				<button class="btn btn-danger" onclick="preguntarSiNo('<?php  echo $ver[0] ?>')"><span class="oi oi-trash"></span> Eliminar</button>
