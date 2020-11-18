@@ -12,4 +12,13 @@
             }
         }
     }
+
+    function modficarEmpleado($NombreEmpleado,$Correo,$Especialidad,$Password,$rol,$id1){
+        $conn=connectDB();
+        $sql="CALL UpdateEmpleadoById('";
+        $sql=$sql.$NombreEmpleado."','".$Correo."',".$Especialidad.",'".$Password."','".$rol."',".$id1;
+        $sql=$sql.")";
+        echo($sql);
+        $queryResult=mysqli_query($conn,$sql);
+    }
 ?>
