@@ -34,17 +34,14 @@
 
     }
 
-    function insertPatient($nombre,$apellidoP,$apellidoM, $domicilio, $municipio, $estado, $telefono, $correo, $fechaNacimiento,$genero, $diagnostico, $lesion, $ingreso, $dependencia, $estudioSE)
+    function insertPatient($nombre,$apellidoP,$apellidoM, $domicilio, $estado, $municipio, $telefono, $correo, $fechaNacimiento,$genero, $diagnostico, $lesion, $ingreso, $dependencia, $estudioSE, $curp, $actaNacimiento, $comprobanteDomicilio, $expedienteMedico, $recomendacionMedica)
     {
         
         $conn = connectDb(); 
 
-        $sql = "INSERT INTO Paciente (NombrePaciente, ApellidoPaterno, ApellidoMaterno, Domicilio, Municipio, Estado, Telefono, Correo, FechaNacimiento, Genero, Diagnostico, Lesion, Ingreso, Dependencia, Fotografia) VALUES (\"" . $nombre . "\",\"" . $apellidoP. "\",\"" . $apellidoM . "\",\"" . $domicilio . "\",\"" . $municipio  .  "\",\"" . $estado . "\",\"" . $telefono . "\",\"" . $correo . "\",\"" . $fechaNacimiento . "\",\"" . $genero . "\",\"" . $diagnostico . "\",\"" . $lesion . "\",\"" . $ingreso . "\",\"" . $dependencia . "\",\"" . $estudioSE .  "\")";  
+        $sql = "INSERT INTO Paciente(NombrePaciente, ApellidoPaterno, ApellidoMaterno, Domicilio, Estado, Municipio, Telefono, Correo, FechaNacimiento, Genero, Diagnostico, Lesion, Ingreso, Dependencia, Fotografia, Curp, ActaNacimiento, ComprobanteDomicilio, ExpedienteMedico, RecomendacionMedica) VALUES (\"" . $nombre . "\",\"" . $apellidoP. "\",\"" . $apellidoM . "\",\"" . $domicilio . "\",\"" . $estado .  "\",\"" . $municipio . "\",\"" . $telefono . "\",\"" . $correo . "\",\"" . $fechaNacimiento . "\",\"" . $genero . "\",\"" . $diagnostico . "\",\"" . $lesion . "\",\"" . $ingreso . "\",\"" . $dependencia . "\",\"" . $estudioSE . "\",\"".  $curp . "\",\"".  $actaNacimiento . "\",\"" .  $comprobanteDomicilio . "\",\"" .  $expedienteMedico .  "\",\"" .  $recomendacionMedica . "\")";  
 
-        //$sql = "EXECUTE creaPaciente $numero . ':' . $nombre . ':' . $apellidoP . ':' . $apellidoM . ':' . $domicilio . ':' . $telefono . ':' . $fechaNacimiento . ':' . $genero . ':' . $diagnostico . ':' . $lesion . ':' . $ingreso . ':' . ':' . $dependencia . ':' . $correo . ':' . $municipio . ':' . $estado . ':' . $foto . ':' . $curp . ':' . $acta . ':' . $comprobante . ':' . ':' . $recomendacion";
         
-
-    
         if(mysqli_query($conn, $sql))
         {
             echo '<script>alert("Nuevo paciente creado exitosamente!");</script>';

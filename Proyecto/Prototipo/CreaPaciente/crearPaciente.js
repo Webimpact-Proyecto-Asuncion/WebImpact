@@ -1,5 +1,10 @@
 var lastPaciente;
 var src;
+var src2;
+var src3;
+var src4;
+var src5;
+var src6;
 
 $(document).ready(function() {
 
@@ -40,6 +45,174 @@ $(document).ready(function() {
             alert("Please select a file.");
         }
     });
+
+    $("#but_upload").click(function() {
+
+        var fd = new FormData();
+        var files = $('#curp')[0].files;
+
+        // Check file selected or not
+        if (files.length > 0) {
+            fd.append('curp', files[0]);
+
+            $.ajax({
+                url: 'uploadImage.php',
+                type: 'post',
+                data: fd,
+                contentType: false,
+                processData: false,
+                success: function(response) {
+                    if (response != 0) {
+                        /*$("#img").attr("src", response);
+                        $(".preview img").show(); // Display image element
+                        console.log(response);*/
+                        src2 = response;
+
+                    } else {
+                        alert('file not uploaded');
+                    }
+                },
+            });
+        } else {
+            alert("Please select a file.");
+        }
+    });
+
+
+    $("#but_upload").click(function() {
+
+        var fd = new FormData();
+        var files = $('#acta')[0].files;
+
+        // Check file selected or not
+        if (files.length > 0) {
+            fd.append('acta', files[0]);
+
+            $.ajax({
+                url: 'uploadImage.php',
+                type: 'post',
+                data: fd,
+                contentType: false,
+                processData: false,
+                success: function(response) {
+                    if (response != 0) {
+                        /*$("#img").attr("src", response);
+                        $(".preview img").show(); // Display image element
+                        console.log(response);*/
+                        src3 = response;
+
+                    } else {
+                        alert('file not uploaded');
+                    }
+                },
+            });
+        } else {
+            alert("Please select a file.");
+        }
+    });
+
+    $("#but_upload").click(function() {
+
+        var fd = new FormData();
+        var files = $('#comprobante')[0].files;
+
+        // Check file selected or not
+        if (files.length > 0) {
+            fd.append('comprobante', files[0]);
+
+            $.ajax({
+                url: 'uploadImage.php',
+                type: 'post',
+                data: fd,
+                contentType: false,
+                processData: false,
+                success: function(response) {
+                    if (response != 0) {
+                        /*$("#img").attr("src", response);
+                        $(".preview img").show(); // Display image element
+                        console.log(response);*/
+                        src4 = response;
+
+                    } else {
+                        alert('file not uploaded');
+                    }
+                },
+            });
+        } else {
+            alert("Please select a file.");
+        }
+    });
+
+
+    $("#but_upload").click(function() {
+
+        var fd = new FormData();
+        var files = $('#expediente')[0].files;
+
+        // Check file selected or not
+        if (files.length > 0) {
+            fd.append('expediente', files[0]);
+
+            $.ajax({
+                url: 'uploadImage.php',
+                type: 'post',
+                data: fd,
+                contentType: false,
+                processData: false,
+                success: function(response) {
+                    if (response != 0) {
+                        /*$("#img").attr("src", response);
+                        $(".preview img").show(); // Display image element
+                        console.log(response);*/
+                        src5 = response;
+
+                    } else {
+                        alert('file not uploaded');
+                    }
+                },
+            });
+        } else {
+            alert("Please select a file.");
+        }
+    });
+
+
+    $("#but_upload").click(function() {
+
+        var fd = new FormData();
+        var files = $('#recomendacion')[0].files;
+
+        // Check file selected or not
+        if (files.length > 0) {
+            fd.append('recomendacion', files[0]);
+
+            $.ajax({
+                url: 'uploadImage.php',
+                type: 'post',
+                data: fd,
+                contentType: false,
+                processData: false,
+                success: function(response) {
+                    if (response != 0) {
+                        /*$("#img").attr("src", response);
+                        $(".preview img").show(); // Display image element
+                        console.log(response);*/
+                        src6 = response;
+
+                    } else {
+                        alert('file not uploaded');
+                    }
+                },
+            });
+        } else {
+            alert("Please select a file.");
+        }
+    });
+
+
+
+
+
 
 });
 
@@ -107,7 +280,7 @@ function registrarPacientes() {
 
         alert('Porfavor llena todos los campos!!');
     }
-    console.log(src);
+
     $.post("./InsertPaciente.php", {
         nombre: $("#nombre").val(),
         apellidoP: $("#apellidoP").val(),
@@ -122,7 +295,13 @@ function registrarPacientes() {
         lesion: $("#lesion").val(),
         ingreso: $("#ingreso").val(),
         dependencia: $("#dependencia").val(),
-        estudioSE: src
+        estudioSE: src,
+        curp: src2,
+        acta: src3,
+        comprobante: src4,
+        expediente: src5,
+        recomendacion: src6,
+
     }).
     done(function(data) {
         //console.log(data)
