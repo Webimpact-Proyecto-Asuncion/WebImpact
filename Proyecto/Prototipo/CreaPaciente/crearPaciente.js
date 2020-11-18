@@ -1,62 +1,5 @@
 $(document).ready(function() {
-    var request;
-    request = $.ajax({
-            url: "GetPaciente.php",
-            type: "post"
-        }
-
-    );
-
-    request.done(function(response, textStatus, jqXHR) {
-        //console.log(response);
-
-    });
-
-    $("#form").submit(function(event) {
-
-        var request;
-        event.preventDefault();
-
-        if (request) {
-            request.abort();
-        }
-
-        var $form = $(this);
-
-        var $input = $form.find("input, select, button, textarea");
-
-        var sData = $form.serialize();
-
-        $input.prop("disabled", true);
-
-        request = $.ajax({
-            url: "InsertPaciente.php",
-            type: "post",
-            data: sData
-        });
-
-        request.done(function(response, textStatus, jqXHR) {
-            console.log(response);
-            $('#form').each(function() {
-                this.reset();
-            });
-            //$('#table').html(response);
-        });
-
-        //In case of errors:
-        request.fail(function(jqXHR, textStatus, errorThrown) {
-            //Give me error on console:
-            console.error(
-                "ERROR: " + textStatus, errorThrown
-            );
-        });
-
-        request.always(function() {
-            $input.prop("disabled", false);
-        });
-
-
-    });
+    
 
     $('.carousel').carousel({
         interval: false,
@@ -141,3 +84,45 @@ $("#estado").change(function() {
 
 
 })
+
+function registrarPacientes(){
+    console.log("ENTRO");
+    if($("#nombre").val()=='' ||
+    $("#apellidoP").val()=='' ||
+    $("#apellidoM").val()=='' || 
+    $("#domicilio").val()=='' || 
+    $("#estado").val()=='' ||
+    $("#tel").val()=='' ||
+    $("#correo").val()=='' || 
+    $("#nacimiento").val()=='' || 
+    $("#genero").val()=='' || 
+    $("#diagnostico").val()=='' || 
+    $("#lesion").val()=='' || 
+    $("#ingreso").val()=='' ||
+    $("#dependencia").val()=='' ){
+        
+        alert('Porfavor llena todos los campos!!');
+    }
+    $.post("./InsertPaciente.php", {
+        nombre:$("#nombre").val(),
+        apellidoP:$("#apellidoP").val(),
+        apellidoM:$("#apellidoM").val(), 
+        domicilio:$("#domicilio").val(), 
+        estado:$("#estado").val(),
+        tel:$("#tel").val(),
+        correo:$("#correo").val(), 
+        nacimiento:$("#nacimiento").val(), 
+        genero:$("#genero").val(), 
+        diagnostico:$("#diagnostico").val(), 
+        lesion:$("#lesion").val(), 
+        ingreso:$("#ingreso").val(),
+        dependencia:$("#dependencia").val(), 
+    }).
+    done(function(data) {
+        console.log(data)
+        //$("#municipio").html(data);
+    });
+}
+
+
+$("#registrarPaciente").on("click",registrarPacientes());

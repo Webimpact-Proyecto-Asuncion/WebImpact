@@ -41,11 +41,6 @@
     {
         insertPatient($nombre,$apellidoP,$apellidoM, $domicilio, $estado, $municipio, $telefono, $correo, $fechaNacimiento,$genero, $diagnostico, $lesion, $ingreso, $dependencia, $estudioSEE); 
     }
-    else
-    {
-        echo "<script>alert('Porfavor llena todos los campos!!');</script>";
-
-    }
     
   
 
