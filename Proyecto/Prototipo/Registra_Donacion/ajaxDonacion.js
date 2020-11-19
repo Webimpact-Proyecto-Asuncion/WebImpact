@@ -3,6 +3,16 @@ $(document).ready(function() {
 
 });
 
+function getDonadores() {
+    $.get("controladorGetDonador.php", {
+
+
+    }).
+    done(function(data) {
+        $("#donador").append(data);
+    })
+
+}
 
 function registrarDonacion() {
     if ($("#donador").val() == '' || $("#descripcionDonacion").val() == '' || $("#fechaDonacion").val() == '') {
@@ -23,15 +33,3 @@ function registrarDonacion() {
 
 
 $("#submitDonacion").on("click", registrarDonacion);
-
-
-function getDonadores() {
-    $.get("controladorGetDonador.php", {
-
-
-    }).
-    done(function(data) {
-        $("#donador").append(data);
-    })
-
-}
