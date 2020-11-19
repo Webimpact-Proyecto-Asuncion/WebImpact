@@ -13,6 +13,7 @@
               <th>RFC</th>
               <th>Correo</th>
               <th>Telefono</th>
+              <th>Nacimiento</th>
               <th>Modificar</th>
               <th>Eliminar</th>
             </tr> 
@@ -40,7 +41,8 @@
 			 	$ver[1]."||".
 				$ver[2]."||".
 				$ver[3]."||".
-				$ver[4];
+				$ver[4]."||".
+				$ver[5];
 
 
 
@@ -54,10 +56,11 @@
 		<td><?php echo $ver[2] ?></td>
 		<td><?php echo $ver[3] ?></td>
 		<td><?php echo $ver[4] ?></td>
+		<td><?php echo $ver[5] ?></td>
 						
 							
 		<td>
-			<button class="btn btn-warning" ><span class="oi oi-pencil"></span>Modificar </button>
+			<button class="btn btn-warning" onclick="Actualiza('<?php  echo $datos ?>')"><span class="oi oi-pencil"></span>Modificar </button>
 		</td>
 							
 		<td>
