@@ -136,11 +136,10 @@ require_once 'util.php';
                                     <div class=" form-group col-md-6">
                                         <br>
                                         <label for="razonS" class="bold">Selecciona una Razón Social</label>
-
-                                        <?= selectionDonadores("RazonSocial","id")?>
-                                            <br>
-                                            <span class="alert alert-success" id="donadorCorrecto"></span>
-                                            <span class="alert alert-danger" id="donadorError"></span>
+                                        <select name="donador" id="donador" class="custom-select mr-sm-2">
+                                            <option selected value="">Selecciona...</option>
+                                        </select>
+                                        <br>
                                     </div>
                                 </div>
 
@@ -149,8 +148,7 @@ require_once 'util.php';
                                         <label for="descripcion" class="bold">Descripción</label>
                                         <input type="text" class="form-control" id="descripcionDonacion" name="descripcionDonacion" placeholder="Descripción de la donación...">
                                         <br>
-                                        <span class="alert alert-success" id="descripcionCorrecta"></span>
-                                        <span class="alert alert-danger" id="descripcionError"></span>
+
                                     </div>
                                 </div>
                                 <div class="form-row">
@@ -158,13 +156,12 @@ require_once 'util.php';
                                         <label for="fecha" class="bold">Fecha de Donación</label>
                                         <input type="date" class="form-control" id="fechaDonacion" name="fechaDonacion">
                                         <br>
-                                        <span class="alert alert-success" id="fechaC"></span>
-                                        <span class="alert alert-danger" id="fechaE"></span>
+
                                     </div>
                                 </div>
                                 <br>
 
-                                <input type="submit" class="btn btn-info" value="Registrar" name="submitDonacion" id="submitDonacion">
+                                <input type="button" class="btn btn-success" value="REGISTRAR DONACIÓN" name="submitDonacion" id="submitDonacion">
                                 <br><br>
                             </form>
 
