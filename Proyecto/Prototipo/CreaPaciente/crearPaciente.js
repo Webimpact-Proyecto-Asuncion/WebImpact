@@ -322,3 +322,117 @@ function queryLastPaciente() {
     });
 
 }
+
+function redBorder() {
+    if ($("#nombre").val() == '') {
+        document.getElementById("nombre").style.borderColor = "red";
+    } else {
+        if ($("#nombre").val() != '') {
+            document.getElementById("nombre").style.borderColor = "green";
+        }
+    }
+
+    if ($("#apellidoP").val() == '') {
+        document.getElementById("apellidoP").style.borderColor = "red";
+    } else {
+        if ($("#apellidoP").val() != '') {
+            document.getElementById("apellidoP").style.borderColor = "green";
+        }
+    }
+
+    if ($("#apellidoM").val() == '') {
+        document.getElementById("apellidoM").style.borderColor = "red";
+    } else {
+        if ($("#apellidoM").val() != '') {
+            document.getElementById("apellidoM").style.borderColor = "green";
+        }
+    }
+
+    if ($("#domicilio").val() == '') {
+        document.getElementById("domicilio").style.borderColor = "red";
+    } else {
+        if ($("#domicilio").val() != '') {
+            document.getElementById("domicilio").style.borderColor = "green";
+        }
+    }
+
+
+    if ($("#estado").val() == 0) {
+        document.getElementById("estado").style.borderColor = "red";
+    } else {
+        if ($("#estado").val() != '') {
+            document.getElementById("estado").style.borderColor = "green";
+        }
+    }
+
+    if ($("#tel").val() == '') {
+        document.getElementById("tel").style.borderColor = "red";
+    } else {
+        if ($("#tel").val() != '') {
+            document.getElementById("tel").style.borderColor = "green";
+        }
+    }
+
+    if ($("#correo").val() == '') {
+        document.getElementById("correo").style.borderColor = "red";
+    } else {
+        if ($("#correo").val() != '') {
+            document.getElementById("correo").style.borderColor = "green";
+        }
+    }
+
+    if ($("#nacimiento").val() == '') {
+        document.getElementById("nacimiento").style.borderColor = "red";
+    } else {
+        if ($("#nacimiento").val() != '') {
+            document.getElementById("nacimiento").style.borderColor = "green";
+        }
+    }
+
+    if ($("#genero").val() == 0) {
+        document.getElementById("genero").style.borderColor = "red";
+    } else {
+        if ($("#genero").val() != '') {
+            document.getElementById("genero").style.borderColor = "green";
+        }
+    }
+
+    if ($("#diagnostico").val() == '') {
+        document.getElementById("diagnostico").style.borderColor = "red";
+    } else {
+        if ($("#diagnostico").val() != '') {
+            document.getElementById("diagnostico").style.borderColor = "green";
+        }
+    }
+
+    if ($("#lesion").val() == '') {
+        document.getElementById("lesion").style.borderColor = "red";
+    } else {
+        if ($("#lesion").val() != '') {
+            document.getElementById("lesion").style.borderColor = "green";
+        }
+    }
+
+    if ($("#ingreso").val() == '') {
+        document.getElementById("ingreso").style.borderColor = "red";
+    } else {
+        if ($("#ingreso").val() != '') {
+            document.getElementById("ingreso").style.borderColor = "green";
+        }
+    }
+
+    if ($("#dependencia").val() == '') {
+        document.getElementById("dependencia").style.borderColor = "red";
+    } else {
+        if ($("#dependencia").val() != '') {
+            document.getElementById("dependencia").style.borderColor = "green";
+        }
+    }
+
+
+
+
+
+}
+
+$("#registrarPaciente").on("click", redBorder);
