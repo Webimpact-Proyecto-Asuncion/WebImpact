@@ -39,20 +39,10 @@ function preguntarSiNo(id){
 function eliminarDatos(id){
 
 	
-	
- $.post("php/Eliminardonador.php",{id:id}).
+ $.post("php/EliminarPacientes.php",{id:id}).
     done(function( data ) {
     	
         alertify.success("Eliminado con exito!");
         $('#tabla').load('php/tabla.php');
     });
 }
-
-function Actualiza(datos){
-
-    d=datos.split('||');
-
-   location.href="Actualizadonador.php" + "?id=" + d[0];
-}
-
-

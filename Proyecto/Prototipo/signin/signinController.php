@@ -7,6 +7,8 @@
         if($isuser){
             session_start();
             $_SESSION["rol"]=getRol($isuser);
+            $_SESSION["id"]=$isuser;
+
             //$_SESSION[""]=;
             echo("https://royerdac99.codes/WebImpact/Proyecto/Prototipo/dashboard/dashboard.php");
         }else{
