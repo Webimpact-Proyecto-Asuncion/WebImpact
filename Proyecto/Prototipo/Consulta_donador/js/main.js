@@ -47,3 +47,12 @@ function eliminarDatos(id){
         $('#tabla').load('php/tabla.php');
     });
 }
+
+function Actualiza(datos){
+
+    d=datos.split('||');
+
+   location.href="Actualizadonador.php" + "?id=" + d[0];
+}
+
+
