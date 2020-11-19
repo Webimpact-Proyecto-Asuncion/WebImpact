@@ -15,7 +15,7 @@ function connectDb()
     }
 
     return $conn;
-    
+    echo "BIEN HECHO****"; 
 }
 
 function closeDb($mysql)
@@ -23,65 +23,32 @@ function closeDb($mysql)
     mysqli_close($mysql); 
 }
 
-/*function getDonadores()
+
+
+function selectionDonadores()
 {
-    $conn = connectDb(); 
-    $sql = "CALL OpcionesDonador();"; 
-    $result = mysqli_query($conn,$sql); 
+    $conn = connectDb();
+    $query = "CALL OpcionesDonador();";
+
+    $result = mysqli_query($conn,$query);
 
     closeDb($conn);
-    
-    return $result; 
-}*/
 
-function selectionDonadores($nombre,$id)
-{
-    $resultado = '<select id="donador" name="donador"class=form-control form-control-lg>'; 
-    $resultado .= '<option value="" disabled selected>Selecciona un Donador </option>'; 
-    $conn = connectDb(); 
-
-    $consulta = "CALL OpcionesDonador();";
-    $resultados_consulta = $conn->query($consulta); 
-
-
-    while($row = mysqli_fetch_array($resultados_consulta, MYSQLI_BOTH))
+    if(mysqli_num_rows($result) > 0)
     {
-        $resultado .= '<option value="'.$row[$id].'">'.$row[$nombre].'</option>'; 
+        while($row = mysqli_fetch_assoc($result))
+        {
+            echo "<option value=".$row["id"].">".$row["RazonSocial"]."</option>";
+        }
     }
-
-    mysqli_free_result($resultados_consulta);  //Liberar la memoria
-
-    $resultado .= '</select>'; 
-
-    closeDb($conn); 
-    return $resultado; 
 }
 
-/*function datosDonador($id)
-{
-    $conn = connectDb(); 
-    
-    $consulta = "CALL RFCDonador($id);"; 
-    $resultados_consulta = $conn->query($consulta); 
-
-    while($row = mysqli_fetch_array($resultados_consulta, MYSQLI_BOTH))
-    {
-        $resultado = '<input type="text" name="rfc" class="form-control placeholder="Ej. MELM8305281H0" value='.$id.'>';
-    }
-
-    mysqli_free_result($resultados_consulta);
-
-
-    return $resultado;
-
-  
-}*/
 
 function addDonacion($razonSocial, $descripcion, $fecha)
 {
     $conn = connectDb(); 
 
-    $sql = "CALL CrearDonacion($razonSocial,'$descripcion','$fecha');";
+    $sql = "CALL CrearDonacion('$descripcion',$razonSocial,'$fecha');";
 
     if(mysqli_query($conn, $sql))
     {

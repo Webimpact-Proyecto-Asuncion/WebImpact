@@ -1,21 +1,37 @@
 $(document).ready(function() {
+    getDonadores();
 
 });
 
-//*Donador:
 
-let submit = document.getElementById("submitDonacion"); //validar
-let donador = document.getElementById("donador");
-let donadorC = document.getElementById("donadorCorrecto");
-let donadorE = document.getElementById("donadorError");
+function registrarDonacion() {
+    if ($("#donador").val() == '' || $("#descripcionDonacion").val() == '' || $("#fechaDonacion").val() == '') {
+        alert('Porfavor llena todos los campos!!');
+    } else {
+        alert('Bien hecho');
+    }
 
-let descripcion = document.getElementById("descripcionDonacion");
-let spanDescripcionE = document.getElementById("descripcionError");
-let spanDescripcionC = document.getElementById("descripcionCorrecta");
+    $.post("./addDonacion.php", {
+        donador: $("#donador").val(),
+        descripcionDonacion: $("#descripcion").val(),
+        fechaDonacion: $("#fechaDonacion").val()
+    }).
+    done(function(data) {
+        console.log(data);
+    })
+}
 
-let fecha = document.getElementById("fechaDonacion");
-let spanFechaC = document.getElementById("fechaC");
-let spanFechaE = document.getElementById("fechaE");
+
+$("#submitDonacion").on("click", registrarDonacion);
 
 
-$("")
+function getDonadores() {
+    $.get("controladorGetDonador.php", {
+
+
+    }).
+    done(function(data) {
+        $("#donador").append(data);
+    })
+
+}
