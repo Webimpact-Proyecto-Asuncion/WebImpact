@@ -9,4 +9,5 @@
         $Avances=$_POST["Avances"];
         registraReporte($NumeroPaciente,$Valoracion,$Terapia,$Tratamiento,$Avances,$_SESSION["id"]);
     }
+
 ?>
