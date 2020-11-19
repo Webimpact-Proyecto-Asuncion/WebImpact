@@ -3,6 +3,7 @@
    ?>
 
     <body>
+
         <!-- sin este div -->
         <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
             <br>
@@ -18,7 +19,7 @@
                                 <div class="form-group col-md-12">
                                     <br>
                                     <label for="Nombre" class="bold">Nombre(s)</label>
-                                    <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Ej. José Manuel">
+                                    <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Ej. José Manuel" required>
                                 </div>
                             </div>
                             <div class="form-row">
@@ -41,7 +42,7 @@
                                 <div class="form-group col-md-4">
                                     <label for="Estado" class="bold">Estado</label>
                                     <select class="custom-select mr-sm-2" id="estado" name="estado">
-                           <option selected>Selecciona...</option>
+                           <option selected value="0">Selecciona...</option>
                            <option value="1">Aguascalientes</option>
                            <option value="2">Baja California</option>
                            <option value="3">Baja California Sur</option>
@@ -105,7 +106,7 @@
                                 <div class="form-group col-md-3">
                                     <label for="Genero" class="bold">Género</label>
                                     <select class="custom-select mr-sm-2" id="genero" name="genero">
-                           <option selected>Selecciona...</option>
+                           <option selected value="0">Selecciona...</option>
                            <option value="Masculino">Masculino</option>
                            <option value="Femenino">Femenino</option>
                            <option value="Otro">Otro</option>
@@ -157,13 +158,10 @@
                                 <div class="form-group col-md-4">
                                     <br>
                                     <label for="estudioSE" class="bold">Estudio Socioeconómico</label>
-                                    <div class="container">
+                                    <div>
                                         <form method="post" action="" enctype="multipart/form-data" id="myform">
-                                            <div>
-                                                <input type="file" id="file" name="file" />
-                                            </div>
+                                            <input type="file" id="file" name="file">
                                     </div>
-                                    <br>
                                 </div>
                             </div>
                             <div class="form-row">
@@ -171,7 +169,6 @@
                                     <label for="curp" class="bold">Curp</label>
                                     <br>
                                     <input type="file" name="curp" id="curp">
-
                                 </div>
                             </div>
                             <div class="form-row">
