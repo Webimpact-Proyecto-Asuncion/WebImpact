@@ -2,10 +2,10 @@
 
 function connectDb()
 {
-    $servername = "localhost"; 
-    $username = "root"; 
-    $password = ""; 
-    $dbname = "asuncion1"; 
+    $servername="localhost";
+        $username="Matu";
+        $password="Matu$2020";
+        $dbname="asuncion1";
 
     $conn = mysqli_connect($servername, $username, $password, $dbname); 
 
@@ -48,7 +48,7 @@ function addDonacion($razonSocial, $descripcion, $fecha)
 {
     $conn = connectDb(); 
 
-    $sql = "CALL CrearDonacion($razonSocial,'$descripcion','$fecha');";
+    $sql = "CALL CrearDonacion('$descripcion',$razonSocial,'$fecha');";
 
     if(mysqli_query($conn, $sql))
     {

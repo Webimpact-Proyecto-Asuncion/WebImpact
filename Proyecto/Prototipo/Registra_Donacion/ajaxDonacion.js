@@ -47,6 +47,13 @@ function redBorder() {
     } else {
         document.getElementById("descripcionDonacion").style.borderColor = "green";
     }
+    if ($("#fechaDonacion").val() == '') {
+        document.getElementById("fechaDonacion").style.borderColor = "red"
+    } else {
+        if ($("#fechaDonacion") != '') {
+            document.getElementById("fechaDonacion").style.borderColor = "green";
+        }
+    }
 }
 
 $("#submitDonacion").on("click", redBorder);
