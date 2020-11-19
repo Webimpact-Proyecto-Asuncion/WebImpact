@@ -2,10 +2,17 @@
 
 function connectDb()
 {
+<<<<<<< HEAD
     $servername="localhost";
         $username="Matu";
         $password="Matu$2020";
         $dbname="asuncion1";
+=======
+    $servername = "localhost"; 
+    $username = "root"; 
+    $password = ""; 
+    $dbname = "asuncion1"; 
+>>>>>>> RegistrarDonacion
 
     $conn = mysqli_connect($servername, $username, $password, $dbname); 
 
@@ -14,7 +21,8 @@ function connectDb()
         die("Connection failed: " . mysqli_connect_error()); 
     }
 
-    return $conn; 
+    return $conn;
+    
 }
 
 function closeDb($mysql)
@@ -57,20 +65,14 @@ function addDonacion($razonSocial, $descripcion, $fecha)
     }
     else
     {
-        //echo "ERROR: " . $sql . "<br>" . mysqli_error($conn); 
-        //echo "Porfavor llena todos los campos!";
+        echo " ERROR: " . $sql . " " . mysqli_error($conn); 
+       
         closeDb($conn); 
         return false;
     }
     closeDb($conn); 
-
-
 }
 
-function submitButton($submit)
-{
-    $submitError = "";
-}
 
 
 
