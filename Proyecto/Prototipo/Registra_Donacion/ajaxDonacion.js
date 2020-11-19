@@ -23,7 +23,7 @@ function registrarDonacion() {
 
     $.post("./addDonacion.php", {
         donador: $("#donador").val(),
-        descripcionDonacion: $("#descripcion").val(),
+        descripcionDonacion: $("#descripcionDonacion").val(),
         fechaDonacion: $("#fechaDonacion").val()
     }).
     done(function(data) {
@@ -33,3 +33,20 @@ function registrarDonacion() {
 
 
 $("#submitDonacion").on("click", registrarDonacion);
+
+function redBorder() {
+
+    if ($("#donador").val() == '') {
+        document.getElementById("donador").style.borderColor = "red";
+    } else {
+        document.getElementById("donador").style.borderColor = "green";
+    }
+
+    if ($("#descripcionDonacion").val() == '') {
+        document.getElementById("descripcionDonacion").style.borderColor = "red";
+    } else {
+        document.getElementById("descripcionDonacion").style.borderColor = "green";
+    }
+}
+
+$("#submitDonacion").on("click", redBorder);

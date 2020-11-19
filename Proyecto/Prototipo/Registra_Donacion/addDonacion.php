@@ -7,7 +7,7 @@ $_POST["donador"] = htmlspecialchars($_POST["donador"]);
 $_POST["descripcionDonacion"] = htmlspecialchars($_POST["descripcionDonacion"]); 
 
 $donador = $_POST['donador'];
-$descripcionDonacion = $_POST['descripcionDonador'];
+$descripcionDonacion = $_POST['descripcionDonacion'];
 $fechaDonacion = $_POST['fechaDonacion'];
 
 echo $donador;
@@ -25,9 +25,7 @@ if(isset($donador) && !empty($donador) && isset($descripcionDonacion) && !empty(
     addDonacion($donador,$descripcionDonacion,$fechaDonacion);
   
 }
-else{
-    echo "NO SE PUDO";
-}
+
 
 
 

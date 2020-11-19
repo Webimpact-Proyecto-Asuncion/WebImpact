@@ -15,7 +15,7 @@ function connectDb()
     }
 
     return $conn;
-    echo "BIEN HECHO****"; 
+    
 }
 
 function closeDb($mysql)
@@ -48,7 +48,7 @@ function addDonacion($razonSocial, $descripcion, $fecha)
 {
     $conn = connectDb(); 
 
-    $sql = "CALL CrearDonacion('$descripcion',$razonSocial,'$fecha');";
+    $sql = "CALL CrearDonacion($razonSocial,'$descripcion','$fecha');";
 
     if(mysqli_query($conn, $sql))
     {
@@ -58,20 +58,14 @@ function addDonacion($razonSocial, $descripcion, $fecha)
     }
     else
     {
-        //echo "ERROR: " . $sql . "<br>" . mysqli_error($conn); 
-        //echo "Porfavor llena todos los campos!";
+        echo " ERROR: " . $sql . " " . mysqli_error($conn); 
+       
         closeDb($conn); 
         return false;
     }
     closeDb($conn); 
-
-
 }
 
-function submitButton($submit)
-{
-    $submitError = "";
-}
 
 
 
