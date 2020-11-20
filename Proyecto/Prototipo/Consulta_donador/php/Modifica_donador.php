@@ -17,13 +17,18 @@
 		}
 	}
 
-	function modificaDonador($id_donador, $RazonSocial, $RFC, $Correo, $Telefono, $fecha){
+	function modificaDonador($id_donador, $RazonSocial, $RFC, $Correo, $Telefono, $Fecha){
 
-		$conexion = conexion();
-		$sql="CALL UpdateDonador($id_donador, $RazonSocial, $RFC, $Correo, $Telefono, $fecha)";
-		$result = mysqli_query($conexion, $sql);
 		
 
+		$conexion = conexion();
+		$sql="CALL UpdateDonador(".$id_donador.", '".$RazonSocial."', '".$RFC."', '".$Correo."', '".$Telefono."', '".$Fecha."')";
+
+		var_dump($sql);
+
+		echo$result = mysqli_query($conexion, $sql);
+
+		
 	}
 
 

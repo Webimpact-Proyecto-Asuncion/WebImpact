@@ -30,27 +30,19 @@ function preguntarSiNo(id){
 
 
 
-	alertify.confirm('Falta', '¿Confirma ausencia del paciente?', 
-					function(){ asistencia(id) }
+	alertify.confirm('Eliminar Datos', '¿Esta seguro de eliminar este registro?', 
+					function(){ eliminarDatos(id) }
                 , function(){ alertify.error('Se cancelo')});
 	
 }
 
-function asistencia(datos){
+function eliminarDatos(id){
 
-	d=datos.split('||');
-    
-    idpaciente=d[0];
-    idempleado=d[1];
-    
-
-
- $.post("php/Registrafalta.php",{idempleado:idempleado, idpaciente:idpaciente}).
+	
+ $.post("php/EliminarPacientes.php",{id:id}).
     done(function( data ) {
-    	console.log(data);
-        alertify.success("Falta registrada");
+    	
+        alertify.success("Eliminado con exito!");
         $('#tabla').load('php/tabla.php');
     });
-
-    
 }

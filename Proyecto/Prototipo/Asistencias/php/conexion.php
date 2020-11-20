@@ -1,7 +1,8 @@
 <?php
 
 	function conexion(){
-			$servername="localhost";
+		
+		$servername="localhost";
         $username="Matu";
         $password="Matu$2020";
         $dbname="asuncion1";

@@ -15,28 +15,42 @@ function Getdonador(id){
     	
     console.log (data);
     let data1=data.split(",");
+
+    $("#id_donador").val(data1[0]);
     $("#RazonSocial").val(data1[1]);
     $("#RFC").val(data1[2]);
     $("#Correo").val(data1[3]);
     $("#Telefono").val(data1[4]);
     $("#Fecha").val(data1[5]);
-    $
+    
 
 
     });
 
-}
+}                       
 
-function modificarDoandor(){
-    $.post("./controladorModificaEmpleado.php",{NombreEmpleado:$("#nombre").val(),
-                                                Correo:$("#correo").val(),
-                                                Especialidad:$("#especialidad").val(),
-                                                Password:$("#contrasena").val(),
-                                                rol:$("#rol option:selected").text(),
-                                                id1:id}).
-    done(function( data ) {
+function modificarDonador(){
+
+    id_donador=$('#id_donador').val();
+    RazonSocial=$('#RazonSocial').val();
+    RFC=$('#RFC').val();
+    Correo=$('#Correo').val();
+    Telefono=$('#Telefono').val();
+    Fecha=$('#Fecha').val();
+
+    $.post("php/Controladormodifica.php",{id_donador:id_donador, 
+                                        RazonSocial:RazonSocial, 
+                                        RFC:RFC, 
+                                        Correo:Correo, 
+                                        Telefono:Telefono, 
+                                        Fecha:Fecha
+                                        }).
+    done(function(data ) {
         console.log(data);
+        alertify.success("Modificado con exito");
     });
+
+    
 }
 
-$("#modificar").on("click",modificarEmpleado);
+$("#modificar").on("click",modificarDonador);
