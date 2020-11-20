@@ -1,6 +1,7 @@
 <?php
+
     function connectDB(){
-        $servername="localhost";
+          $servername="localhost";
         $username="Matu";
         $password="Matu$2020";
         $dbname="asuncion1";
@@ -11,7 +12,11 @@
         }
         return $connection;
     }
-    function  disconnectDB($connection){
-        mysqli_close($connection);
+    //close conection
+    function  disconnectDB($mysql){
+        mysqli_close($mysql);
     }
+    
+    
+    
 ?>
