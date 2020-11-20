@@ -2,17 +2,11 @@
 
 function connectDb()
 {
-<<<<<<< HEAD
+
     $servername="localhost";
-        $username="Matu";
-        $password="Matu$2020";
-        $dbname="asuncion1";
-=======
-    $servername = "localhost"; 
-    $username = "root"; 
-    $password = ""; 
-    $dbname = "asuncion1"; 
->>>>>>> RegistrarDonacion
+    $username="Matu";
+    $password="Matu$2020";
+    $dbname="asuncion1";
 
     $conn = mysqli_connect($servername, $username, $password, $dbname); 
 
