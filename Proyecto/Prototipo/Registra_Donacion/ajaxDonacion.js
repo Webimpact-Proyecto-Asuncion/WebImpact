@@ -25,7 +25,7 @@ function registrarDonacion() {
     $.post("./addDonacion.php", {
         donador: $("#donador").val(),
         descripcionDonacion: $("#descripcionDonacion").val(),
-        fechaDonacion: $("#fechaDonacion").val()
+        fechaDonacion: $("#fechaDonacion").val(),
     }).
     done(function(data) {
         console.log(data);
@@ -62,8 +62,6 @@ function redBorder() {
 function registrarDonacion() {
     if ($("#donador").val() == '' || $("#descripcionDonacion").val() == '' || $("#fechaDonacion").val() == '') {
         alert('Porfavor llena todos los campos!!');
-    } else {
-        alert('Bien hecho');
     }
 
     $.post("./addDonacion.php", {
@@ -72,7 +70,7 @@ function registrarDonacion() {
         fechaDonacion: $("#fechaDonacion").val()
     }).
     done(function(data) {
-        console.log(data);
+        //console.log(data);
     })
 }
 

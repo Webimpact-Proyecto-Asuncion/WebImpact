@@ -9,14 +9,14 @@ $donador = $_POST['donador'];
 $descripcionDonacion = $_POST['descripcionDonacion'];
 $fechaDonacion = $_POST['fechaDonacion'];
 
-echo $donador;
 
 
 
 if(isset($donador) && !empty($donador) && isset($descripcionDonacion) && !empty($descripcionDonacion) && isset($fechaDonacion) && !empty($fechaDonacion))
 {
+    echo "Entro";
+    addDonacion($descripcionDonacion,$donador,$fechaDonacion);
     
-    addDonacion($donador,$descripcionDonacion,$fechaDonacion);
   
 }
 

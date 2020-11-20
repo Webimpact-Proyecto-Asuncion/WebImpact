@@ -32,7 +32,7 @@ function selectionDonadores()
 
     $result = mysqli_query($conn,$query);
 
-    closeDb($conn);
+   
 
     if(mysqli_num_rows($result) > 0)
     {
@@ -41,6 +41,8 @@ function selectionDonadores()
             echo "<option value=".$row["id"].">".$row["RazonSocial"]."</option>";
         }
     }
+
+    closeDb($conn);
 }
 
 
@@ -48,7 +50,7 @@ function addDonacion($razonSocial, $descripcion, $fecha)
 {
     $conn = connectDb(); 
 
-    $sql = "CALL CrearDonacion('$descripcion',$razonSocial,'$fecha');";
+    $sql = "CALL CrearDonacion($razonSocial,'$descripcion','$fecha');";
 
     if(mysqli_query($conn, $sql))
     {
