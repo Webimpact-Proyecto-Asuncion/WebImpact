@@ -1,6 +1,8 @@
 $( document ).ready(function() {
-    queryPacientes();
+   
 });
+
+/*
 
 function queryPacientes(){
     $.get( "controladorGetPacientes.php", { } )
@@ -9,12 +11,13 @@ function queryPacientes(){
     $("#NombrePaciente").append(data);
   });
 }
-
-function resgistraReporte(){
-    $.post( "controladorRegistraPaciente.php", {NumeroPaciente:$("#NombrePaciente").val(),Valoracion:$("#valoracion").val(),Terapia:$("#terapia").val(),Tratamiento:$("#tratamiento").val(),Avances:$("#avances").val()})
+*/
+function registraDonadores(){
+    $.post( "controladorRegistraDonadores.php", 
+    {RazonSocial:$("#RazonSocial").val(),RFC:$("#RFC").val(),Correo:$("#Correo").val(),Telefono:$("#Telefono").val(),Nacimiento:$("#Nacimiento").val()})
     .done(function( data ) {
     console.log(data);
   });
 }
 
-$("#Registrar").on("click",resgistraReporte)
+$("#Registrar").on("click",registraDonadores)

@@ -10,7 +10,7 @@
    
    <br><br><br>
     <div class="container ">
-    <h5 class="container">Registrar Reporte </h5>
+    <h5 class="container">Registrar Donadores </h5>
     </div>
     
     <br><br><br>
@@ -50,7 +50,7 @@
             
             <div class="form-row">
                 <div class="form-group col-md-12">
-                    <label for="Correo" class="bold">Fecha</label>
+                    <label for="Correo" class="bold">Fecha de Nacimiento</label>
                     <input type="date" class="form-control" id="Nacimiento" name="Nacimiento" required>
                 </div>
             </div>

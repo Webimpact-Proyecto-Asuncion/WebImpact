@@ -1,10 +1,10 @@
 <?php
 
     function connectDB(){
-        $servername="localhost";
-        $username="root";
-        $password="";
-        $dbname="donadores";
+          $servername="localhost";
+        $username="Matu";
+        $password="Matu$2020";
+        $dbname="asuncion1";
 
         $connection=mysqli_connect($servername,$username,$password,$dbname);
         if(!$connection){

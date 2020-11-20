@@ -2,6 +2,7 @@
 
     include("dbUtil_reporte.php");
 
+    /*
 
     function getDonadores(){
         $conn=connectDB();
@@ -15,18 +16,38 @@
         }
     }
 
+    */
 
-
-  function registraDonadores($RazonSocial,$RFC,$Correo,$Telefono,$Fecha){
+  function registraDonadores($RazonSocial,$RFC,$Correo,$Telefono,$Nacimiento){
         $conn=connectDB();
-        $sql="CALL CrearDonador(";
-        $sql=$sql.$RazonSocial.",'".$RFC."','".$Correo."','".$Telefono."','".$Fecha."',";
+        $sql="CALL CrearDonador('";
+        $sql=$sql.$RazonSocial."','".$RFC."','".$Correo."','".$Telefono."','".$Nacimiento."'";
         $sql=$sql.")";
         echo ($sql);
         $result=mysqli_query($conn,$sql);
         disconnectDB($conn);
         echo $result;
+      
+      
+        if(mysqli_query($conn,$sql))
+        {
+            echo "Donador creado exitosamente!!"; 
+            disconnectDB($conn);  
+            return true;
+        }      
+        else
+        {
+            echo "ERROR al crear Donador!!"; 
+            disconnectDB($conn); 
+            return false; 
+        }
+      
+      
     }
+
+
+
+    
 
 
 
