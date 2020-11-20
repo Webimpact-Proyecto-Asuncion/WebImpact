@@ -62,8 +62,6 @@ function redBorder() {
 function registrarDonacion() {
     if ($("#donador").val() == '' || $("#descripcionDonacion").val() == '' || $("#fechaDonacion").val() == '') {
         alert('Porfavor llena todos los campos!!');
-    } else {
-        alert('Bien hecho');
     }
 
     $.post("./addDonacion.php", {
