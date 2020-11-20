@@ -25,7 +25,7 @@ function registrarDonacion() {
     $.post("./addDonacion.php", {
         donador: $("#donador").val(),
         descripcionDonacion: $("#descripcionDonacion").val(),
-        fechaDonacion: $("#fechaDonacion").val()
+        fechaDonacion: $("#fechaDonacion").val(),
     }).
     done(function(data) {
         console.log(data);

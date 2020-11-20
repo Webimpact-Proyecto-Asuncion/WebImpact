@@ -32,7 +32,7 @@ function selectionDonadores()
 
     $result = mysqli_query($conn,$query);
 
-    closeDb($conn);
+   
 
     if(mysqli_num_rows($result) > 0)
     {
@@ -41,6 +41,8 @@ function selectionDonadores()
             echo "<option value=".$row["id"].">".$row["RazonSocial"]."</option>";
         }
     }
+
+    closeDb($conn);
 }
 
 
