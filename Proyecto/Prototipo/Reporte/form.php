@@ -10,7 +10,7 @@
    
    <br><br><br>
     <div class="container ">
-    <h5 class="container">Registrar Reporte </h5>
+    <h5 class="container">Registrar Donadores </h5>
     </div>
     
     <br><br><br>
