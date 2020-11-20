@@ -9,7 +9,6 @@ $donador = $_POST['donador'];
 $descripcionDonacion = $_POST['descripcionDonacion'];
 $fechaDonacion = $_POST['fechaDonacion'];
 
-echo $donador;
 
 
 
