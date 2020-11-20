@@ -3,7 +3,7 @@
  
     include("_header.html");
 
-    include("../sidebar/_sidebar.html");
+    include("../sidebar/_sidebarT.html");
         
 ?>   
    
