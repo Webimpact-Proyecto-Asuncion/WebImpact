@@ -287,6 +287,7 @@ function registrarPacientes() {
         apellidoM: $("#apellidoM").val(),
         domicilio: $("#domicilio").val(),
         estado: $("#estado").val(),
+        municipio:$("#municipio").val(),
         tel: $("#tel").val(),
         correo: $("#correo").val(),
         nacimiento: $("#nacimiento").val(),

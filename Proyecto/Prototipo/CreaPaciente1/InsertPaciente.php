@@ -35,6 +35,7 @@
     $dependencia = $_POST["dependencia"]; 
     $correo = $_POST["correo"];
     $estado = $_POST["estado"];
+    $municipio =$_POST["municipio"];
     $estudioSE = $_POST["estudioSE"];
     $curp = $_POST["curp"];
     $acta = $_POST["acta"];

@@ -3,8 +3,8 @@
     function connectDb()
     {
         $servername = "localhost"; 
-        $username = "root"; 
-        $password = ""; 
+        $username = "Matu"; 
+        $password = "Matu$2020"; 
         $dbname = "asuncion1"; 
 
         $conn = mysqli_connect($servername,$username,$password,$dbname);
@@ -41,7 +41,7 @@
 
         $sql = "INSERT INTO Paciente(NombrePaciente, ApellidoPaterno, ApellidoMaterno, Domicilio, Estado, Municipio, Telefono, Correo, FechaNacimiento, Genero, Diagnostico, Lesion, Ingreso, Dependencia, Fotografia, Curp, ActaNacimiento, ComprobanteDomicilio, ExpedienteMedico, RecomendacionMedica) VALUES (\"" . $nombre . "\",\"" . $apellidoP. "\",\"" . $apellidoM . "\",\"" . $domicilio . "\",\"" . $estado .  "\",\"" . $municipio . "\",\"" . $telefono . "\",\"" . $correo . "\",\"" . $fechaNacimiento . "\",\"" . $genero . "\",\"" . $diagnostico . "\",\"" . $lesion . "\",\"" . $ingreso . "\",\"" . $dependencia . "\",\"" . $estudioSE . "\",\"".  $curp . "\",\"".  $actaNacimiento . "\",\"" .  $comprobanteDomicilio . "\",\"" .  $expedienteMedico .  "\",\"" .  $recomendacionMedica . "\")";  
 
-        
+        echo ($sql);
         if(mysqli_query($conn, $sql))
         {
             echo '<script>alert("Nuevo paciente creado exitosamente!");</script>';
