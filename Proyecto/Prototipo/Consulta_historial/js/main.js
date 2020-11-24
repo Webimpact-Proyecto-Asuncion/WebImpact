@@ -52,5 +52,5 @@ function Actualiza(datos){
     d=datos.split('||');
     
 
-   location.href="Actualizareporte.php" + "?id=" + d[0];
+   location.href="../Actualizareporte.php" + "?id=" + d[0];
 }

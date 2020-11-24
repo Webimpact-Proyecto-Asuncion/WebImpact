@@ -28,7 +28,7 @@
 	if(isset($_POST["consulta"])){
 
 		$q = $conexion->real_escape_string($_POST['consulta']);
-		$sql = "SELECT P.NumeroPaciente, E.NumeroEmpleado, P.NombrePaciente, P.ApellidoPaterno, P.ApellidoMaterno, SUM(PC.Asistencia), COUNT(PC.Asistencia) FROM Paciente_Consulta PC, Paciente P,Empleado E WHERE P.NumeroPaciente = PC.NumeroPaciente AND E.NumeroEmpleado = PC.NumeroEmpleado AND P.Visibilidad = 1 and P.NombrePaciente LIKE '%".$q."%' GROUP BY P.NumeroPaciente ";
+		$sql = "SELECT P.NombrePaciente, P.ApellidoPaterno, P.ApellidoMaterno, SUM(PC.Asistencia) as 'Faltas', COUNT(PC.Asistencia) as 'Total' FROM Paciente_Consulta PC, Paciente P WHERE P.NumeroPaciente = PC.NumeroPaciente AND P.Visibilidad = 1 AND  LIKE '%".$q."%' GROUP BY P.NumeroPaciente ";
 
 	}
 
@@ -43,8 +43,7 @@
 				$ver[2]."||".
 				$ver[3]."||".
 				$ver[4]."||".
-				$ver[5]."||".
-				$ver[6];
+				$ver[5];
 
 
 
