@@ -3,7 +3,7 @@ $( document ).ready(function() {
 });
 
 function queryPacientes(){
-    $.get( "controladorGetPacientes.php", { } )
+    $.get( "controladorGetReporte.php", { } )
     .done(function( data ) {
     //console.log(data);
     $("#NombrePaciente").append(data);
@@ -11,7 +11,7 @@ function queryPacientes(){
 }
 
 function resgistraReporte(){
-    $.post( "controladorRegistraPaciente.php", {NumeroPaciente:$("#NombrePaciente").val(),Valoracion:$("#valoracion").val(),Terapia:$("#terapia").val(),Tratamiento:$("#tratamiento").val(),Avances:$("#avances").val()})
+    $.post( "controladorRegistraReporte.php", {NumeroPaciente:$("#NombrePaciente").val(),Valoracion:$("#valoracion").val(),Terapia:$("#terapia").val(),Tratamiento:$("#tratamiento").val(),Avances:$("#avances").val()})
     .done(function( data ) {
     console.log(data);
   });
