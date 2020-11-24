@@ -13,6 +13,9 @@
         }
     }
 
+
+    
+
     function registraReporte($NumeroEmpleado,$id,$Valoracion,$Terapia,$Tratamiento,$Avances){
         $conn=connectDB();
         $sql="CALL CrearReporte(";

@@ -17,12 +17,6 @@
     
     <div class="container CreaPaciente">
         <form action="insert.php" id="frmBox" method="post" onsubmit="return formSubmit();" class="container formulario">
-            <div class="form-row">
-                    <div class="form-group col-md-6">
-                            <label for="NumeroPaciente" class="bold">Nombre Paciente</label>
-                            <select type="text" class="form-control" id="NombrePaciente" placeholder="Luis Hernandez" required ></select>
-                    </div>
-                </div>
                 
                   <div class="form-row">
                     <div class="form-group col-md-6">
