@@ -52,6 +52,10 @@ function Actualiza(datos){
     d=datos.split('||');
     
     
-
+    console.log("click");
    location.href="Actualizareporte.php" + "?id=" + d[0];
+}
+
+function klk(){
+    console.log("click");
 }
