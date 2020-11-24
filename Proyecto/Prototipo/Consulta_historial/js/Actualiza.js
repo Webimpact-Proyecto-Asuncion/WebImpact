@@ -64,4 +64,8 @@ function modificarReporte(){
     
 }
 
-$("#modificar").on("click",modificarReporte);
+function klk(){
+    console.log("click");
+}
+
+//$("#modificar").on("click",modificarReporte);

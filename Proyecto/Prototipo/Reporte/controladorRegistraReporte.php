@@ -1,6 +1,6 @@
 <?php
     session_start();
-    include("./registraPacientesUtil.php");
+    include("registraReportesUtil.php");
     if(isset($_POST["NumeroPaciente"])&&isset($_POST["Valoracion"])&&isset($_POST["Terapia"])&&isset($_POST["Tratamiento"])&&isset($_POST["Avances"])){
         $NumeroPaciente=$_POST["NumeroPaciente"];
         $Valoracion=$_POST["Valoracion"];

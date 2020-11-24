@@ -13,13 +13,10 @@
         }
     }
 
-
-    
-
-    function registraReporte($NumeroEmpleado,$id,$Valoracion,$Terapia,$Tratamiento,$Avances){
+    function registraReporte($NumeroPaciente,$Valoracion,$Terapia,$Tratamiento,$Avances,$id){
         $conn=connectDB();
         $sql="CALL CrearReporte(";
-        $sql=$sql.$NumeroEmpleado.","$id",'".$Valoracion."','".$Terapia."','".$Tratamiento."','".$Avances."'";
+        $sql=$sql.$NumeroPaciente.",'".$Valoracion."','".$Terapia."','".$Tratamiento."','".$Avances."',".$id;
         $sql=$sql.")";
         echo ($sql);
         $result=mysqli_query($conn,$sql);
