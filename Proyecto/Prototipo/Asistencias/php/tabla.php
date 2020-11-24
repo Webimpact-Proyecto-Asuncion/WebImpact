@@ -52,7 +52,7 @@
 	
 	<tr>
 
-		
+		<td><?php echo $ver[1] ?></td>
 		<td><?php echo $ver[2] ?></td>
 		<td><?php echo $ver[3] ?></td>
 		<td><?php echo $ver[4] ?></td>
