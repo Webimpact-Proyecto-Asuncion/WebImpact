@@ -28,7 +28,7 @@
 	if(isset($_POST["consulta"])){
 
 		$q = $conexion->real_escape_string($_POST['consulta']);
-		$sql = "SELECT P.NombrePaciente, P.ApellidoPaterno, P.ApellidoMaterno, SUM(PC.Asistencia) as 'Faltas', COUNT(PC.Asistencia) as 'Total' FROM Paciente_Consulta PC, Paciente P WHERE P.NumeroPaciente = PC.NumeroPaciente AND P.Visibilidad = 1 AND  LIKE '%".$q."%' GROUP BY P.NumeroPaciente ";
+		$sql = "SELECT P.NumeroPaciente, P.NombrePaciente, P.ApellidoPaterno, P.ApellidoMaterno, SUM(PC.Asistencia) as 'Faltas', COUNT(PC.Asistencia) as 'Total' FROM Paciente_Consulta PC, Paciente P WHERE P.NumeroPaciente = PC.NumeroPaciente AND P.Visibilidad = 1 AND P.NombrePaciente LIKE '%".$q."%' GROUP BY P.NumeroPaciente ";
 
 	}
 
@@ -52,12 +52,12 @@
 	
 	<tr>
 
-		
+		<td><?php echo $ver[1] ?></td>
 		<td><?php echo $ver[2] ?></td>
 		<td><?php echo $ver[3] ?></td>
 		<td><?php echo $ver[4] ?></td>
 		<td><?php echo $ver[5] ?></td>
-		<td><?php echo $ver[6] ?></td>
+		
 		
 		<td>
 			<button class="btn btn-success" onclick="confirmaAsistencia('<?php  echo $datos ?>')"><span class="oi oi-check"></span> Asistencia</button>
