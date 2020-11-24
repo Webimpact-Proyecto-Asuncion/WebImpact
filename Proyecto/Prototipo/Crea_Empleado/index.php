@@ -1,6 +1,6 @@
 <?php
     include("./_head.html");
-    include("../sidebar/_sidebarA.html");
+    include ('../sidebar/index.php');
     include("./_form.html");
     include("./_footer.html");
 ?>
