@@ -27,7 +27,7 @@
 	if(isset($_POST["consulta"])){
 
 		$q = $conexion->real_escape_string($_POST['consulta']);
-		$sql = "SELECT D.id_Donador, D.RazonSocial, D.RFC, D.Correo, D.Telefono FROM donador D WHERE D.Visibilidad=1 and D.RazonSocial LIKE '%".$q."%'";
+		$sql = "SELECT D.id_Donador, D.RazonSocial, D.RFC, D.Correo, D.Telefono FROM Donador D WHERE D.Visibilidad=1 and D.RazonSocial LIKE '%".$q."%'";
 
 	}
 

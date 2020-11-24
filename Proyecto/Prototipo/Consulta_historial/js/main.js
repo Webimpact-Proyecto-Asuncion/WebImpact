@@ -46,3 +46,11 @@ function eliminarDatos(id){
         $('#tabla').load('php/tabla.php');
     });
 }
+
+function Actualiza(datos){
+
+    d=datos.split('||');
+    
+
+   location.href="../Actualizareporte.php" + "?id=" + d[0];
+}
