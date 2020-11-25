@@ -39,7 +39,9 @@
         
         $conn = connectDb(); 
 
-        $sql = "INSERT INTO Paciente(NombrePaciente, ApellidoPaterno, ApellidoMaterno, Domicilio, Estado, Municipio, Telefono, Correo, FechaNacimiento, Genero, Diagnostico, Lesion, Ingreso, Dependencia, Fotografia, Curp, ActaNacimiento, ComprobanteDomicilio, ExpedienteMedico, RecomendacionMedica) VALUES (\"" . $nombre . "\",\"" . $apellidoP. "\",\"" . $apellidoM . "\",\"" . $domicilio . "\",\"" . $estado .  "\",\"" . $municipio . "\",\"" . $telefono . "\",\"" . $correo . "\",\"" . $fechaNacimiento . "\",\"" . $genero . "\",\"" . $diagnostico . "\",\"" . $lesion . "\",\"" . $ingreso . "\",\"" . $dependencia . "\",\"" . $estudioSE . "\",\"".  $curp . "\",\"".  $actaNacimiento . "\",\"" .  $comprobanteDomicilio . "\",\"" .  $expedienteMedico .  "\",\"" .  $recomendacionMedica . "\")";  
+        //$sql = "INSERT INTO Paciente(NombrePaciente, ApellidoPaterno, ApellidoMaterno, Domicilio, Estado, Municipio, Telefono, Correo, FechaNacimiento, Genero, Diagnostico, Lesion, Ingreso, Dependencia, Fotografia, Curp, ActaNacimiento, ComprobanteDomicilio, ExpedienteMedico, RecomendacionMedica) VALUES (\"" . $nombre . "\",\"" . $apellidoP. "\",\"" . $apellidoM . "\",\"" . $domicilio . "\",\"" . $estado .  "\",\"" . $municipio . "\",\"" . $telefono . "\",\"" . $correo . "\",\"" . $fechaNacimiento . "\",\"" . $genero . "\",\"" . $diagnostico . "\",\"" . $lesion . "\",\"" . $ingreso . "\",\"" . $dependencia . "\",\"" . $estudioSE . "\",\"".  $curp . "\",\"".  $actaNacimiento . "\",\"" .  $comprobanteDomicilio . "\",\"" .  $expedienteMedico .  "\",\"" .  $recomendacionMedica . "\")";  
+
+        $sql = "CALL CrearPaciente('$nombre','$apellidoP','$apellidoM', '$domicilio', $estado, $municipio, '$telefono', '$correo', '$fechaNacimiento','$genero', '$diagnostico', '$lesion', '$ingreso', '$dependencia', '$estudioSE', '$curp', '$actaNacimiento', '$comprobanteDomicilio', '$expedienteMedico', '$recomendacionMedica');";
 
         echo ($sql);
         if(mysqli_query($conn, $sql))
