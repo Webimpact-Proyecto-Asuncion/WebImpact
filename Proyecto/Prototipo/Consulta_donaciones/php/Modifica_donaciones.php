@@ -6,34 +6,39 @@
         
 		$conexion = conexion();
 		
+        
 		$sql="CALL GetdonativosById(";
 		$sql=$sql.$id;
 		$sql=$sql.")";
-
+        
+        
 		$result = mysqli_query($conexion, $sql);
 
+       // echo $sql;
 
+        if(mysqli_num_rows($result)>0){
+        
 		while($row=mysqli_fetch_assoc($result)){
             
-            echo $row["Descripcion"].",".$row["Fecha"].",".$row["id_Donador"];
-            //echo $row["NumeroDonativo"].",".$row["Descripcion"].",".$row["Fecha"].",".$row["id_Donador"];
+            echo $row["Descripcion"].",".$row["NumeroDonativo"];
             
-		}
+		 }
+        }else{
+            
+            echo'no hay registro';
+        }
 	}
 
 
-	function modificarDonativos($Descripcion,$Fecha,$id_Donador){
+	function modificarDonaciones($Descripcion,$id_donador){
 
 		$conexion = conexion();
         
-		//$sql="CALL UpdateDonador(".$id_donador.", '".$RazonSocial."', '".$RFC."', '".$Correo."', '".$Telefono."', '".$Fecha."')";
-
-        $sql="CALL UpdateDonativos('".$Descripcion."', '".$Fecha."',".$id_donador.")";
-
+        $sql="CALL UpdateDonativos('".$Descripcion."',".$id_donador.")";
         
         var_dump($sql);
 
-		echo$result = mysqli_query($conexion, $sql);
+		echo $result = mysqli_query($conexion, $sql);
 
 		
 	}

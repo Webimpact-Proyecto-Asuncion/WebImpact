@@ -52,9 +52,9 @@
 						
 							
 		<td>
-			<button class="btn btn-warning" ><span class="oi oi-pencil"></span>Modificar </button>
+			<button class="btn btn-warning" onclick="Actualiza('<?php  echo $datos ?>') "><span class="oi oi-pencil"></span>Modificar </button>
 		</td>
-							
+						
 		<td>
 			<button class="btn btn-danger" onclick="preguntarSiNo('<?php  echo $ver[0] ?>')"><span class="oi oi-trash"></span> Eliminar</button>
 		</td>
@@ -70,4 +70,5 @@
 					
 	</table>
 </div>
+	
 	

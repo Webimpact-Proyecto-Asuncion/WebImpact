@@ -5,7 +5,10 @@ $( document ).ready(function() {
     console.log(queryString);
     const urlParams = new URLSearchParams(queryString);
     id = urlParams.get('id');
+
     Getdonaciones(id);
+    
+    
 });
 
 function Getdonaciones(id){
@@ -14,14 +17,10 @@ function Getdonaciones(id){
     
     done(function(data) {
     	
-    console.log (data);
-        
     let data1=data.split(",");
-
   
     $("#Descripcion").val(data1[0]);
-    $("#Fecha").val(data1[1]);
-    $("#id_donador").val(data1[2]);
+    $("#id_donador").val(data1[1]);
     
     });
 
@@ -30,18 +29,16 @@ function Getdonaciones(id){
 function modificarDonaciones(){
 
     Descripcion=$('#Descripcion').val();
-    Fecha=$('#Fecha').val();
     id_donador=$('#id_donador').val();
-    
+        
     $.post("php/Controladormodifica_donaciones.php",{Descripcion:Descripcion,
-                                        
-                                        Fecha:Fecha,
-                                        id_donador:id_donador, 
+                                    
+                                                     id_donador:id_donador, 
                                         
                                         }).
     done(function(data ) {
         console.log(data);
-        alertify.success("Modificado con exito");
+        //alertify.success("Modificado con exito");
     });
 
     

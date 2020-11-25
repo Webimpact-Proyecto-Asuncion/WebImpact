@@ -28,8 +28,6 @@ $(document).on('keyup','#busqueda', function(){
 
 function preguntarSiNo(id){
 
-
-
 	alertify.confirm('Eliminar Datos', '¿Esta seguro de eliminar este registro?', 
 					function(){ eliminarDatos(id) }
                 , function(){ alertify.error('Se cancelo')});
@@ -38,12 +36,18 @@ function preguntarSiNo(id){
 
 function eliminarDatos(id){
 
-	
-	
  $.post("php/Eliminardonacion.php",{id:id}).
     done(function( data ) {
     	
         alertify.success("Eliminado con exito!");
         $('#tabla').load('php/tabla.php');
     });
+}
+
+
+function Actualiza(datos){
+
+    d=datos.split('||');
+
+   location.href="Actualizardonativos.php" + "?id=" + d[1];
 }
