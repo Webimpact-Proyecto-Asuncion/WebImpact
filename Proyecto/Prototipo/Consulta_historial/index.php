@@ -1,13 +1,15 @@
 
 <?php
   session_start();
+  if($_SESSION['rol'] == 'Terapeuta' || $_SESSION['rol'] == 'Administrador')
+  {
   include ('_header.html');
-//  if($_SESSION["rol"] == "Terapeuta"){
-//  include ('../sidebar/_sidebarT.html');
-//  } else {
-  include ('../sidebar/_sidebarA.html');
-//  }
-  include('_main.html');
+  include ('../sidebar/index.php');
+  include ('_main.html');
   include ('_footer.html');
+  }
+  else {
+    echo "ocurrio un error, contacte al administrador";
+  }
 ?>
   
