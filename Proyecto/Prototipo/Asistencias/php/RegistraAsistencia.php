@@ -1,15 +1,17 @@
 <?php
+	
+	session_start();
 	require_once "conexion.php";
 	$conexion=conexion();
 
 	
 
 
-	if (isset($_POST["idempleado"]) && isset($_POST["idpaciente"])) {
+	if (isset($_POST["idpaciente"])) {
 		$idpaciente=$_POST["idpaciente"];
-		$id_empleado=$_POST["idempleado"];
+		
 
-
+		$id_empleado=$_SESSION["id"];
 		
 		$sql="CALL RegistraAsistencia($id_empleado, $idpaciente)";
 		$result=mysqli_query($conexion, $sql);

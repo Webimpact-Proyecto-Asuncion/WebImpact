@@ -68,7 +68,7 @@
 		
 
 		<td>
-			<button class="btn btn-warning" onClick="klk()"><span class="oi oi-pencil"></span>Modificar </button>
+			<button class="btn btn-warning" onclick="Actualiza('<?php echo $datos ?>')"><span class="oi oi-pencil"></span>Modificar </button>
 		</td>
 							
 		<td>
