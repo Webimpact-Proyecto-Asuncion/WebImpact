@@ -37,6 +37,7 @@
 </head>
    
 <?php
+    session_start();
     include ('../sidebar/index.php');
 ?>    
     
