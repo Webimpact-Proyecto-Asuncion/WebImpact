@@ -18,13 +18,12 @@ function Getreporte(id){
 
     $("#NumReporte").val(data1[0]);
     $("#NumEmpleado").val(data1[1]);
-    $("#Edad").val(data1[3]);
     $("#NumPaciente").val(data1[2]);
-    $("#Valoracion").val(data1[4]);
-    $("#Terapia").val(data1[5]);
-    $("#Tratamiento").val(data1[6]);
-    $("#Avances").val(data1[7]);
-    $("#Fecha").val(data1[8]);
+    $("#Valoracion").val(data1[3]);
+    $("#Terapia").val(data1[4]);
+    $("#Tratamiento").val(data1[5]);
+    $("#Avances").val(data1[6]);
+    $("#Fecha").val(data1[7]);
     
 
 
@@ -36,7 +35,6 @@ function modificarReporte(){
 
     NumReporte=$("#NumReporte").val();
     NumEmpleado=$("#NumEmpleado").val();
-    Edad=$("#Edad").val();
     NumPaciente=$("#NumPaciente").val();
     Valoracion=$("#Valoracion").val();
     Terapia=$("#Terapia").val();
@@ -49,7 +47,6 @@ function modificarReporte(){
     $.post("php/ControladorModifica.php",{NumReporte:NumReporte, 
                                         NumEmpleado:NumEmpleado, 
                                         NumPaciente:NumPaciente, 
-                                        Edad:Edad, 
                                         Valoracion:Valoracion, 
                                         Terapia:Terapia,
                                         Tratamiento:Tratamiento,
@@ -64,8 +61,4 @@ function modificarReporte(){
     
 }
 
-function klk(){
-    console.log("click");
-}
-
-//$("#modificar").on("click",modificarReporte);
+$("#modificar").on("click",modificarReporte);
