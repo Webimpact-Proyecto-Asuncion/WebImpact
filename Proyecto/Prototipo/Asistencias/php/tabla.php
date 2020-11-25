@@ -15,6 +15,7 @@
               <th>Total</th>
               <th>Asistencia</th>
               <th>Falta</th>
+              <th>Justificar</th>
 
               
             </tr> 
@@ -66,6 +67,9 @@
 				
 		<td>
 			<button class="btn btn-danger" onclick="preguntarSiNo('<?php  echo $datos ?>')"><span class="oi oi-x"></span> Falta</button>
+		</td>
+		<td>
+			<button class="btn btn-primary" onclick="justificacion('<?php  echo $datos ?>')"><span class="oi oi-heart"></span> Justificar</button>
 		</td>
 
 		</tr>
