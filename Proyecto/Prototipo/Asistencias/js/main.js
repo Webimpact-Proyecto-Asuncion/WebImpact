@@ -83,3 +83,14 @@ function asistencia(datos){
 
     
 }
+
+function justificacion(id){
+     alertify.confirm('Justificar', '¿Confirma justificacion del paciente?', 
+                    function(){ justifica(id) }
+                , function(){ alertify.error('Se cancelo')});
+}
+
+function justifica(id){
+
+    alert(id);
+}
