@@ -4,9 +4,10 @@
         $nombre=$_POST["nombre"];
         $correo=$_POST["correo"];
         $especialidad=$_POST["especialidad"];
-        $contraseña=$_POST["contrasena"];
+        $contraseña=crypt($_POST["contrasena"],'AsuncionIAP$2020');
         $rol=$_POST["rol"];
+
         echo($nombre.$correo.$especialidad.$contraseña.$rol);
-        echo(registraEmpleado($nombre,$correo,$especialidad,$contraseña,$rol));
+        registraEmpleado($nombre,$correo,$especialidad,$contraseña,$rol);
     }
 ?>
