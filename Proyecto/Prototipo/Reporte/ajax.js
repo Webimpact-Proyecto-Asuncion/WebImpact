@@ -10,11 +10,11 @@ function queryPacientes(){
   });
 }
 
-function resgistraReporte(){
+function registraReporte(){
     $.post( "controladorRegistraReporte.php", {NumeroPaciente:$("#NombrePaciente").val(),Valoracion:$("#valoracion").val(),Terapia:$("#terapia").val(),Tratamiento:$("#tratamiento").val(),Avances:$("#avances").val()})
     .done(function( data ) {
     console.log(data);
   });
 }
 
-$("#Registrar").on("click",resgistraReporte)
+$("#Registrar").on("click",registraReporte)

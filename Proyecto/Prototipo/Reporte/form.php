@@ -31,7 +31,7 @@
                 <div class="form-row">
                     <div class="form-group col-md-6">
                         <label for="Terapia" class="bold">Terapia</label>
-                        <textarea class="form-control" id="terapia" rows="3" placeholder="Paciente ingres debido a ..." required></textarea>
+                        <textarea class="form-control" id="terapia" rows="3" placeholder="Paciente ingreso debido a ..." required></textarea>
                     </div>
                 </div>
                 <div class="form-row">
