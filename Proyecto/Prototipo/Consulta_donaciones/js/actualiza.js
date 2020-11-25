@@ -38,7 +38,7 @@ function modificarDonaciones(){
                                         }).
     done(function(data ) {
         console.log(data);
-        //alertify.success("Modificado con exito");
+        alertify.success("Modificado con exito");
     });
 
     
