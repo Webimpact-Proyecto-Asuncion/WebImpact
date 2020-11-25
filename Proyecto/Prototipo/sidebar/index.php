@@ -1,8 +1,8 @@
 <?php
-  if( $_SESSION["id"] == 'Terapeuta'){
+  if( $_SESSION["rol"] == 'Terapeuta'){
     include ('../sidebar/_sidebarT.html');
   }
-  else if( $_SESSION["id"] == 'Administrador'){
+  else if( $_SESSION["rol"] == 'Administrador'){
     include ('../sidebar/_sidebarA.html');
   }
 ?>
