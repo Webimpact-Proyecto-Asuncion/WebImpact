@@ -1,6 +1,6 @@
 <?php
   session_start();
-  if($_SESSION['rol'] == 'Terapeuta' || $_SESSION['rol'] == 'Administrador')
+  if($_SESSION['rol'] == 'Administracion')
   {
     include("_head.html");
     include("_navbar.html");

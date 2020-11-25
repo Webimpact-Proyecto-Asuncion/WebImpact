@@ -1,7 +1,7 @@
 
 <?php
   session_start();
-  if($_SESSION['rol'] == 'Terapeuta' || $_SESSION['rol'] == 'Administrador')
+  if($_SESSION['rol'] == 'Administracion')
   {
   include ('_header.html');
   include ('../sidebar/index.php');
