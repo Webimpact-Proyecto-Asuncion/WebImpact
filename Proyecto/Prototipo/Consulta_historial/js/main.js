@@ -53,9 +53,6 @@ function Actualiza(datos){
     
     
     console.log("click");
-   location.href="Actualizareporte.php" + "?id=" + d[0];
+   location.href="../Modificar_reporte/Actualizareporte.php" + "?id=" + d[0];
 }
 
-function klk(){
-    console.log("click");
-}
