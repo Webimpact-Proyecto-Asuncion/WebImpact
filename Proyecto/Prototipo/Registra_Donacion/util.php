@@ -50,18 +50,18 @@ function addDonacion($descripcion,  $razonSocial, $fecha)
 {
     $conn = connectDb(); 
 
-    $numero = 6;
-    $sql = "CALL CrearDonacion($numero,'Frutas y verduras','2020-12-06');";
+    $sql = "CALL CrearDonacion($razonSocial,'$descripcion','$fecha');";
 
     if(mysqli_query($conn, $sql))
     {
        echo "Donación registrada exitosamente!";
        closeDb($conn); 
        return true; 
+       
     }
     else
     {
-        echo " ERROR: " . $sql . " " . mysqli_error($conn); 
+        echo "ERROR: " . $sql . " " . mysqli_error($conn); 
        
         closeDb($conn); 
         return false;

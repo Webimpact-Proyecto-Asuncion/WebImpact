@@ -28,6 +28,7 @@ function registrarDonacion() {
         fechaDonacion: $("#fechaDonacion").val(),
     }).
     done(function(data) {
+        console.log("HOLA");
         console.log(data);
     })
 }
@@ -66,7 +67,7 @@ function registrarDonacion() {
 
     $.post("./addDonacion.php", {
         donador: $("#donador").val(),
-        descripcionDonacion: $("#descripcion").val(),
+        descripcionDonacion: $("#descripcionDonacion").val(),
         fechaDonacion: $("#fechaDonacion").val()
     }).
     done(function(data) {
