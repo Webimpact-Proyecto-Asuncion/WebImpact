@@ -4,9 +4,6 @@
 	require_once "conexion.php";
 	$conexion=conexion();
 
-	
-
-
 	if (isset($_POST["idpaciente"])) {
 		$idpaciente=$_POST["idpaciente"];
 		
