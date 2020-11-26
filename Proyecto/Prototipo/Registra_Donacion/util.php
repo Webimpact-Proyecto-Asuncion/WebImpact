@@ -50,7 +50,8 @@ function addDonacion($descripcion,  $razonSocial, $fecha)
 {
     $conn = connectDb(); 
 
-    $sql = "CALL CrearDonacion($razonSocial,'$descripcion','$fecha');";
+    $numero = 6;
+    $sql = "CALL CrearDonacion($numero,'Frutas y verduras','2020-12-06');";
 
     if(mysqli_query($conn, $sql))
     {
