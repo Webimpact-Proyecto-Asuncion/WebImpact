@@ -37,8 +37,6 @@ function preguntarSiNo(id) {
 
 function preguntarJustificacion(id) {
 
-
-
     alertify.confirm('Justificacion', '¿Confirma justificacion?',
         function() { justificacion(id) },
         function() { alertify.error('Se cancelo') });
