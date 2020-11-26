@@ -43,8 +43,6 @@ function preguntarJustificacion(id) {
 
 function confirmaAsistencia(id) {
 
-
-
     alertify.confirm('Asistencia', '¿Confirma asistencia del paciente?',
         function() { asistencia(id) },
         function() { alertify.error('Se cancelo') });
