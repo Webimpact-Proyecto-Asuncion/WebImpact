@@ -70,7 +70,7 @@ function registrarDonacion() {
         fechaDonacion: $("#fechaDonacion").val()
     }).
     done(function(data) {
-        //console.log(data);
+        console.log(data);
     })
 }
 
