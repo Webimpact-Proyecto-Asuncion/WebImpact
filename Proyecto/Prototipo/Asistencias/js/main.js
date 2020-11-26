@@ -1,96 +1,115 @@
-
 $(buscar_datos());
 
-function buscar_datos(consulta){
+function buscar_datos(consulta) {
     $.ajax({
-        url: 'php/tabla.php' ,
-        type: 'POST' ,
-        dataType: 'html',
-        data: {consulta: consulta},
-    })
-    .done(function(respuesta){
-        $("#tabla").html(respuesta);
-    })
-    .fail(function(){
-        console.log("error");
-    });
+            url: 'php/tabla.php',
+            type: 'POST',
+            dataType: 'html',
+            data: { consulta: consulta },
+        })
+        .done(function(respuesta) {
+            $("#tabla").html(respuesta);
+        })
+        .fail(function() {
+            console.log("error");
+        });
 }
-$(document).on('keyup','#busqueda', function(){
+$(document).on('keyup', '#busqueda', function() {
     var valor = $(this).val();
     if (valor != "") {
         buscar_datos(valor);
-    }else{
+    } else {
         buscar_datos();
     }
 });
 
 
 
-function preguntarSiNo(id){
+function preguntarSiNo(id) {
 
 
 
-	alertify.confirm('Falta', '¿Confirma ausencia del paciente?', 
-					function(){ falta(id) }
-                , function(){ alertify.error('Se cancelo')});
-	
+    alertify.confirm('Falta', '¿Confirma ausencia del paciente?',
+        function() { falta(id) },
+        function() { alertify.error('Se cancelo') });
+
 }
 
-function confirmaAsistencia(id){
+function preguntarJustificacion(id) {
 
 
 
-    alertify.confirm('Asistencia', '¿Confirma asistencia del paciente?', 
-                    function(){ asistencia(id) }
-                , function(){ alertify.error('Se cancelo')});
-    
+    alertify.confirm('Justificacion', '¿Confirma justificacion?',
+        function() { justificacion(id) },
+        function() { alertify.error('Se cancelo') });
+
 }
 
-function falta(datos){
-
-	d=datos.split('||');
-    
-    idpaciente=d[0];
-    idempleado=d[1];
-    
+function confirmaAsistencia(id) {
 
 
- $.post("php/Registrafalta.php",{idempleado:idempleado, idpaciente:idpaciente}).
-    done(function( data ) {
-    	console.log(data);
+
+    alertify.confirm('Asistencia', '¿Confirma asistencia del paciente?',
+        function() { asistencia(id) },
+        function() { alertify.error('Se cancelo') });
+
+}
+
+function falta(datos) {
+
+    d = datos.split('||');
+
+    idpaciente = d[0];
+    idempleado = d[1];
+
+
+
+    $.post("php/Registrafalta.php", { idempleado: idempleado, idpaciente: idpaciente }).
+    done(function(data) {
+        console.log(data);
         alertify.success("Falta registrada");
         $('#tabla').load('php/tabla.php');
     });
 
-    
+
 }
 
-function asistencia(datos){
+function asistencia(datos) {
 
-    d=datos.split('||');
-    
-    idpaciente=d[0];
-    idempleado=d[1];
-    
+    d = datos.split('||');
+
+    idpaciente = d[0];
+    idempleado = d[1];
 
 
- $.post("php/RegistraAsistencia.php",{idempleado:idempleado, idpaciente:idpaciente}).
-    done(function( data ) {
+
+    $.post("php/RegistraAsistencia.php", { idempleado: idempleado, idpaciente: idpaciente }).
+    done(function(data) {
         console.log(data);
         alertify.success("Asistencia registrada");
         $('#tabla').load('php/tabla.php');
     });
 
-    
+
 }
 
-function justificacion(id){
-     alertify.confirm('Justificar', '¿Confirma justificacion del paciente?', 
-                    function(){ justifica(id) }
-                , function(){ alertify.error('Se cancelo')});
+function justificacion(datos) {
+
+    d = datos.split('||');
+
+    idpaciente = d[0];
+    idempleado = d[1];
+
+
+    $.post("php/RegistraJustificacion.php", { idpaciente: idpaciente }).
+    done(function(data) {
+        console.log(data);
+        alertify.success("Registro justificado");
+        $('#tabla').load('php/tabla.php');
+    });
 }
 
-function justifica(id){
+function justifica(id) {
 
     alert(id);
 }

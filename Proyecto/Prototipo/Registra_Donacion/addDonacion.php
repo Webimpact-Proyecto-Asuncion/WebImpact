@@ -15,9 +15,8 @@ $fechaDonacion = $_POST['fechaDonacion'];
 if(isset($donador) && !empty($donador) && isset($descripcionDonacion) && !empty($descripcionDonacion) && isset($fechaDonacion) && !empty($fechaDonacion))
 {
     echo "Entro";
-    addDonacion($descripcionDonacion,$donador,$fechaDonacion);
+    addDonacion($donador,$descripcionDonacion,$fechaDonacion);
     
-  
 }
 
 include("registrarDonacion.html");
