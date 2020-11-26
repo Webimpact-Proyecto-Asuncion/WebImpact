@@ -21,8 +21,4 @@
 		echo $id_empleado;
 	}
 
-	
-	
-
-
 ?>
