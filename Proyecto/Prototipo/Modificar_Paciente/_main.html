@@ -32,7 +32,7 @@
                         <div class="form-row">
                             <div class="form-group col-md-12">
                                 <label for="domicilio" class="bold">Domicilio</label>
-                                <input type="text" class="form-control" id="domicilio" name="domicilio" placeholder="Ej. Calle Robles #34 Col. El Paseo">
+                                <input type="text" class="form-control" id="domicilio" name="domicilio">
                             </div>
                         </div>
                         <div class="form-row">
@@ -85,13 +85,13 @@
                         <div class="form-row">
                             <div class="form-group col-md-12">
                                 <label for="tel" class="bold">Teléfono</label>
-                                <input type="text" class="form-control" id="tel" name="tel" placeholder="Ej. 4421015623">
+                                <input type="text" class="form-control" id="tel" name="tel">
                             </div>
                         </div>
                         <div class="form-row">
                             <div class="form-group col-md-12">
                                 <label for=correo class="bold">Correo Electrónico</label>
-                                <input type="text" class="form-control" id="correo" name="correo" placeholder="Ejemplo@gmail.com">
+                                <input type="text" class="form-control" id="correo" name="correo">
                             </div>
                         </div>
                         <div class="form-row">
@@ -121,13 +121,13 @@
                             <div class="form-group col-md-12">
                                 <br>
                                 <label for="Diagnostico" class="bold">Diagnóstico</label>
-                                <input type="text" class="form-control" name="diagnostico" id="diagnostico" placeholder="Ej. El paciente padece...">
+                                <input type="text" class="form-control" name="diagnostico" id="diagnostico">
                             </div>
                         </div>
                         <div class="form-row">
                             <div class="form-group col-md-12">
                                 <label for="Lesion" class="bold">Lesión</label>
-                                <input type="text" class="form-control" id="lesion" name="lesion" placeholder="Ej. Lesión en rodilla izquiera">
+                                <input type="text" class="form-control" id="lesion" name="lesion">
                             </div>
                         </div>
                         <div class="form-row">
@@ -137,9 +137,21 @@
                             </div>
                         </div>
                         <div class="form-row">
+                            <div class="form-group col-md-3">
+                                <label for="ingreso" class="bold">Reingreso</label>
+                                <input type="date" class="form-control" id="reingreso" name="reingreso">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-3">
+                                <label for="ingreso" class="bold">Egreso</label>
+                                <input type="date" class="form-control" id="egreso" name="egreso">
+                            </div>
+                        </div>
+                        <div class="form-row">
                             <div class="form-group col-md-12">
                                 <label for="dependencia" class="bold">Dependencia</label>
-                                <input type="text" class="form-control" id="dependencia" name="dependencia" placeholder="Ej. El paciente depende de... ">
+                                <input type="text" class="form-control" id="dependencia" name="dependencia">
                             </div>
                         </div>
                         <br><br>
@@ -195,7 +207,7 @@
 
                         <input type="button" class="btn btn-primary bold" value="SUBIR FOTOS" id="but_upload">
                         <br><br><br><br>
-                        <input type="button" value="REGISTRAR PACIENTE" class="btn btn-success bold" name="registrarPaciente" id="registrarPaciente"></input>
+                        <input type="button" value="MODIFICAR PACIENTE" class="btn btn-success bold" name="modificar" id="modificar"></input>
                         <br><br>
                         <input type="button" class="btn btn-warning bold" value=" Anterior " name="anterior2" id="anterior2"></input>
                         <br><br>
@@ -204,4 +216,5 @@
             </div>
         </div>
         </div>
+
     </main>
