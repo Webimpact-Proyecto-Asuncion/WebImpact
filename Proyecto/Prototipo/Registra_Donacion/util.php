@@ -46,7 +46,7 @@ function selectionDonadores()
 }
 
 
-function addDonacion($descripcion,  $razonSocial, $fecha)
+function addDonacion($razonSocial,$descripcion, $fecha)
 {
     $conn = connectDb(); 
 
