@@ -36,6 +36,30 @@ function Getpaciente(id) {
 
 
 
+        //$("#estado").change(function() {
+        //console.log("CAMBIO");
+        $.get("php/controladorMunicipio.php", {
+            estado: $("#estado").val(),
+            municipio: $("#municipio").val(),
+        }).
+        done(function(data) {
+            $("#municipio").html(data);
+        });
+        //})
+
+        $("#estado").change(function() {
+            //console.log("CAMBIO");
+            $.get("php/controladorMunicipio.php", {
+                estado: $("#estado").val(),
+            }).
+            done(function(data) {
+                $("#municipio").html(data);
+            });
+        })
+
+
+
+
 
 
 
@@ -97,11 +121,11 @@ function modificarPaciente() {
         recomendacion: recomendacion
     }).
     done(function(data) {
-        console.log(data);
         alertify.success("Modificado con exito");
     });
 
 
 }
+
 
 $("#modificar").on("click", modificarPaciente());
