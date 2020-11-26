@@ -1,9 +1,9 @@
 <?php
 	  session_start();
-	  if($_SESSION['rol'] == 'Terapeuta')
+	  if($_SESSION['rol'] == 'Terapeuta' || $_SESSION['rol'] == 'Administracion')
 	  {
 		include('_header.html');
-		include('_sidebar.html');
+		include('../sidebar/index.php');
 		include('form_actualiza.html');
 		include('_footer.html');
 	  }
