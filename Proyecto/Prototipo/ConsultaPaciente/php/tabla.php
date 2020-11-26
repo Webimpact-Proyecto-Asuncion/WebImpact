@@ -2,7 +2,7 @@
 	
 	require_once "conexion.php";
 	$conexion=conexion();
-	$limit = isset($_POST["limit-records"]) ? $_POST["limit-records"] : 1;
+	$limit = isset($_POST["limit-records"]) ? $_POST["limit-records"] : 25;
 	$page = isset($_GET['page']) ? $_GET['page'] : 1;
 	$start = ($page - 1) * $limit;
 
