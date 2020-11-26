@@ -27,8 +27,6 @@ $(document).on('keyup', '#busqueda', function() {
 
 function preguntarSiNo(id) {
 
-
-
     alertify.confirm('Falta', '¿Confirma ausencia del paciente?',
         function() { falta(id) },
         function() { alertify.error('Se cancelo') });
