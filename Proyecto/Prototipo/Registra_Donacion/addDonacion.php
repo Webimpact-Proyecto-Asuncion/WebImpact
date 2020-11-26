@@ -19,6 +19,4 @@ if(isset($donador) && !empty($donador) && isset($descripcionDonacion) && !empty(
     
 }
 
-include("registrarDonacion.html");
-
 ?>  

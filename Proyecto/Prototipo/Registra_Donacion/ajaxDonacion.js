@@ -65,10 +65,12 @@ function registrarDonacion() {
         alert('Porfavor llena todos los campos!!');
     }
 
+    console.log($("#donador").val(), $("#descripcionDonacion").val())
     $.post("./addDonacion.php", {
         donador: $("#donador").val(),
         descripcionDonacion: $("#descripcionDonacion").val(),
         fechaDonacion: $("#fechaDonacion").val()
+
     }).
     done(function(data) {
         console.log(data);
