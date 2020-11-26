@@ -8,7 +8,7 @@ $_POST["descripcionDonacion"] = htmlspecialchars($_POST["descripcionDonacion"]);
 $donador = $_POST['donador'];
 $descripcionDonacion = $_POST['descripcionDonacion'];
 $fechaDonacion = $_POST['fechaDonacion'];
-
+echo $descripcionDonacion;
 
 
 
