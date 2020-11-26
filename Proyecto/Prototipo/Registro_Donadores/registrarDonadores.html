@@ -1,6 +1,8 @@
 <?php
-
-     if($_SESSION['rol'] == 'Terapeuta'){
+    
+     session_start();
+        
+     if($_SESSION['rol'] == 'Administracion'){
       
         require_once 'util.php'; 
         include '_header.html'; 
