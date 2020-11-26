@@ -1,8 +1,9 @@
 <?php
-
+    
         
-     require_once 'util.php'; 
+      require_once 'util.php'; 
 
+      session_start();
 
       if($_SESSION['rol'] == 'Administracion'){
       
