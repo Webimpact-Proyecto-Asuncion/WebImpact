@@ -15,16 +15,23 @@
 		}
 	}
 
-	function modificaPaciente($id_paciente, $nombre, $apellidoP, $apellidoM, $domicilio, $estado, $municipio, $tel, $correo, $nacimiento, $genero, $lesion, $ingreso, $reingreso, $egreso, $dependencia, $estudioSE, $curp, $acta, $comprobante, $expediente, $recomendacion){
-
-
-		echo "llego aqui";
+	function modificaPaciente($id_paciente, $nombre, $apellidoP, $apellidoM, $domicilio, $estado, $municipio, $tel, $correo, $nacimiento, $genero, $diagnostico, $lesion, $ingreso, $reingreso, $egreso, $dependencia){ 
 
 		$conexion = conexion();
 		
-		$sql="CALL UpdatePaciente ($id_paciente,$nombre, $apellidoP, $apellidoM, $domicilio, $estado, $municipio, $tel, $correo, $nacimiento, $genero, $lesion, $ingreso, $reingreso, $egreso, $dependencia);"; //$estudioSE, $curp, $acta, $comprobante, $expediente, $recomendacion 
-
-		echo $result = mysqli_query($conexion, $sql);
+		$sql="CALL UpdatePaciente ($id_paciente,'$nombre', '$apellidoP', '$apellidoM', '$domicilio', $estado, $municipio, '$tel', '$correo', '$nacimiento', '$genero', '$diagnostico',  '$lesion', '$ingreso', '$reingreso', '$egreso', '$dependencia');"; 
+		
+		if(mysqli_query($conexion, $sql)){
+			echo "SI SE HIZO";
+			closeDb($conexion);
+			return true;
+		}
+		else{
+			echo "ERROR: " . $sql . "<br>" . mysqli_error($conexion);
+			closeDb($conexion);
+			return false;
+		}
+		closeDb($conexion); 
 	}
 
 

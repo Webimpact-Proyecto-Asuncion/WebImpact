@@ -12,21 +12,8 @@ $("#siguiente").on("click", function() {
     });
 });
 
-$("#siguiente2").on("click", function() {
-    $('.carousel').carousel('next');
-    $('.carousel').carousel({
-        interval: false,
-    });
-});
 
 $("#anterior").on("click", function() {
-    $('.carousel').carousel('prev');
-    $('.carousel').carousel({
-        interval: false,
-    });
-});
-
-$("#anterior2").on("click", function() {
     $('.carousel').carousel('prev');
     $('.carousel').carousel({
         interval: false,

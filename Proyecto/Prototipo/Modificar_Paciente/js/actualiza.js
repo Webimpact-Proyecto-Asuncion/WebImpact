@@ -51,6 +51,7 @@ function Getpaciente(id) {
             //console.log("CAMBIO");
             $.get("php/controladorMunicipio.php", {
                 estado: $("#estado").val(),
+                municipio: $("#municipio").val(),
             }).
             done(function(data) {
                 $("#municipio").html(data);
@@ -85,12 +86,8 @@ function modificarPaciente() {
     reingreso = $("#reingreso").val();
     egreso = $("#egreso").val();
     dependencia = $("#dependencia").val();
-    estudioSE = $("#file").val();
-    curp = $("#curp").val();
-    acta = $("#acta").val();
-    comprobante = $("#comprobante").val();
-    expediente = $("#expediente").val();
-    recomendacion = $("#recomendacion").val();
+
+
 
 
 
@@ -112,15 +109,11 @@ function modificarPaciente() {
         ingreso: ingreso,
         reingreso: reingreso,
         egreso: egreso,
-        dependencia: dependencia,
-        estudioSE: estudioSE,
-        curp: curp,
-        acta: acta,
-        comprobante: comprobante,
-        expediente: expediente,
-        recomendacion: recomendacion
+        dependencia: dependencia
+
     }).
     done(function(data) {
+
         alertify.success("Modificado con exito");
     });
 
@@ -128,4 +121,4 @@ function modificarPaciente() {
 }
 
 
-$("#modificar").on("click", modificarPaciente());
+$("#modificar").on("click", modificarPaciente);
