@@ -1,50 +1,11 @@
 <?php
 	
 	require_once "conexion.php";
+	include "paginacion.php";
 	$conexion=conexion();
-	$limit = isset($_POST["limit-records"]) ? $_POST["limit-records"] : 25;
-	$page = isset($_GET['page']) ? $_GET['page'] : 1;
-	$start = ($page - 1) * $limit;
 
-	$result1 = $conexion->query("SELECT count(NumeroPaciente) AS id FROM Paciente WHERE Visibilidad = 1");
-	$Count = $result1->fetch_all(MYSQLI_ASSOC);
-	$total = $Count[0]['id'];
-	$pages = ceil( $total / $limit );
-
-	$Previous = $page - 1;
-	$Next = $page + 1;
 ?>
-	<div class="row">
-		<div class="col-md-10">
-			<nav aria-label="Page navigation">
-				<ul class="pagination">
-				<li class="page-item">
-					<a class="page-link" href="index.php?page=<?= $Previous; ?>" aria-label="Previous">
-					<span aria-hidden="true">&laquo; Previous</span>
-					</a>
-				</li>
-				<?php for($i = 1; $i<= $pages; $i++) : ?>
-					<li class="page-item" ><a class="page-link" href="index.php?page=<?= $i; ?>"><?= $i; ?></a></li>
-				<?php endfor; ?>
-				<li class="page-item">
-					<a class="page-link" href="index.php?page=<?= $Next; ?>" aria-label="Next">
-					<span aria-hidden="true">Next &raquo;</span>
-					</a>
-				</li>
-				</ul>
-			</nav>
-		</div>
-		<div class="text-center" style="margin-top: 20px; " class="col-md-2">
-			<form method="post" action="#">
-					<select name="limit-records" id="limit-records">
-						<option disabled="disabled" selected="selected">---Limite por pagina---</option>
-						<?php foreach([5,25,50,100] as $limit): ?>
-							<option <?php if( isset($_POST["limit-records"]) && $_POST["limit-records"] == $limit) echo "selected" ?> value="<?= $limit; ?>"><?= $limit; ?></option>
-						<?php endforeach; ?>
-					</select>
-				</form>
-			</div>
-	</div>
+
 	<table class="table table-bordered table-hover ">
 		<thead class="thead-dark">
 			<tr >
