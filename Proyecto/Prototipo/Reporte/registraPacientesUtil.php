@@ -1,7 +1,8 @@
 <?php
-    include("../dbUtil.php");
+    include("dbUtil.php");
 
     function getPacientes(){
+        
         $conn=connectDB();
         $sql="CALL OpcionesPaciente()";
         $result=mysqli_query($conn,$sql);
@@ -12,19 +13,9 @@
             }
         }
     }
-    /*
-    function registraReporte($NumeroEmpleado,$id,$Valoracion,$Terapia,$Tratamiento,$Avances){
-        $conn=connectDB();
-        $sql="CALL CrearReporte(";
-        $sql=$sql.$NumeroEmpleado.","$id",'".$Valoracion."','".$Terapia."','".$Tratamiento."','".$Avances."'";
-        $sql=$sql.")";
-        echo ($sql);
-        $result=mysqli_query($conn,$sql);
-        disconnectDB($conn);
-        echo $result;
-    }
-    */
-     function registraReporte($NumeroPaciente,$Valoracion,$Terapia,$Tratamiento,$Avances,$id){
+
+    function registraReporte($NumeroPaciente,$Valoracion,$Terapia,$Tratamiento,$Avances,$id){
+        
         $conn=connectDB();
         $sql="CALL CrearReporte(";
         $sql=$sql.$NumeroPaciente.",'".$Valoracion."','".$Terapia."','".$Tratamiento."','".$Avances."',".$id;
@@ -35,6 +26,3 @@
         echo $result;
     }
 ?>
-
-
-
