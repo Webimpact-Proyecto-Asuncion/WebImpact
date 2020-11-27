@@ -49,5 +49,5 @@ function Actualiza(datos){
 
     d=datos.split('||');
 
-   location.href="Actualizardonativos.php" + "?id=" + d[1];
+   location.href="Actualizardonativos.php" + "?id=" + d[0];
 }
