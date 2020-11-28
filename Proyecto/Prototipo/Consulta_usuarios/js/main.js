@@ -45,3 +45,9 @@ function eliminarDatos(id){
         $('#tabla').load('php/tabla.php');
     });
 }
+
+function modifyById(id){
+	let auxUrl="https://royerdac99.codes/WebImpact/Proyecto/Prototipo/modificarEmpleado/ModificaEmpleado.php";
+
+	location.href = auxUrl+"?id="+id;
+}
