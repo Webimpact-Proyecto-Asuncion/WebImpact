@@ -31,9 +31,9 @@
                 $pass=$row["Password"];
                 if(hash_equals($pass,crypt($passwrd,'AsuncionIAP$2020'))){
                     //echo"ok";
-                    return(true);
+                    return true;
                 }else{
-                    echo"nel";
+                    //echo"nel";
                     return false;
                 }
             }

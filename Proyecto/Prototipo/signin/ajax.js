@@ -3,14 +3,12 @@ function verifyUserPassword(){
     let passworddata=$("#password").val();
     $.post( "signinController.php", { correo:usuariodata, password:passworddata} )
     .done(function( data ) {
-        if(data!="false"){
-            console.log(data);
-            location.href = data;
-        }else{
+        if(data=="false\n"){
             $("#alert").removeClass("invisible");
             $("#alert").addClass("visible");
+        }else{
+            location.href = data;
         }
-        
       });
 }
 
