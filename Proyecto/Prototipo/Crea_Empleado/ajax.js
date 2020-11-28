@@ -10,7 +10,7 @@ function queryEspecialidades(){
     $.get("./controladorEspecialidades.php",{}).
     done(function( data ) {
         $("#especialidad").html(data);
-        console.log("query");
+        //console.log("query");
         });
 }
 
@@ -18,7 +18,7 @@ function queryRoles(){
     $.get("./controladorroles.php",{}).
     done(function( data ) {
         $("#rol").html(data);
-        console.log(data);
+        //console.log(data);
         });
 }
 
@@ -30,7 +30,7 @@ function registrarEmpleado(){
                                                 contrasena:$("#contrasena").val(),
                                                 rol:$("#rol").val()}).
     done(function( data ) {
-        console.log("se registro")
+        //console.log("se registro")
         });
 }
 
@@ -55,5 +55,13 @@ $("#siguiente").on("click",function(){
       });
 }    
 )
+//queryEspecialidades();
 
-queryEspecialidades();
+function cancelar(){
+    //alertify
+    
+    location.href="../dashboard/dashboard.php"
+}
+
+$('#cancelar').on("click",cancelar);
+$('#cancelar1').on("click",cancelar);
