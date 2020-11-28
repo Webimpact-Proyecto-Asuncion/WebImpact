@@ -9,7 +9,7 @@ $( document ).ready(function() {
 function queryEspecialidades(){
     $.get("./controladorEspecialidades.php",{}).
     done(function( data ) {
-        $("#especialidad").html(data);
+        $("#especialidad").append(data);
         //console.log("query");
         });
 }
@@ -17,21 +17,26 @@ function queryEspecialidades(){
 function queryRoles(){
     $.get("./controladorroles.php",{}).
     done(function( data ) {
-        $("#rol").html(data);
+        $("#rol").append(data);
         //console.log(data);
         });
 }
 
 function registrarEmpleado(){
-    
-    $.post("./controladorRegistraEmpleado.php",{nombre:$("#nombre").val(),
-                                                correo:$("#correo").val(),
-                                                especialidad:$("#especialidad").val(),
-                                                contrasena:$("#contrasena").val(),
-                                                rol:$("#rol").val()}).
-    done(function( data ) {
-        //console.log("se registro")
+    if($("#nombre").val()==''&&$("#correo").val()==''&&$("#especialidad").val()=='0'&&$("#contrasena").val()==''&&$("#rol").val()=='0'){
+        alertify.success('Favor de ingresar todos los datos');
+    }else{
+        $.post("./controladorRegistraEmpleado.php",{nombre:$("#nombre").val(),
+                                                    correo:$("#correo").val(),
+                                                    especialidad:$("#especialidad").val(),
+                                                    contrasena:$("#contrasena").val(),
+                                                    rol:$("#rol").val()}).
+        done(function( data ) {
+            alertify.success('Colaborador creado con exito');
+            setTimeout(()=>location.href="../dashboard/dashboard.php",2000);
         });
+    }
+    
 }
 
 
