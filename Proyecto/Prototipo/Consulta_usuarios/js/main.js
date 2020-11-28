@@ -47,7 +47,7 @@ function eliminarDatos(id){
 }
 
 function modifyById(id){
-	let auxUrl="https://royerdac99.codes/WebImpact/Proyecto/Prototipo/modificarEmpleado/ModificaEmpleado.php";
+	let auxUrl="../../ModificarEmpleado/ModificaEmpleado.php";
 
 	location.href = auxUrl+"?id="+id;
 }
