@@ -5,7 +5,6 @@
 	$conexion=conexion();
 
 ?>
-
 	<table class="table table-bordered table-hover ">
 		<thead class="thead-dark">
 			<tr >
@@ -24,7 +23,7 @@
 		</thead>
 
 		<?php
-
+		
 			$sql="CALL ImprimirPacientes($start, $limit)";
 
 			if(isset($_POST["consulta"])){

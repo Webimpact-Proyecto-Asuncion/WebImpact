@@ -9,12 +9,14 @@
 	$total = $Count[0]['id'];
 	$pages = ceil( $total / $limit );
 
+	
 	$Previous = $page - 1;
 	$Next = $page + 1;
 
 	echo "Limit: " . $limit;
 	echo "Start: " . $start;
 	echo "Page: " . $page;
+
 	?>
 
 <div class="row">
