@@ -1,7 +1,6 @@
 <?php
 	
 	require_once "conexion.php";
-	include "paginacion.php";
 	$conexion=conexion();
 
 ?>
@@ -24,7 +23,7 @@
 
 		<?php
 		
-			$sql="CALL ImprimirPacientes($start, $limit)";
+			$sql="CALL ImprimirPacientes";
 
 			if(isset($_POST["consulta"])){
 
