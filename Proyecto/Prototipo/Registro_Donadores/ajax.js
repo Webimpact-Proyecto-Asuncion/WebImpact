@@ -11,13 +11,14 @@ function registraDonadores(){
     } else {
         
         alertify.success('Donador registrado exitosamente!');
+        setTimeout(()=>location.href="../dashboard/dashboard.php",2000);
     }
     
     $.post( "controladorRegistraDonadores.php", 
     {RazonSocial:$("#RazonSocial").val(),RFC:$("#RFC").val(),Correo:$("#Correo").val(),Telefono:$("#Telefono").val(),Nacimiento:$("#Nacimiento").val()})
     .done(function( data ) {
         console.log("HOLA");
-    console.log(data);
+        console.log(data);
   });
 }
 

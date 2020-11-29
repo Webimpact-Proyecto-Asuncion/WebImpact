@@ -39,6 +39,7 @@ function modificarDonaciones(){
     done(function(data ) {
         console.log(data);
         alertify.success("Modificado con exito");
+        setTimeout(()=>location.href="../dashboard/dashboard.php",2000);
     });
 
     
