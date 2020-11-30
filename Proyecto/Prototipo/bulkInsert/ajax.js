@@ -23,7 +23,7 @@ $("#but_upload").click(function() {
                 } else {
                     alert('file not uploaded');
                 }
-            }
+            },
         });
     } else {
         alert("Please select a file.");
