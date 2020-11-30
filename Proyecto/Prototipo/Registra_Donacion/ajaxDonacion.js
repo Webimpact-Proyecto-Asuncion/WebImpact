@@ -17,9 +17,12 @@ function getDonadores() {
 
 function registrarDonacion() {
     if ($("#donador").val() == '' || $("#descripcionDonacion").val() == '' || $("#fechaDonacion").val() == '') {
-        alert('Porfavor llena todos los campos!!');
+       alertify.success('Porfavor llena todos los campos!!');
+        
     } else {
-        alert('Donación registrada exitosamente!');
+        alertify.success('Donación registrada exitosamente!');
+        setTimeout(()=>location.href="../dashboard/dashboard.php",2000);
+
     }
 
     $.post("./addDonacion.php", {
