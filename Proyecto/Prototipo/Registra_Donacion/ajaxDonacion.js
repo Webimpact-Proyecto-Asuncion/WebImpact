@@ -64,11 +64,15 @@ function redBorder() {
 
 
 function registrarDonacion() {
+    
     if ($("#donador").val() == '' || $("#descripcionDonacion").val() == '' || $("#fechaDonacion").val() == '') {
-        alert('Porfavor llena todos los campos!!');
+        
+        //alertify.success('Porfavor llena todos los campos!!');
+        
     }
-
+    
     console.log($("#donador").val(), $("#descripcionDonacion").val())
+        
     $.post("./addDonacion.php", {
         donador: $("#donador").val(),
         descripcionDonacion: $("#descripcionDonacion").val(),
@@ -78,6 +82,7 @@ function registrarDonacion() {
     done(function(data) {
         console.log(data);
     })
+    
 }
 
 
