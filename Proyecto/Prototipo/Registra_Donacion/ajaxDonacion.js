@@ -61,7 +61,7 @@ function redBorder() {
     }
 }
 
-
+/*
 
 function registrarDonacion() {
     
@@ -84,6 +84,7 @@ function registrarDonacion() {
     })
     
 }
+*/
 
 
 $("#submitDonacion").on("click", registrarDonacion);
