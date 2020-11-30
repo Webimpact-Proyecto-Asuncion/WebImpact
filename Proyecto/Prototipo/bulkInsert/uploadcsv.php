@@ -23,8 +23,8 @@
               $response = $location;
            }
         }
-        rename($location,"./masivo/"."_masivo".".".$imageFileType);
-        $response = "./masivo/"."_masivo".".".$imageFileType;
+        rename($location,"../../../../masivo/"."_masivo".".".$imageFileType);
+        $response = "../../../../masivo/"."_masivo".".".$imageFileType;
         echo $response;
         exit;
      }
