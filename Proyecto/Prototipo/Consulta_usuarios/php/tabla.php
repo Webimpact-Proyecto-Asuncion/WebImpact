@@ -9,8 +9,8 @@
 	<thead class="thead-dark">
 		<tr >
 							
-			<th>Num Empleado</th>
-			<th>Nombre Empleado</th>
+			<th>Num Colaborador</th>
+			<th>Nombre Colaborador</th>
 			<th>Correo</th>
 			<th>Especialidad</th>
 			<th>Modificar</th>
