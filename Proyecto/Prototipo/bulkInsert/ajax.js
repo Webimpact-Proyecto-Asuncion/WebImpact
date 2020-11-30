@@ -20,6 +20,7 @@ $("#but_upload").click(function() {
                     console.log(response);*/
                     src = response;
                     console.log("src: " + src);
+                    bulkInsert(path);
                 } else {
                     alert('file not uploaded');
                 }
@@ -29,3 +30,11 @@ $("#but_upload").click(function() {
         alert("Please select a file.");
     }
 });
+
+function bulkInsert(path){
+    $.post("./controladorbulk.php",{path:path}).
+        done(function( data ) {
+            alertify.success('CargaMasiva  con exito');
+            setTimeout(()=>location.href="../dashboard/dashboard.php",2000);
+        });
+}
