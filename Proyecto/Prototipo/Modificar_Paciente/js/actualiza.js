@@ -13,7 +13,6 @@ function Getpaciente(id) {
     $.get("php/ControladorGetPaciente.php", { id: id }).
     done(function(data) {
 
-        console.log(data);
         let data1 = data.split(",");
 
         $("#id_paciente").val(data1[0]);
@@ -36,11 +35,13 @@ function Getpaciente(id) {
 
 
 
+
+
         //$("#estado").change(function() {
         //console.log("CAMBIO");
         $.get("php/controladorMunicipio.php", {
             estado: $("#estado").val(),
-            municipio: $("#municipio").val(),
+            municipio: data1[6]
         }).
         done(function(data) {
             $("#municipio").html(data);
@@ -57,6 +58,8 @@ function Getpaciente(id) {
                 $("#municipio").html(data);
             });
         })
+
+
 
 
 
@@ -119,6 +122,8 @@ function modificarPaciente() {
 
 
 }
+
+
 
 
 $("#modificar").on("click", modificarPaciente);

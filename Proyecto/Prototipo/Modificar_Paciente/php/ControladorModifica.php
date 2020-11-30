@@ -22,7 +22,7 @@
         $reingreso=$_POST["reingreso"];
         $egreso=$_POST["egreso"];
         $dependencia=$_POST["dependencia"];
-        
+     
 
         
        
