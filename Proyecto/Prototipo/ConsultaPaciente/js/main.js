@@ -41,3 +41,10 @@ function eliminarDatos(id) {
         $('#tabla').load('php/tabla.php');
     });
 }
+
+function Actualiza(datos){
+
+    d=datos.split('||');
+
+   location.href="../Modificar_Paciente/index.php" + "?id=" + d[0];
+}

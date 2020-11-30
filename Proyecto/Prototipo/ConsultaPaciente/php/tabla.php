@@ -58,7 +58,7 @@
 							
 							
 				<td>
-					<button class="btn btn-warning"><span class="oi oi-pencil"></span>Modificar </button>
+					<button class="btn btn-warning" onclick="Actualiza('<?php  echo $datos ?>')"><span class="oi oi-pencil"></span>Modificar </button>
 				</td>
 							
 				<td>
