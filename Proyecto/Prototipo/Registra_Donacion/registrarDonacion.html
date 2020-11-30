@@ -9,104 +9,118 @@ require_once 'util.php';
             <a id="show-sidebar" class="btn btn-sm btn-dark" href="#">
                 <i class="fas fa-bars"></i>
             </a>
-            <nav id="sidebar" class="sidebar-wrapper">
-                <div class="sidebar-content">
-                    <div class="sidebar-brand">
-                        <img src="../images/LOGO PNG.png" style="width: 90px; height: 90px"> &nbsp;&nbsp;&nbsp;&nbsp;
-                        <a href="">Asunción</a>
+            nav id="sidebar" class="sidebar-wrapper">
+            <div class="sidebar-content">
+                <div class="sidebar-brand">
+                    <img src="../images/LOGO PNG.png" style="width: 90px; height: 90px"> &nbsp;&nbsp;&nbsp;&nbsp;
+                    <a href="">Asunción</a>
 
-                    </div>
+                </div>
 
-                    <!-- sidebar-header  -->
+                <!-- sidebar-header  -->
 
 
 
-                    <div class="sidebar-menu">
-                        <ul>
-                            <li class="header-menu">
-                                <span>General</span>
-                            </li>
-                            <li class="sidebar-dropdown">
-                                <a href="#">
-                                    <i class="fas fa-users"></i>
-                                    <span>Empleados</span>
+                <div class="sidebar-menu">
+                    <ul>
+                        <li class="header-menu">
+                            <span>General</span>
+                        </li>
+                        <li class="sidebar-dropdown">
+                            <a href="#">
+                                <i class="fas fa-users"></i>
+                                <span>Asistencia</span>
 
-                                </a>
-                                <div class="sidebar-submenu">
-                                    <ul>
-                                        <li>
-                                            <a href="../Crea_Empleado/index.php">Crear Empleado</a>
-                                        </li>
-                                        <li>
-                                            <a href="../Consulta_usuarios/index.php">Consultar Empleados</a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </li>
-
-                            <li class="sidebar-dropdown">
-                                <a href="#">
-                                    <i class="fas fa-address-card"></i>
-                                    <span>Pacientes</span>
-                                </a>
-                                <div class="sidebar-submenu">
-                                    <ul>
-                                        <li>
-                                            <a href="../Crea_Paciente/index.php">Registrar Paciente</a>
-                                        </li>
-                                        <li>
-                                            <a href="../ConsultaPaciente/index.php">Consultar Paciente</a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </li>
-                            <li class="sidebar-dropdown">
-                                <a href="#">
-                                    <i class="fas fa-dollar-sign"></i>
-                                    <span>Donaciones</span>
-                                </a>
-                                <div class="sidebar-submenu">
-                                    <ul>
-                                        <li>
-                                            <a href="../Registra_Donadores/index.php">Registrar Donador</a>
-                                        </li>
-                                        <li>
-                                            <a href="../Registra_Donacion/index.php">Registrar Donacion</a>
-                                        </li>
-                                        <li>
-                                            <a href="../Consulta_donaciones/index.php">Consultar Donaciones</a>
-                                        </li>
-                                        <li>
-                                            <a href="../Consulta_donador/index.php">Consultar Donador</a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </li>
-                            <li class="sidebar-dropdown">
-                                <a href="#">
-                                    <i class="fas fa-file-alt"></i>
-                                    <span>Registros de Pacientes</span>
-                                </a>
-                                <div class="sidebar-submenu">
-                                    <ul>
-                                        <li>
-                                            <a href="../Consulta_historial/index.php">Consultar Registros</a>
-                                        </li>
-                            </li>
-                            </ul>
+                            </a>
+                            <div class="sidebar-submenu">
+                                <ul>
+                                    <li>
+                                        <a href="../Asistencias/index.php">Ingresar Asistencia</a>
+                                    </li>
+                                </ul>
                             </div>
-                            </li>
+                        </li>
+                        <li class="sidebar-dropdown">
+                            <a href="#">
+                                <i class="fas fa-users"></i>
+                                <span>Empleados</span>
+
+                            </a>
+                            <div class="sidebar-submenu">
+                                <ul>
+                                    <li>
+                                        <a href="../Crea_Empleado/index.php">Crear Empleado</a>
+                                    </li>
+                                    <li>
+                                        <a href="../Consulta_usuarios/index.php">Consultar Empleados</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+
+                        <li class="sidebar-dropdown">
+                            <a href="#">
+                                <i class="fas fa-address-card"></i>
+                                <span>Pacientes</span>
+                            </a>
+                            <div class="sidebar-submenu">
+                                <ul>
+                                    <li>
+                                        <a href="../Crea_Paciente/index.php">Registrar Paciente</a>
+                                    </li>
+                                    <li>
+                                        <a href="../ConsultaPaciente/index.php">Consultar Paciente</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="sidebar-dropdown">
+                            <a href="#">
+                                <i class="fas fa-dollar-sign"></i>
+                                <span>Donaciones</span>
+                            </a>
+                            <div class="sidebar-submenu">
+                                <ul>
+                                    <li>
+                                        <a href="../Registro_Donadores/index.php">Registrar Donador</a>
+                                    </li>
+                                    <li>
+                                        <a href="../Registra_Donacion/index.php">Registrar Donacion</a>
+                                    </li>
+                                    <li>
+                                        <a href="../Consulta_donaciones/index.php">Consultar Donaciones</a>
+                                    </li>
+                                    <li>
+                                        <a href="../Consulta_donador/index.php">Consultar Donador</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="sidebar-dropdown">
+                            <a href="#">
+                                <i class="fas fa-file-alt"></i>
+                                <span>Registros de Pacientes</span>
+                            </a>
+                            <div class="sidebar-submenu">
+                                <ul>
+                                    <li>
+                                        <a href="../Consulta_historial/index.php">Consultar Registros</a>
+                                    </li>
+                        </li>
                         </ul>
-                    </div>
-                    <!-- sidebar-menu  -->
+                        </div>
+                        </li>
+                    </ul>
                 </div>
-                <div class="sidebar-footer">
-                    <a href="../logout.php">
-                        <i class="fas fa-sign-out-alt"></i>
-                        <span>Cerrar sesion</span>
-                    </a>
-                </div>
-                <!-- sidebar-content  -->
+                <!-- sidebar-menu  -->
+            </div>
+            <div class="sidebar-footer">
+                <a href="../logout.php">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span>Cerrar sesion</span>
+                </a>
+            </div>
+            <!-- sidebar-content  -->
             </nav>
 
             <!-- sin este div -->
@@ -119,7 +133,7 @@ require_once 'util.php';
                         <div class="container formulario">
                             <form id="formDonacion">
                                 <div class="form-row">
-                                    <div class=" form-group col-md-6">
+                                    <div class=" form-group col-md-4">
                                         <br>
                                         <label for="razonS" class="bold">Selecciona una Razón Social</label>
                                         <select name="donador" id="donador" class="custom-select mr-sm-2">
@@ -130,14 +144,14 @@ require_once 'util.php';
                                 </div>
 
                                 <div class="form-row">
-                                    <div class="form-group col-md-6">
+                                    <div class="form-group col-md-4">
                                         <label for="descripcion" class="bold">Descripción</label>
                                         <input type="text" class="form-control" id="descripcionDonacion" name="descripcionDonacion" placeholder="Descripción de la donación...">
 
                                     </div>
                                 </div>
                                 <div class="form-row">
-                                    <div class="form-group col-md-6">
+                                    <div class="form-group col-md-4">
                                         <label for="fecha" class="bold">Fecha de Donación</label>
                                         <input type="date" class="form-control" id="fechaDonacion" name="fechaDonacion">
                                     </div>
@@ -149,7 +163,6 @@ require_once 'util.php';
                         </div>
                     </div>
                     <br><br>
-
             </main>
 
 
