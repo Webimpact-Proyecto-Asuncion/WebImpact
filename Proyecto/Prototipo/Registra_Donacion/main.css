@@ -372,7 +372,6 @@ body {
     display: inline-block;
     width: 100%;
     padding-left: 0px;
-    padding-top: 20px;
 }
 
 .page-wrapper .page-content>div {
@@ -507,21 +506,14 @@ body {
 }
 
 .formulario {
-    background-color: #F3F4F7!important;
-}
-
-.bold {
-    font-weight: bold;
-}
-
-.siguiente {
-    position: center;
+    background-color: #292b2c!important;
+    color: white;
 }
 
 .negro {
     color: black;
 }
 
-.white {
-    color: white;
+.ubicacion {
+    padding: 10%;
 }
