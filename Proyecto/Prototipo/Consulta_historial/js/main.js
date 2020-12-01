@@ -49,10 +49,7 @@ function eliminarDatos(id){
 
 function Actualiza(datos){
 
-    d=datos.split('||');
     
-    
-    console.log("click");
-   location.href="../Modificar_reporte/Actualizareporte.php" + "?id=" + d[0];
+   location.href="../Modificar_reporte/Actualizareporte.php" + "?id=" + datos;
 }
 
