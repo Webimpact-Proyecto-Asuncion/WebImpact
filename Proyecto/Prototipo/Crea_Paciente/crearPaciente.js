@@ -279,8 +279,10 @@ function registrarPacientes() {
         $("#dependencia").val() == '') {
 
         alertify.error('Porfavor llena todos los campos!!');
+    } else {
+        alertify.success("Paciente registrado exitosamente!!");
     }
-    alertify.confirm("Paciente registrado exitosamente!!");
+
 
     $.post("./InsertPaciente.php", {
         nombre: $("#nombre").val(),
