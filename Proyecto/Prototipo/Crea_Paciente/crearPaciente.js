@@ -278,8 +278,9 @@ function registrarPacientes() {
         $("#ingreso").val() == '' ||
         $("#dependencia").val() == '') {
 
-        alert('Porfavor llena todos los campos!!');
+        alertify.error('Porfavor llena todos los campos!!');
     }
+    alertify.confirm("Paciente registrado exitosamente!!");
 
     $.post("./InsertPaciente.php", {
         nombre: $("#nombre").val(),
@@ -287,7 +288,7 @@ function registrarPacientes() {
         apellidoM: $("#apellidoM").val(),
         domicilio: $("#domicilio").val(),
         estado: $("#estado").val(),
-        municipio:$("#municipio").val(),
+        municipio: $("#municipio").val(),
         tel: $("#tel").val(),
         correo: $("#correo").val(),
         nacimiento: $("#nacimiento").val(),
@@ -302,6 +303,7 @@ function registrarPacientes() {
         comprobante: src4,
         expediente: src5,
         recomendacion: src6,
+
 
     }).
     done(function(data) {
