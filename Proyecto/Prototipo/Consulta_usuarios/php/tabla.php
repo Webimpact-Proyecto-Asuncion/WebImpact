@@ -39,7 +39,7 @@
 		
 
 		echo "<td>
-				<button class='btn btn-warning' id=".$ver[0]." onClick'modifyById(this.id)'><span class='oi oi-pencil'></span>Modificar </button>
+				<button class='btn btn-warning' id='".$ver[0]."' onclick'modifyById(this.id)'><span class='oi oi-pencil'></span>Modificar </button>
 				</td>";
 		echo "<td>";
 		echo "<button class='btn btn-danger' onclick=preguntarSiNo(".$ver[0].")>";
