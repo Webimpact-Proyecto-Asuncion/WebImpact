@@ -44,7 +44,7 @@ function eliminarDatos(id) {
 
 function Actualiza(datos){
 
-    d=datos.split('||');
+   
 
-   location.href="../Modificar_Paciente/index.php" + "?id=" + d[0];
+   location.href="../Modificar_Paciente/index.php" + "?id=" + datos;
 }

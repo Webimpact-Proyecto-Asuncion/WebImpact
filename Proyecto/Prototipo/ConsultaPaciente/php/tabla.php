@@ -27,13 +27,13 @@
 
 	while($ver=mysqli_fetch_row($result)){
 		$datos=$ver[0]."||".
-		 	$ver[1]."||".
-			$ver[2]."||".
-			$ver[3]."||".
-			$ver[4]."||".
-			$ver[5]."||".
-			$ver[6]."||".
-			$ver[7];
+			 	$ver[1]."||".
+				$ver[2]."||".
+				$ver[3]."||".
+				$ver[4]."||".
+				$ver[5]."||".
+				$ver[6]."||".
+				$ver[7];
 		
 		echo "<tr>";
 		echo "<td>".$ver[0]."</td>";
@@ -46,7 +46,7 @@
 		echo "<td>".$ver[7]."</td>";
 
 		echo "<td>
-				<button class='btn btn-warning' onclick=Actualiza('".$datos."')><span class='oi oi-pencil'></span>Modificar </button>
+				<button class='btn btn-warning' onclick=Actualiza('".$ver[0]."')><span class='oi oi-pencil'></span>Modificar </button>
 				</td>";
 		echo "<td>";
 		echo "<button class='btn btn-danger' onclick=preguntarSiNo(".$ver[0].")>";

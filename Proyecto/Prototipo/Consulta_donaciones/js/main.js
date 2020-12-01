@@ -47,7 +47,7 @@ function eliminarDatos(id){
 
 function Actualiza(datos){
 
-    d=datos.split('||');
+   
 
-   location.href="Actualizardonativos.php" + "?id=" + d[0];
+   location.href="Actualizardonativos.php" + "?id=" + datos;
 }

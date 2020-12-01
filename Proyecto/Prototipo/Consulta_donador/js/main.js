@@ -50,9 +50,9 @@ function eliminarDatos(id){
 
 function Actualiza(datos){
 
-    d=datos.split('||');
+    
 
-   location.href="Actualizadonador.php" + "?id=" + d[0];
+   location.href="Actualizadonador.php" + "?id=" + datos;
 }
 
 

@@ -22,9 +22,9 @@
 
 	while($ver=mysqli_fetch_row($result)){
 		$datos=$ver[0]."||".
-		 	$ver[1]."||".
-			$ver[2]."||".
-			$ver[3];
+			 	$ver[1]."||".
+				$ver[2]."||".
+				$ver[3];
 
 
 		echo "<tr>";
@@ -34,7 +34,7 @@
 
 
 		echo "<td>
-				<button class='btn btn-warning' onclick=Actualiza('".$datos."')>";
+				<button class='btn btn-warning' onclick=Actualiza('".$ver[0]."')>";
 		echo "<span class='oi oi-pencil'></span>Modificar </button>";
 		echo "</td>";
 

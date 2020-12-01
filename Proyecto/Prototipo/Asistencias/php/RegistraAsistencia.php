@@ -5,8 +5,6 @@
 
 	if (isset($_POST["idpaciente"])) {
 		$idpaciente=$_POST["idpaciente"];
-		$id_empleado=$_POST["idempleado"];	
-
 		$id_empleado=$_SESSION["id"];
 		
 		$sql="CALL RegistraAsistencia($id_empleado, $idpaciente)";
