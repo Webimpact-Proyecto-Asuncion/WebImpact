@@ -1,81 +1,59 @@
 <?php
 
-	require_once "conexion.php";
-	$conexion=conexion();
-
-?>
-	<table class="table table-bordered table-hover ">
-          <thead class="thead-dark">
-            <tr >
-              
-              <th>Id_Donador</th>
-              <th>Razon Social</th>
-              <th>RFC</th>
-              <th>Correo</th>
-              <th>Telefono</th>
-              <th>Nacimiento</th>
-              <th>Modificar</th>
-              <th>Eliminar</th>
-            </tr> 
-          </thead>
-
- <?php
-
-	$sql="CALL ImprimirDonador";
-
-
+	require_once ("buscador.php");
+	require_once ("consulta.php");
+	
+	$result = consulta();
+	
 	if(isset($_POST["consulta"])){
+		$result = buscar();
+	}
 
-		$q = $conexion->real_escape_string($_POST['consulta']);
-		$sql = "SELECT D.id_Donador, D.RazonSocial, D.RFC, D.Correo, D.Telefono FROM Donador D WHERE D.Visibilidad=1 and D.RazonSocial LIKE '%".$q."%'";
+	echo "<table class='table table-bordered table-hover'>";
+	echo "<thead class='thead-dark'>";
+	echo "<tr>";
+	echo "<th>Id_Donador</th>";
+	echo "<th>Razon Social</th>";
+	echo "<th>RFC</th>";
+	echo "<th>Correo</th>";
+	echo "<th>Telefono</th>";
+	echo "<th>Nacimiento</th>";
+	echo "<th>Modificar</th>";
+	echo "<th>Eliminar</th>";
+	echo "</tr";
+	echo "</thead>";
+
+	while($ver=mysqli_fetch_row($result)){
+		$datos=$ver[0]."||".
+		 	$ver[1]."||".
+			$ver[2]."||".
+			$ver[3]."||".
+			$ver[4]."||".
+			$ver[5];
+
+		echo "<tr>";
+		echo "<td>".$ver[0]."</td>";
+		echo "<td>".$ver[1]."</td>";
+		echo "<td>".$ver[2]."</td>";
+		echo "<td>".$ver[3]."</td>";
+		echo "<td>".$ver[4]."</td>";
+		echo "<td>".$ver[5]."</td>";
+
+		echo "<td>
+				<button class='btn btn-warning' onclick=Actualiza('".$datos."')>";
+		echo "<span class='oi oi-pencil'></span>Modificar </button>";
+		echo "</td>";
+
+		echo "<td>";
+		echo "<button class='btn btn-danger' onclick=preguntarSiNo(".$ver[0].")>";
+		echo "<span class='oi oi-trash'></span> Eliminar</button>";
+		echo "</td>";
+
+		echo "</tr>";
+
 
 	}
 
-	
+	echo "</table>";
 
-	$result=mysqli_query($conexion, $sql);
-
-	while($ver=mysqli_fetch_row($result)){
-
-		$datos=$ver[0]."||".
-			 	$ver[1]."||".
-				$ver[2]."||".
-				$ver[3]."||".
-				$ver[4]."||".
-				$ver[5];
-
-
-
-	?>
-
-	
-	<tr>
-
-		<td><?php echo $ver[0] ?></td>
-		<td><?php echo $ver[1] ?></td>
-		<td><?php echo $ver[2] ?></td>
-		<td><?php echo $ver[3] ?></td>
-		<td><?php echo $ver[4] ?></td>
-		<td><?php echo $ver[5] ?></td>
-						
-							
-		<td>
-			<button class="btn btn-warning" onclick="Actualiza('<?php  echo $datos ?>')"><span class="oi oi-pencil"></span>Modificar </button>
-		</td>
-							
-		<td>
-			<button class="btn btn-danger" onclick="preguntarSiNo('<?php  echo $ver[0] ?>')"><span class="oi oi-trash"></span> Eliminar</button>
-		</td>
-
-		</tr>
-
-		<?php
-
-		}
-
-		?>					
-
-					
-	</table>
-</div>
-	
+?>

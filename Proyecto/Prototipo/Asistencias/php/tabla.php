@@ -1,41 +1,28 @@
 <?php
 
-	require_once "conexion.php";
-	$conexion=conexion();
-
-?>
-	<table class="table table-bordered table-hover ">
-          <thead class="thead-dark">
-            <tr >
-              
-              <th>Nombre Paciente</th>
-              <th>Apellido Paterno</th>
-              <th>Apellido Materno</th>
-              <th>Faltas</th>
-              <th>Total</th>
-              <th>Asistencia</th>
-              <th>Falta</th>
-              <th>Justificar</th>
-
-              
-            </tr> 
-          </thead>
-
- <?php
-
-	$sql="CALL ImprimirAsistencias";
-
-
+	require_once ("buscador.php");
+	require_once ("consulta.php");
+	
+	$result = consulta();
+	
 	if(isset($_POST["consulta"])){
-
-		$q = $conexion->real_escape_string($_POST['consulta']);
-		$sql = "SELECT P.NumeroPaciente, P.NombrePaciente, P.ApellidoPaterno, P.ApellidoMaterno, SUM(PC.Asistencia) as 'Faltas', COUNT(PC.Asistencia) as 'Total' FROM Paciente_Consulta PC, Paciente P WHERE P.NumeroPaciente = PC.NumeroPaciente AND P.Visibilidad = 1 AND P.NombrePaciente LIKE '%".$q."%' GROUP BY P.NumeroPaciente ";
-
+		$result = buscar();
 	}
 
-	
+	echo "<table class='table table-bordered table-hover'>";
+	echo "<thead class='thead-dark'>";
+	echo "<tr>";
+	echo "<th>Nombre Paciente</th>";
+	echo "<th>ApellidoPaterno</th>";
+	echo "<th>ApellidoMaterno</th>";
+	echo "<th>Faltas</th>";
+	echo "<th>Total</th>";
+	echo "<th>Asistencias</th>";
+	echo "<th>Falta</th>";
+	echo "<th>Justificar</th>";
+	echo "</tr";
+	echo "</thead>";	
 
-	$result=mysqli_query($conexion, $sql);
 
 	while($ver=mysqli_fetch_row($result)){
 
@@ -46,21 +33,41 @@
 				$ver[4]."||".
 				$ver[5];
 
+		echo "<tr>";
+		echo "<td>".$ver[1]."</td>";
+		echo "<td>".$ver[2]."</td>";
+		echo "<td>".$ver[3]."</td>";
+		echo "<td>".$ver[4]."</td>";
+		echo "<td>".$ver[5]."</td>";
+
+		echo "<td>
+				<button class='btn btn-success' onclick=confirmaAsistencia('".$datos."')>";
+		echo "<span class='oi oi-check'></span>Asistencia </button>";
+		echo "</td>";
+
+		echo "<td>;
+				<button class='btn btn-danger' onclick=preguntarSiNo('".$datos."')>";
+		echo "<span class='oi oi-x'></span>Falta </button>";
+		echo "</td>";
+
+		echo "<td>
+				<button class='btn btn-primary' onclick=preguntarJustificacion('".$datos."')>";
+		echo "<span class='oi oi-heart'></span>Justificar </button>";
+		echo "</td>";
+
+		echo "</tr>";
+
+		
+		
+	}
+
+	echo "</table>";
 
 
-	?>
+?>
+
 
 	
-	<tr>
-
-
-		<td><?php echo $ver[1] ?></td>
-		<td><?php echo $ver[2] ?></td>
-		<td><?php echo $ver[3] ?></td>
-		<td><?php echo $ver[4] ?></td>
-		<td><?php echo $ver[5] ?></td>
-		
-		
 		<td>
 			<button class="btn btn-success" onclick="confirmaAsistencia('<?php  echo $datos ?>')"><span class="oi oi-check"></span> Asistencia</button>
 		</td>
