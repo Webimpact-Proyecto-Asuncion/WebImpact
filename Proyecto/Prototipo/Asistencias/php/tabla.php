@@ -64,8 +64,8 @@
 	echo "</table>";
 
 
-?>
 
+	/*
 
 	
 		<td>
@@ -77,17 +77,5 @@
 		</td>
 		<td>
 			<button class="btn btn-primary" onclick="preguntarJustificacion('<?php  echo $datos ?>')"><span class="oi oi-pencil"></span> Justificar</button>
-		</td>
-
-		</tr>
-
-		<?php
-
-		}
-
-		?>					
-
-					
-	</table>
-</div>
-	
+	*/
+?>
