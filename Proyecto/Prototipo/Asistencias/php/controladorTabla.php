@@ -46,7 +46,7 @@
 
 
 		$tabla.="<td>
-				<button class='btn btn-primary' onclick=justificacion('".$datos."')>";
+				<button class='btn btn-primary' onclick=preguntarJustificacion('".$datos."')>";
 		$tabla.="<span class='oi oi-heart'></span>Justificar </button>";
 		$tabla.="</td>";
 
