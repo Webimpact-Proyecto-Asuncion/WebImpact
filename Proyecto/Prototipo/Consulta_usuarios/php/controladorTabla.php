@@ -26,7 +26,7 @@
 			$tabla.="<td>".$ver[2]."</td>";
 			$tabla.="<td>".$ver[3]."</td>";
 			$tabla.="<td>
-				<button class='btn btn-warning' id='".$ver[0]."' onclick'modifyById(this.id)'><span class='oi oi-pencil'></span>Modificar </button>
+				<button class='btn btn-warning' id='".$ver[0]."' onclick='modifyById(this.id)'><span class='oi oi-pencil'></span>Modificar </button>
 				</td>";
 			$tabla.="<td>";
 			$tabla.="<button class='btn btn-danger' onclick=preguntarSiNo(".$ver[0].")>";
@@ -38,7 +38,7 @@
 	
 	return $tabla;
 
-	
+
 	}
 		
 
