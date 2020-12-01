@@ -29,16 +29,30 @@ require_once 'util.php';
                             <li class="sidebar-dropdown">
                                 <a href="#">
                                     <i class="fas fa-users"></i>
-                                    <span>Empleados</span>
+                                    <span>Asistencia</span>
 
                                 </a>
                                 <div class="sidebar-submenu">
                                     <ul>
                                         <li>
-                                            <a href="../Crea_Empleado/index.php">Crear Empleado</a>
+                                            <a href="../Asistencias/index.php">Ingresar Asistencia</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li class="sidebar-dropdown">
+                                <a href="#">
+                                    <i class="fas fa-users"></i>
+                                    <span>Colaboradores</span>
+
+                                </a>
+                                <div class="sidebar-submenu">
+                                    <ul>
+                                        <li>
+                                            <a href="../Crea_Empleado/index.php">Crear Colaborador</a>
                                         </li>
                                         <li>
-                                            <a href="../Consulta_usuarios/index.php">Consultar Empleados</a>
+                                            <a href="../Consulta_usuarios/index.php">Consultar Colaboradores</a>
                                         </li>
                                     </ul>
                                 </div>
@@ -68,7 +82,7 @@ require_once 'util.php';
                                 <div class="sidebar-submenu">
                                     <ul>
                                         <li>
-                                            <a href="../Registra_Donadores/index.php">Registrar Donador</a>
+                                            <a href="../Registro_Donadores/index.php">Registrar Donador</a>
                                         </li>
                                         <li>
                                             <a href="../Registra_Donacion/index.php">Registrar Donacion</a>
@@ -119,7 +133,7 @@ require_once 'util.php';
                         <div class="container formulario">
                             <form id="formDonacion">
                                 <div class="form-row">
-                                    <div class=" form-group col-md-6">
+                                    <div class=" form-group col-md-4">
                                         <br>
                                         <label for="razonS" class="bold">Selecciona una Razón Social</label>
                                         <select name="donador" id="donador" class="custom-select mr-sm-2">
@@ -130,14 +144,14 @@ require_once 'util.php';
                                 </div>
 
                                 <div class="form-row">
-                                    <div class="form-group col-md-6">
+                                    <div class="form-group col-md-4">
                                         <label for="descripcion" class="bold">Descripción</label>
                                         <input type="text" class="form-control" id="descripcionDonacion" name="descripcionDonacion" placeholder="Descripción de la donación...">
 
                                     </div>
                                 </div>
                                 <div class="form-row">
-                                    <div class="form-group col-md-6">
+                                    <div class="form-group col-md-4">
                                         <label for="fecha" class="bold">Fecha de Donación</label>
                                         <input type="date" class="form-control" id="fechaDonacion" name="fechaDonacion">
                                     </div>
@@ -149,7 +163,6 @@ require_once 'util.php';
                         </div>
                     </div>
                     <br><br>
-
             </main>
 
 

@@ -24,5 +24,12 @@ function registraDonadores(){
 
 $("#Registrar").on("click",registraDonadores)
 
+function cancelar(){
+    //alertify
+    
+    location.href="../dashboard/dashboard.php"
+}
+
+$('#cancelar').on("click",cancelar);
 
 
