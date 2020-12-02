@@ -75,5 +75,5 @@ function cancelarTodo(){
     });
 }
 
-$('#cancelar').on("click",cancelar);
-$('#cancelar1').on("click",cancelar);
+$('#cancelar').on("click",cancelarTodo);
+$('#cancelar1').on("click",cancelarTodo);
