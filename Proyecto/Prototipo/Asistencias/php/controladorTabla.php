@@ -34,13 +34,13 @@
 
 
 		$tabla.="<td>
-				<button class='btn btn-success' onclick=confirmaAsistencia('".$datos."')>";
+				<button class='btn btn-success' onclick=confirmaAsistencia('".$ver[0]."')>";
 		$tabla.="<span class='oi oi-check'></span>Asistencia </button>";
 		$tabla.="</td>";
 
 
 		$tabla.="<td>
-				<button class='btn btn-danger' onclick=preguntarSiNo('".$datos."')>";
+				<button class='btn btn-danger' onclick=preguntarSiNo('".$ver[0]."')>";
 		$tabla.="<span class='oi oi-x'></span>Falta </button>";
 		$tabla.="</td>";
 

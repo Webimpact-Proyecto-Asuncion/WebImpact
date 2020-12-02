@@ -51,14 +51,14 @@ function confirmaAsistencia(id) {
 
 function falta(datos) {
 
-    d = datos.split('||');
+    
 
-    idpaciente = d[0];
-    idempleado = d[1];
+    idpaciente = datos;
+    
 
 
 
-    $.post("php/Registrafalta.php", { idempleado: idempleado, idpaciente: idpaciente }).
+    $.post("php/Registrafalta.php", {idpaciente: idpaciente }).
     done(function(data) {
         console.log(data);
         alertify.success("Falta registrada");
@@ -70,14 +70,13 @@ function falta(datos) {
 
 function asistencia(datos) {
 
-    d = datos.split('||');
+    
 
-    idpaciente = d[0];
-    idempleado = d[1];
-
+    idpaciente = datos
 
 
-    $.post("php/RegistraAsistencia.php", { idempleado: idempleado, idpaciente: idpaciente }).
+
+    $.post("php/RegistraAsistencia.php", { idpaciente: idpaciente }).
     done(function(data) {
         console.log(data);
         alertify.success("Asistencia registrada");
@@ -89,10 +88,9 @@ function asistencia(datos) {
 
 function justificacion(datos) {
 
-    d = datos.split('||');
+   
 
-    idpaciente = d[0];
-    idempleado = d[1];
+    idpaciente = datos
 
 
     $.post("php/RegistraJustificacion.php", { idpaciente: idpaciente }).
