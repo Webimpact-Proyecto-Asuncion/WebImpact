@@ -47,7 +47,7 @@
 
 		$tabla.="<td>
 				<button class='btn btn-primary' onclick=preguntarJustificacion('".$ver[0]."')>";
-		$tabla.="<span class='oi oi-heart'></span>Justificar </button>";
+		$tabla.="<span class='oi oi-pencil'></span>Justificar </button>";
 		$tabla.="</td>";
 
 		$tabla.="</tr>";

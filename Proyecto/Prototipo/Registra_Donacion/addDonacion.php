@@ -18,5 +18,4 @@ if(isset($donador) && !empty($donador) && isset($descripcionDonacion) && !empty(
     addDonacion($donador,$descripcionDonacion,$fechaDonacion);
     
 }
-
 ?>  

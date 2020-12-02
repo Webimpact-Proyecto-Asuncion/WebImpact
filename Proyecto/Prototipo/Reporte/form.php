@@ -1,5 +1,17 @@
 
-      
+<?php   
+session_start();
+
+if($_SESSION['rol'] == 'Terapeuta'){
+
+    include ("_header.html");
+    include ('../sidebar/index.php');
+}else{
+    
+    echo "ocurrio un error, contacte al administrador";
+    
+}      
+?>    
    <br><br><br>
     <div class="container ">
     <h5 class="container">Crear Reporte </h5>
@@ -50,4 +62,10 @@
    
     
         </div>
+
+<?php
+
+include ("_footer.html");
+
+?>
         
