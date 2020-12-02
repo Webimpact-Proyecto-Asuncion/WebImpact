@@ -61,7 +61,7 @@ function falta(datos) {
     $.post("php/Registrafalta.php", {idpaciente: idpaciente }).
     done(function(data) {
         console.log(data);
-        alertify.success("Falta registrada");
+        alertify.error("Falta registrada");
         $('#tabla').load('php/tabla.php');
     });
 
