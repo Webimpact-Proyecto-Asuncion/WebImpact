@@ -19,7 +19,7 @@ function resgistraReporte(){
         
     }else{
         
-        alertify.success('Donador registrado exitosamente!');
+        alertify.success('Reporte registrado exitosamente!');
         setTimeout(()=>location.href="../dashboard/dashboard.php",2000);
     }
     
