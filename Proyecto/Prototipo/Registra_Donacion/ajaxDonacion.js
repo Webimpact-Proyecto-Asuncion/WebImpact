@@ -17,11 +17,11 @@ function getDonadores() {
 
 function registrarDonacion() {
     if ($("#donador").val() == '' || $("#descripcionDonacion").val() == '' || $("#fechaDonacion").val() == '') {
-       alertify.success('Porfavor llena todos los campos!!');
-        
+        alertify.success('Porfavor llena todos los campos!!');
+
     } else {
         alertify.success('Donación registrada exitosamente!');
-        setTimeout(()=>location.href="../dashboard/dashboard.php",2000);
+        setTimeout(() => location.href = "../dashboard/dashboard.php", 2000);
 
     }
 
@@ -31,13 +31,10 @@ function registrarDonacion() {
         fechaDonacion: $("#fechaDonacion").val(),
     }).
     done(function(data) {
-        console.log("HOLA");
         console.log(data);
     })
 }
 
-
-$("#submitDonacion").on("click", registrarDonacion);
 
 function redBorder() {
 
