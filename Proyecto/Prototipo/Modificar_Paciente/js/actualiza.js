@@ -60,13 +60,6 @@ function Getpaciente(id) {
         })
 
 
-
-
-
-
-
-
-
     });
 }
 
@@ -118,12 +111,21 @@ function modificarPaciente() {
     done(function(data) {
 
         alertify.success("Modificado con exito");
+         setTimeout(()=>location.href="../ConsultaPaciente/index.php",2000);
     });
 
 
 }
 
+function cancelaModificar(){
 
+    alertify.error("Se cancelo proceso");
+    setTimeout(()=>location.href="../ConsultaPaciente/index.php",2000);
+
+    
+}
 
 
 $("#modificar").on("click", modificarPaciente);
+$("#cancelar").on("click",cancelaModificar);
+$("#cancelar2").on("click",cancelaModificar);

@@ -56,9 +56,19 @@ function modificarReporte(){
     done(function(data ) {
         console.log(data);
         alertify.success("Modificado con exito");
+        setTimeout(()=>location.href="../Consulta_historial/index.php",2000);
     });
 
     
 }
 
+function cancelaModificar(){
+
+    alertify.error("Se cancelo proceso");
+    setTimeout(()=>location.href="../Consulta_historial/index.php",2000);
+
+    
+}
+
 $("#modificar").on("click",modificarReporte);
+$("#cancelar").on("click",cancelaModificar);
