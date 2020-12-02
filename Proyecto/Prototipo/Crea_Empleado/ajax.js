@@ -40,7 +40,6 @@ function registrarEmpleado(){
 }
 
 
-
 $("#registrar").on("click",registrarEmpleado);
 
 $("#contrasena").change(function(){
@@ -66,6 +65,14 @@ function cancelar(){
     //alertify
     
     location.href="../dashboard/dashboard.php"
+}
+
+function cancelarTodo(){
+    alertify.confirm('Si cancela se perderan todos los campos rellenados', '¿Desea cancelar?',
+    function() {  },
+    function() { alertify.error('Se cancelo');
+                 setTimeout(()=>location.href="../dashboard/dashboard.php",2000);   
+    });
 }
 
 $('#cancelar').on("click",cancelar);
