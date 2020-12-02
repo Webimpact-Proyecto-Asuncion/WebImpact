@@ -51,7 +51,18 @@ function modificarEmpleado(){
                                                 id1:id}).
     done(function( data ) {
         console.log(data);
+        alertify.success('Se modifico exitosamente');
+        setTimeout(()=>location.href="../dashboard/dashboard.php",2000);   
     });
 }
 
+function cancelarTodo(){
+    alertify.confirm('Si cancela se perderan todos los campos rellenados', '¿Desea cancelar?',
+    function() {alertify.error('Se cancelo');
+    setTimeout(()=>location.href="../dashboard/dashboard.php",2000); },
+    function() {    
+    });
+}
+
+$("#cancelar").on("click",cancelarTodo);
 $("#modificar").on("click",modificarEmpleado);
