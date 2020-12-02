@@ -13,7 +13,7 @@
 	$tabla.="<th>Apellido Materno</th>";
 	$tabla.="<th>Telefono</th>";
 	$tabla.="<th>Diagnostico</th>";
-	$tabla.="<th>Lesion</th>";
+	$tabla.="<th>Tipo de terapia</th>";
 	$tabla.="<th>Ingreso</th>";
 	$tabla.="<th>Modificar</th>";
 	$tabla.="<th>Eliminar</th>";
