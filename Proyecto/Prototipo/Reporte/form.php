@@ -1,18 +1,4 @@
-<?php   
-    session_start();
- 
-    if($_SESSION['rol'] == 'Terapeuta'){
 
-        include("_header.html");
-        include ('../sidebar/index.php');
-    
-    }else{
-        
-        echo "ocurrio un error, contacte al administrador";
-        
-    }
-        
-?>   
       
    <br><br><br>
     <div class="container ">
@@ -65,11 +51,3 @@
     
         </div>
         
-<?php   
-
- 
- 
-    include("_footer.html");
-
-        
-?>   

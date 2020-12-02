@@ -48,9 +48,20 @@ function modificarDonador(){
     done(function(data ) {
         console.log(data);
         alertify.success("Modificado con exito");
+        setTimeout(()=>location.href="index.php",2000);
     });
 
     
 }
 
+function cancelaModificar(){
+
+    alertify.error("Se cancelo proceso");
+    setTimeout(()=>location.href="index.php",2000);
+
+    
+}
+
+
 $("#modificar").on("click",modificarDonador);
+$("#cancelar").on("click",cancelaModificar);
