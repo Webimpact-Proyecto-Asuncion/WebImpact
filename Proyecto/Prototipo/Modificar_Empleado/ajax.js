@@ -58,9 +58,9 @@ function modificarEmpleado(){
 
 function cancelarTodo(){
     alertify.confirm('Si cancela se perderan todos los campos rellenados', '¿Desea cancelar?',
-    function() { },
-    function() { alertify.error('Se cancelo');
-                 setTimeout(()=>location.href="../dashboard/dashboard.php",2000);   
+    function() {alertify.error('Se cancelo');
+    setTimeout(()=>location.href="../dashboard/dashboard.php",2000); },
+    function() {    
     });
 }
 
