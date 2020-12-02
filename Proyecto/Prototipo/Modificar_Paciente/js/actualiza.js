@@ -60,13 +60,6 @@ function Getpaciente(id) {
         })
 
 
-
-
-
-
-
-
-
     });
 }
 
