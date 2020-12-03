@@ -79,10 +79,16 @@ function modificarPaciente() {
     diagnostico = $("#diagnostico").val();
     lesion = $("#lesion").val();
     ingreso = $("#ingreso").val();
-    reingreso = ($("#reingreso").val() == '') ? '0000-00-00' : $("#reingreso").val();
-    egreso = ($("#egreso").val() == '') ? '0000-00-00' : $("#egreso").val();
+    reingreso = $("#reingreso").val();
+    egreso = $("#egreso").val();
     dependencia = $("#dependencia").val();
 
+    if (reingreso = '') {
+        reingreso = '0000-00-00';
+    }
+    if (egreso = '') {
+        egreso = '0000-00-00';
+    }
 
 
 
