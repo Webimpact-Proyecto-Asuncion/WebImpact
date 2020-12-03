@@ -85,11 +85,11 @@ function modificarPaciente() {
 
     if ($("#reingreso").val() == '') {
 
-        reingreso = "2020-01-01";
-        console.log("Se mando nulo");
+        reingreso = "NULL";
+
     }
-    if (egreso = null) {
-        egreso = "2020-01-01";
+    if ($("#egreso").val() == '') {
+        egreso = "NULL";
     }
 
 
