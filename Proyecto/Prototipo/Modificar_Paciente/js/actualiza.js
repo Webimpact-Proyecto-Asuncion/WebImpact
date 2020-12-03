@@ -85,7 +85,7 @@ function modificarPaciente() {
 
     if (reingreso = null) {
 
-        reingreso = "NULL";
+        reingreso = "2020-01-01";
         console.log("Se mando nulo");
     }
     if (egreso = null) {
