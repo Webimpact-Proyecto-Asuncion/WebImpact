@@ -13,7 +13,7 @@
 		$result = mysqli_query($conexion, $sql);
 
 		while($row=mysqli_fetch_assoc($result)){
-			echo $row["NumeroReporte"].",".$row["NumeroEmpleado"].",".$row["NumeroPaciente"].",".$row["Valoracion"].",".$row["Terapia"].",".$row["Tratamiento"].",".$row["Avances"].",".$row["Fecha"];
+			echo $row["NumeroReporte"].";".$row["NumeroEmpleado"].";".$row["NumeroPaciente"].";".$row["Valoracion"].";".$row["Terapia"].";".$row["Tratamiento"].";".$row["Avances"].";".$row["Fecha"];
 		}
 	}
 

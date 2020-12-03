@@ -14,7 +14,7 @@ function Getreporte(id){
     done(function( data ) {
     	
     console.log (data);
-    let data1=data.split(",");
+    let data1=data.split(";");
 
     $("#NumReporte").val(data1[0]);
     $("#NumEmpleado").val(data1[1]);
