@@ -9,25 +9,26 @@
 	$pages = ceil( $total / 10 );
     $Previous = (($page - 1) <= 1)? $page : $page-1;
     $Next = (($page + 1) > $pages)? $page : $page+1;
-    echo "Page: " . $page;
-?>
 
-<div class="col-md-10">
-    <nav aria-label="Page navigation">
-        <ul class="pagination">
-        <li class="page-item">
-            <a href="index.php?page=<?= $Previous; ?>" aria-label="Previous">
-            <span aria-hidden="true">&laquo; Previous</span>
-            </a>
-        </li>
-        <?php for($i = 1; $i<= $pages; $i++) : ?>
-            <li class="page-item" ><a href="index.php?page=<?= $i; ?>"><?= $i; ?></a></li>
-        <?php endfor; ?>
-        <li class="page-item">
-            <a href="index.php?page=<?= $Next; ?>" aria-label="Next">
-            <span aria-hidden="true">Next &raquo;</span>
-            </a>
-        </li>
-        </ul>
-    </nav>
-</div>
+    
+    $paginacion = "";
+    $paginacion.="<nav aria-label='Page navigation'>";
+    $paginacion.="<ul class='pagination'>";
+    $paginacion.="<li class='page-item'>";
+    $paginacion.="<a class='page-link' href='index.php?page=" . $Previous . "' aria-label='Previous'>";
+    $paginacion.="<span aria-hidden='true'>&laquo; Previous</span>";
+    $paginacion.="</a>";
+    $paginacion.="</li>";
+    for($i = 1; $i<= $pages; $i++) : 
+    $paginacion.="<li class='page-item' ><a class='page-link' class='page-link' href='index.php?page=" . $i . "'>" . $i . "</a></li>";
+    endfor;
+    $paginacion.="<li class='page-item'>";
+    $paginacion.="<a class='page-link' href='index.php?page=" . $Next . "' aria-label='Next'>";
+    $paginacion.="<span aria-hidden='true'>Next &raquo;</span>";
+    $paginacion.="</a>";
+    $paginacion.="</li>";
+    $paginacion.="</ul>";
+    $paginacion.="</nav>";
+
+    echo $paginacion;
+?>
