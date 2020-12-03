@@ -15,15 +15,15 @@
 <div class="col-md-10">
     <nav aria-label="Page navigation">
         <ul class="pagination">
-        <li>
+        <li class="page-item">
             <a href="index.php?page=<?= $Previous; ?>" aria-label="Previous">
             <span aria-hidden="true">&laquo; Previous</span>
             </a>
         </li>
         <?php for($i = 1; $i<= $pages; $i++) : ?>
-            <li><a href="index.php?page=<?= $i; ?>"><?= $i; ?></a></li>
+            <li class="page-item" ><a href="index.php?page=<?= $i; ?>"><?= $i; ?></a></li>
         <?php endfor; ?>
-        <li>
+        <li class="page-item">
             <a href="index.php?page=<?= $Next; ?>" aria-label="Next">
             <span aria-hidden="true">Next &raquo;</span>
             </a>
