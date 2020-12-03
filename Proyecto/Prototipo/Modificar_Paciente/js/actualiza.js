@@ -84,10 +84,12 @@ function modificarPaciente() {
     dependencia = $("#dependencia").val();
 
     if (reingreso = null) {
-        reingreso = 'NULL';
+
+        reingreso = "NULL";
+        console.log("Se mando nulo");
     }
     if (egreso = null) {
-        egreso = 'NULL';
+        egreso = "NULL";
     }
 
 
