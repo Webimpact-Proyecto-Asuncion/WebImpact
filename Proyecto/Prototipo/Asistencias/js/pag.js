@@ -11,7 +11,7 @@ $(document).ready(function() {
 });
 
 function pagin(pag) {
-    $.get("./php/tabla.php", { page: pag }).
+    $.get("./php/controladorTabla.php", { page: pag }).
     done(function(data) {
         console.log(data);
         $('#tabla').html(data);

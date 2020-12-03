@@ -27,7 +27,6 @@
 		$tabla.="<td>".$ver[2]."</td>";
 		$tabla.="<td>".$ver[3]."</td>";
 
-
 		$tabla.="<td>
 				<button class='btn btn-warning' onclick=Actualiza('".$ver[0]."')>";
 		$tabla.="<span class='oi oi-pencil'></span>Modificar </button>";
