@@ -4,11 +4,11 @@
 	require_once ("consulta.php");
 	
 
-	function tabla (){
+	function tabla ($page){
 
 		$tabla="";
 		$datos="";
-		$result = consulta();
+		$result = consulta($page);
 	
 		if(isset($_POST["consulta"])){
 			$result = buscar();

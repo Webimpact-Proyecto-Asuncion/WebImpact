@@ -8,7 +8,6 @@
         $dbname="asuncion1";
 
 		$conexion=mysqli_connect($servername,$username,$password,$dbname);
-
 			return $conexion;
 		}
 ?>

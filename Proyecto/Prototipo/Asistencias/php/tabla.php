@@ -2,7 +2,7 @@
 
 	require_once("controladorTabla.php");
 
-
+	$page = isset($_GET['page']) ? $_GET['page'] : 1;
 	$tabla="";
 
 
@@ -22,7 +22,7 @@
 
 
 	
-	$muestra = tabla();
+	$muestra = tabla($page);
 	
 	echo $tabla;
 	echo $muestra;

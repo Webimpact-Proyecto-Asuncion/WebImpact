@@ -9,7 +9,7 @@
   include ('_footer.html');
   }
   else {
-    echo "ocurrio un error, contacte al administrador";
-  }
+   echo "ocurrio un error, contacte al administrador";
+ }
 ?>
   
