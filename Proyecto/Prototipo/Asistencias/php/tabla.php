@@ -1,7 +1,6 @@
 <?php
 
 	require_once("controladorTabla.php");
-
 	$page = isset($_GET['page']) ? $_GET['page'] : 1;
 	$tabla="";
 
@@ -26,4 +25,5 @@
 	
 	echo $tabla;
 	echo $muestra;
+	
 ?>
