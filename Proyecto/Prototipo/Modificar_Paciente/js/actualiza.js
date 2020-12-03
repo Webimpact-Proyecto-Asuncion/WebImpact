@@ -84,10 +84,10 @@ function modificarPaciente() {
     dependencia = $("#dependencia").val();
 
     if (reingreso = null) {
-        reingreso = "00/00/0000";
+        reingreso = "01/01/2020";
     }
     if (egreso = null) {
-        egreso = "00/00/0000";
+        egreso = "01/01/2020";
     }
 
 
