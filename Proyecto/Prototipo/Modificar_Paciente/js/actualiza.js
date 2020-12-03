@@ -120,7 +120,7 @@ function modificarPaciente() {
 
         console.log(data);
         alertify.success("Modificado con exito");
-        //setTimeout(() => location.href = "../ConsultaPaciente/index.php", 2000);
+        setTimeout(() => location.href = "../ConsultaPaciente/index.php", 2000);
     });
 
 
