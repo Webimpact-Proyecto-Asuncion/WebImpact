@@ -85,11 +85,11 @@ function modificarPaciente() {
 
     if ($("#reingreso").val() == '') {
 
-        reingreso = "NULL";
+        reingreso = "";
 
     }
     if ($("#egreso").val() == '') {
-        egreso = "NULL";
+        egreso = "";
     }
 
 
