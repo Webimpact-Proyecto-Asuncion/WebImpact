@@ -79,8 +79,8 @@ function modificarPaciente() {
     diagnostico = $("#diagnostico").val();
     lesion = $("#lesion").val();
     ingreso = $("#ingreso").val();
-    reingreso = $("#reingreso").val();
-    egreso = $("#egreso").val();
+    reingreso = ($("#reingreso").val() == null) ? '0000-00-00' : $("#reingreso").val();
+    egreso = ($("#egreso").val() == null) ? '0000-00-00' : $("#egreso").val();
     dependencia = $("#dependencia").val();
 
 
@@ -111,21 +111,21 @@ function modificarPaciente() {
     done(function(data) {
 
         alertify.success("Modificado con exito");
-         setTimeout(()=>location.href="../ConsultaPaciente/index.php",2000);
+        setTimeout(() => location.href = "../ConsultaPaciente/index.php", 2000);
     });
 
 
 }
 
-function cancelaModificar(){
+function cancelaModificar() {
 
     alertify.error("Se cancelo proceso");
-    setTimeout(()=>location.href="../ConsultaPaciente/index.php",2000);
+    setTimeout(() => location.href = "../ConsultaPaciente/index.php", 2000);
 
-    
+
 }
 
 
 $("#modificar").on("click", modificarPaciente);
-$("#cancelar").on("click",cancelaModificar);
-$("#cancelar2").on("click",cancelaModificar);
+$("#cancelar").on("click", cancelaModificar);
+$("#cancelar2").on("click", cancelaModificar);
