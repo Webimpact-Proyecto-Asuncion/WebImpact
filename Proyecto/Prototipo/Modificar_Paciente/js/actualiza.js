@@ -116,6 +116,7 @@ function modificarPaciente() {
     }).
     done(function(data) {
 
+        console.log(data);
         alertify.success("Modificado con exito");
         //setTimeout(() => location.href = "../ConsultaPaciente/index.php", 2000);
     });
