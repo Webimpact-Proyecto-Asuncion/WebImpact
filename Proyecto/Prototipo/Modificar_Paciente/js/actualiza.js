@@ -83,11 +83,13 @@ function modificarPaciente() {
     egreso = $("#egreso").val();
     dependencia = $("#dependencia").val();
 
-    if (reingreso = null) {
-        reingreso = 'NULL';
+    if ($("#reingreso").val() == '') {
+
+        reingreso = "2021-01-01";
+
     }
-    if (egreso = null) {
-        egreso = 'NULL';
+    if ($("#egreso").val() == '') {
+        egreso = "2021-01-01";
     }
 
 
@@ -118,7 +120,7 @@ function modificarPaciente() {
 
         console.log(data);
         alertify.success("Modificado con exito");
-        //setTimeout(() => location.href = "../ConsultaPaciente/index.php", 2000);
+        setTimeout(() => location.href = "../ConsultaPaciente/index.php", 2000);
     });
 
 
