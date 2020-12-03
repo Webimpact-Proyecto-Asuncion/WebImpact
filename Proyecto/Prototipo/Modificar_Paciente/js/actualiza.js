@@ -85,11 +85,11 @@ function modificarPaciente() {
 
     if ($("#reingreso").val() == '') {
 
-        reingreso = "";
+        reingreso = "2021-01-01";
 
     }
     if ($("#egreso").val() == '') {
-        egreso = "";
+        egreso = "2021-01-01";
     }
 
 
