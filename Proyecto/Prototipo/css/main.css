@@ -485,3 +485,7 @@ body {
     margin-top: -800px;
     margin-right: 100px;
 }
+
+textarea{
+  word-break: break-all;
+}
