@@ -5,7 +5,7 @@
 	function consulta(){
 	$conexion=conexion();
 
-	$sql="CALL ImprimirDonaciones";
+	$sql="CALL ImprimirDonaciones () ";
 
 	$result=mysqli_query($conexion, $sql);
 
