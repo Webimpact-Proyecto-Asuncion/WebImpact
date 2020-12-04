@@ -1,50 +1,36 @@
 <?php
 
-	require_once ("buscador.php");
-	require_once ("consulta.php");
+	require_once("tabla.php");
+    require_once("buscador.php");
+
+
+
+    $page = isset($_GET['page']) ? $_GET['page'] : 1;
+	$tabla="";
 	
 
-	function tabla (){
+	$tabla.="<table class='table table-bordered table-hover'>";
+	$tabla.="<thead class='thead-dark'>";
+	$tabla.="<tr>";
+	$tabla.="<th>Donador</th>";
+	$tabla.="<th>Descripcion</th>";
+	$tabla.="<th>Fecha</th>";
+	$tabla.="<th>Modificar</th>";
+	$tabla.="<th>Eliminar</th>";
+	$tabla.="</tr";
+	$tabla.="</thead>";
 
-		$tabla="";
-		$datos="";
-		$result = consulta();
+	$muestra = tabla($page);
+
+	if(isset($_POST["consulta"])){
+        $muestra = tabla1($page,$_POST["consulta"]);
+        //echo $result;
+    }
 	
-		if(isset($_POST["consulta"])){
-			$result = buscar();
-		}
-
-
-		while($ver=mysqli_fetch_row($result)){
-		$datos=$ver[0]."||".
-		 	$ver[1]."||".
-			$ver[2]."||".
-			$ver[3];
-
-
-		$tabla.="<tr>";
-		$tabla.="<td>".$ver[1]."</td>";
-		$tabla.="<td>".$ver[2]."</td>";
-		$tabla.="<td>".$ver[3]."</td>";
-
-		$tabla.="<td>
-				<button class='btn btn-warning' onclick=Actualiza('".$ver[0]."')>";
-		$tabla.="<span class='oi oi-pencil'></span>Modificar </button>";
-		$tabla.="</td>";
-
-		$tabla.="<td>";
-		$tabla.="<button class='btn btn-danger' onclick=preguntarSiNo(".$ver[0].")>";
-		$tabla.="<span class='oi oi-trash'></span> Eliminar</button>";
-		$tabla.="</td>";
-
-		$tabla.="</tr>";
-
-		
-		
-		}
-
-		return $tabla;
-	}
-
-
+	echo $tabla;
+	echo $muestra;
 ?>
+
+
+	
+						

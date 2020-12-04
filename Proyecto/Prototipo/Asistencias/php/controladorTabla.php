@@ -9,6 +9,7 @@
     $tabla="";
 
 
+
     $tabla.="<table class='table table-bordered table-hover'>";
     $tabla.="<thead class='thead-dark'>";
     $tabla.="<tr>";

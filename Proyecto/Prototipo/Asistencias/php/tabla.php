@@ -11,7 +11,6 @@
 		$result = consulta($page);
 	
 		
-
 		while($ver=mysqli_fetch_row($result)){
 
 		$datos=$ver[0]."||".
