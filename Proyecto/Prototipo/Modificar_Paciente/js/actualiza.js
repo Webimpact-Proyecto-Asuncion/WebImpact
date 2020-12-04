@@ -83,6 +83,14 @@ function modificarPaciente() {
     egreso = $("#egreso").val();
     dependencia = $("#dependencia").val();
 
+    if ($("#reingreso").val() == '') {
+
+        reingreso = "2021-01-01";
+
+    }
+    if ($("#egreso").val() == '') {
+        egreso = "2021-01-01";
+    }
 
 
 
@@ -110,22 +118,23 @@ function modificarPaciente() {
     }).
     done(function(data) {
 
+        console.log(data);
         alertify.success("Modificado con exito");
-         setTimeout(()=>location.href="../ConsultaPaciente/index.php",2000);
+        setTimeout(() => location.href = "../ConsultaPaciente/index.php", 2000);
     });
 
 
 }
 
-function cancelaModificar(){
+function cancelaModificar() {
 
     alertify.error("Se cancelo proceso");
-    setTimeout(()=>location.href="../ConsultaPaciente/index.php",2000);
+    setTimeout(() => location.href = "../ConsultaPaciente/index.php", 2000);
 
-    
+
 }
 
 
 $("#modificar").on("click", modificarPaciente);
-$("#cancelar").on("click",cancelaModificar);
-$("#cancelar2").on("click",cancelaModificar);
+$("#cancelar").on("click", cancelaModificar);
+$("#cancelar2").on("click", cancelaModificar);

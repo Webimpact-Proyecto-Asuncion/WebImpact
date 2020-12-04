@@ -19,15 +19,19 @@ function resgistraReporte(){
         
     }else{
         
-        alert('Donador registrado exitosamente!');
-        setTimeout(()=>location.href="../dashboard/dashboard.php",2000);
+            alertify.success('Reporte registrado exitosamente!');
+            setTimeout(()=>location.href="../dashboard/dashboard.php",2000);
+
+
+
+                $.post( "controladorRegistraPaciente.php", {NumeroPaciente:$("#NombrePaciente").val(),Valoracion:$("#valoracion").val(),Terapia:$("#terapia").val(),Tratamiento:$("#tratamiento").val(),Avances:$("#avances").val()})
+            .done(function( data ) {
+            console.log(data);
+      });
     }
     
     
-    $.post( "controladorRegistraPaciente.php", {NumeroPaciente:$("#NombrePaciente").val(),Valoracion:$("#valoracion").val(),Terapia:$("#terapia").val(),Tratamiento:$("#tratamiento").val(),Avances:$("#avances").val()})
-    .done(function( data ) {
-    console.log(data);
-  });
+    
 }
 
 $("#Registrar").on("click",resgistraReporte)

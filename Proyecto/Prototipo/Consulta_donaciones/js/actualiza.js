@@ -45,4 +45,13 @@ function modificarDonaciones(){
     
 }
 
+function cancelaModificar(){
+
+    alertify.error("Se cancelo proceso");
+    setTimeout(()=>location.href="index.php",2000);
+
+    
+}
+
 $("#modificar").on("click",modificarDonaciones);
+$("#cancelar").on("click",cancelaModificar);

@@ -68,6 +68,4 @@ function addDonacion($razonSocial,$descripcion, $fecha)
     }
     closeDb($conn); 
 }
-
-
 ?>

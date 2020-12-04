@@ -20,7 +20,7 @@ $("#but_upload").click(function() {
                     console.log(response);*/
                     src = response;
                     console.log("src: " + src);
-                    bulkInsert(path);
+                    bulkInsert(src);
                 } else {
                     alert('file not uploaded');
                 }
@@ -31,10 +31,12 @@ $("#but_upload").click(function() {
     }
 });
 
-function bulkInsert(path){
-    $.post("./controladorbulk.php",{path:path}).
+function bulkInsert(text){
+    console.log(text);
+    $.post("./controladorbulk.php",{path:text}).
         done(function( data ) {
-            alertify.success('CargaMasiva  con exito');
-            setTimeout(()=>location.href="../dashboard/dashboard.php",2000);
+            console.log(data);
+            //alertify.success('Carga Masiva  con exito');
+            //setTimeout(()=>location.href="../dashboard/dashboard.php",2000);
         });
 }

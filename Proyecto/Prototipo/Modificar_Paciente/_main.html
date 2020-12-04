@@ -113,7 +113,7 @@
                         <br><br>
                         <input type="button" class="btn btn-success siguiente bold" value="Siguiente" name="siguiente" id="siguiente"></input>
                         <br><br>
-                         <button id="cancelar" class="btn btn-danger">Cancelar</button>
+                        <button id="cancelar" class="btn btn-danger">Cancelar</button>
                     </div>
                 </div>
                 <div class="carousel-item">
@@ -127,8 +127,12 @@
                         </div>
                         <div class="form-row">
                             <div class="form-group col-md-12">
-                                <label for="Lesion" class="bold">Lesión</label>
-                                <input type="text" class="form-control" id="lesion" name="lesion">
+                                <label for="Lesion" class="bold">Tipo de terapia</label>
+                                <select class="custom-select mr-sm-2" id="lesion" name="lesion">
+                                    <option selected value="0">Selecciona...</option>
+                                    <option value="Terapia Fisica">Terapia Fisica</option>
+                                    <option value="Terapia de Lenguaje">Terapia de Lenguaje</option>
+                                 </select>
                             </div>
                         </div>
                         <div class="form-row">
@@ -160,7 +164,7 @@
                         <br><br>
                         <input type="button" class="btn btn-warning bold" value=" Anterior " name="anterior" id="anterior"></input>
                         <br><br>
-                         <button id="cancelar2" class="btn btn-danger">Cancelar</button>
+                        <button id="cancelar2" class="btn btn-danger">Cancelar</button>
                     </div>
                 </div>
             </div>

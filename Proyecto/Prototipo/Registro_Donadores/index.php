@@ -1,10 +1,6 @@
-<?php
-    
-        
+<?php 
       require_once 'util.php'; 
-
       session_start();
-
       if($_SESSION['rol'] == 'Administracion'){
       
         include("_header.html");
@@ -15,7 +11,4 @@
       else {
         echo "ocurrio un error, contacte al administrador";
       } 
-    
-    
-
  ?>

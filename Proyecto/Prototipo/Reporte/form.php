@@ -1,19 +1,17 @@
-<?php   
-    session_start();
- 
-    if($_SESSION['rol'] == 'Terapeuta'){
 
-        include("_header.html");
-        include ('../sidebar/index.php');
+<?php   
+session_start();
+
+if($_SESSION['rol'] == 'Terapeuta'){
+
+    include ("_header.html");
+    include ('../sidebar/index.php');
+}else{
     
-    }else{
-        
-        echo "ocurrio un error, contacte al administrador";
-        
-    }
-        
-?>   
-      
+    echo "ocurrio un error, contacte al administrador";
+    
+}      
+?>    
    <br><br><br>
     <div class="container ">
     <h5 class="container">Crear Reporte </h5>
@@ -39,7 +37,7 @@
                 <div class="form-row">
                     <div class="form-group col-md-6">
                         <label for="Terapia" class="bold">Terapia</label>
-                        <textarea class="form-control" id="terapia" rows="3" placeholder="Paciente ingres debido a ..." required></textarea>
+                        <textarea class="form-control" id="terapia" rows="3" placeholder="Paciente ingreso debido a ..." required></textarea>
                     </div>
                 </div>
                 <div class="form-row">
@@ -64,12 +62,10 @@
    
     
         </div>
-        
-<?php   
 
- 
- 
-    include("_footer.html");
+<?php
 
+include ("_footer.html");
+
+?>
         
-?>   
