@@ -4,7 +4,8 @@
 	require_once("tabla.php");
     
 
-	 $page = isset($_GET['page']) ? $_GET['page'] : 1;
+	$page = isset($_GET['page']) ? $_GET['page'] : 1;
+
 	$tabla="";
 	
 	$tabla.="<table class='table table-bordered table-hover'>";
@@ -25,10 +26,10 @@
 	$tabla.="</thead>";
 	
 
-	$muestra = tabla();
+	$muestra = tabla($page);
 	
 	if(isset($_POST["consulta"])){
-        $muestra = tabla1($page,$_POST["consulta"]);
+        $muestra = tabla1($page, $_POST["consulta"]);
         //echo $result;
     }
     
