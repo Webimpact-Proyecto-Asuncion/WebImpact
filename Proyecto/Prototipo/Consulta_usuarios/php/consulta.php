@@ -9,7 +9,7 @@
 	$limit = 10;
 	$start = ($page - 1) * $limit;
 
-	$sql="CALL ImprimirEmpleados($start,$limit)";
+	$sql="CALL ImprimirEmpleados($limit,$start)";
 
 	$result=mysqli_query($conexion, $sql);
 
