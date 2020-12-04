@@ -1,7 +1,6 @@
 var id;
 var flagPass=false;
 var oldpass;
-var counter=0;
 $( document ).ready(function() {
     queryEspecialidades();
     queryRoles();
@@ -24,7 +23,7 @@ function queryEmpleado(idEmpleado){
         $("#correo").val(data1[1]);
         $("#especialidad").val(data1[2]);
         $("#contrasena").val(data1[3]);
-        oldpass=val(data1[3]);
+        oldpass=data1[3];
         $("#rol").val(data1[4]);
         //console.log($("#rol option:selected").text());
         });
@@ -80,9 +79,6 @@ function cancelarTodo(){
 $("#cancelar").on("click",cancelarTodo);
 $("#modificar").on("click",modificarEmpleado);
 $("#contrasena").change(function() {
-    counter++;
-    if(counter==2){
     console.log("cambio");
     flagPass=true;
-    }
 });
