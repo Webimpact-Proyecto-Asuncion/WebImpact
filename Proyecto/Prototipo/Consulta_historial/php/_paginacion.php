@@ -2,7 +2,7 @@
     include "conexion.php";
     $conexion = conexion();
     $page = isset($_GET['page']) ? $_GET['page'] : 1;	
-    $result1 = $conexion->query("SELECT count(id_Donador) as id FROM Donador WHERE Visibilidad = 1");
+    $result1 = $conexion->query("SELECT count(NumeroReporte) as id FROM reporte WHERE Visibilidad = 1");
 	$custCount = $result1->fetch_all(MYSQLI_ASSOC);
 	$total = $custCount[0]['id'];
 	$pages = ceil( $total / 10 );
@@ -28,5 +28,6 @@
     $paginacion.="</li>";
     $paginacion.="</ul>";
     $paginacion.="</nav>";
+
     echo $paginacion;
 ?>
