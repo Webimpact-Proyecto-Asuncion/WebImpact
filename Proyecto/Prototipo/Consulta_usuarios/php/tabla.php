@@ -8,7 +8,7 @@
 
 		$tabla="";
 		$datos="";
-		$result = consulta();
+		$result = consulta($page);
 		
 		
 		while($ver=mysqli_fetch_row($result)){

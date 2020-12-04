@@ -2,10 +2,14 @@
 
 	require_once ("conexion.php");
 
-	function consulta(){
+	function consulta($page){
+
 	$conexion=conexion();
 
-	$sql="CALL ImprimirEmpleados";
+	$limit = 10;
+	$start = ($page - 1) * $limit;
+
+	$sql="CALL ImprimirEmpleados($start,$limit)";
 
 	$result=mysqli_query($conexion, $sql);
 
