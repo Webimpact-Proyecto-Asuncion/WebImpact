@@ -10,7 +10,7 @@
 	$limit = 10;
 	$start = ($page - 1) * $limit;
 
-	$sql="CALL ImprimirDonaciones($limit, $start)";
+	$sql="CALL ImprimirDonaciones($start, $limit)";
 
 	$result=mysqli_query($conexion, $sql);
 
