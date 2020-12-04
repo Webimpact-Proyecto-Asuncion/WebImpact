@@ -3,7 +3,7 @@
     
     echo($_SESSION["rol"]);
 
-    if($_SESSION["rol"]=="Administracion"){*/
+    if($_SESSION["rol"]=="Administracion"){
         include ('_head.html');
         include ('../sidebar/_sidebarA.html');
         include ('_videos.html');
