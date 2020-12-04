@@ -1,33 +1,92 @@
 <?php
 	
-	require_once("controladorTabla.php");
+	require_once ("buscador.php");
+	require_once ("consulta.php");
+	
+	function tabla($page){
 
-	$tabla="";
 
-	$tabla.="<table class='table table-bordered table-hover'>";
-	$tabla.="<thead class='thead-dark'>";
-	$tabla.="<tr>";
-	$tabla.="<th>Num Paciente</th>";
-	$tabla.="<th>Nombre Paciente</th>";
-	$tabla.="<th>Apellido Paterno</th>";
-	$tabla.="<th>Apellido Materno</th>";
-	$tabla.="<th>Telefono</th>";
-	$tabla.="<th>Diagnostico</th>";
-	$tabla.="<th>Tipo de terapia</th>";
-	$tabla.="<th>Ingreso</th>";
-	$tabla.="<th>Modificar</th>";
-	$tabla.="<th>Eliminar</th>";
-	$tabla.="</tr";
-	$tabla.="</thead>";
+		$tabla="";
+		$datos="";
+		$result = consulta();
+	
 		
+
+		while($ver=mysqli_fetch_row($result)){
+		$datos=$ver[0]."||".
+		 	$ver[1]."||".
+			$ver[2]."||".
+			$ver[3]."||".
+			$ver[4]."||".
+			$ver[5]."||".
+			$ver[6]."||".
+			$ver[7];
+		
+		$tabla.="<tr>";
+		$tabla.="<td>".$ver[0]."</td>";
+		$tabla.="<td>".$ver[1]."</td>";
+		$tabla.="<td>".$ver[2]."</td>";
+		$tabla.="<td>".$ver[3]."</td>";
+		$tabla.="<td>".$ver[4]."</td>";
+		$tabla.="<td>".$ver[5]."</td>";
+		$tabla.="<td>".$ver[6]."</td>";
+		$tabla.="<td>".$ver[7]."</td>";
+
+		$tabla.="<td>
+				<button class='btn btn-warning' onclick=Actualiza('".$ver[0]."')><span class='oi oi-pencil'></span>Modificar </button>
+				</td>";
+		$tabla.="<td>";
+		$tabla.="<button class='btn btn-danger' onclick=preguntarSiNo(".$ver[0].")>";
+		$tabla.="<span class='oi oi-trash'></span> Eliminar</button>";
+		$tabla.="</td>";
+
+		$tabla.="</tr>";
+		}
+
+	return $tabla;
+	}
+
+
+	function tabla($page, $consulta){
+
+
+		$tabla="";
+		$datos="";
+		$result = buscar($consulta);
 	
-	$muestra = tabla();
-	
-	echo $tabla;
-	echo $muestra;
+		
+
+		while($ver=mysqli_fetch_row($result)){
+		$datos=$ver[0]."||".
+		 	$ver[1]."||".
+			$ver[2]."||".
+			$ver[3]."||".
+			$ver[4]."||".
+			$ver[5]."||".
+			$ver[6]."||".
+			$ver[7];
+		
+		$tabla.="<tr>";
+		$tabla.="<td>".$ver[0]."</td>";
+		$tabla.="<td>".$ver[1]."</td>";
+		$tabla.="<td>".$ver[2]."</td>";
+		$tabla.="<td>".$ver[3]."</td>";
+		$tabla.="<td>".$ver[4]."</td>";
+		$tabla.="<td>".$ver[5]."</td>";
+		$tabla.="<td>".$ver[6]."</td>";
+		$tabla.="<td>".$ver[7]."</td>";
+
+		$tabla.="<td>
+				<button class='btn btn-warning' onclick=Actualiza('".$ver[0]."')><span class='oi oi-pencil'></span>Modificar </button>
+				</td>";
+		$tabla.="<td>";
+		$tabla.="<button class='btn btn-danger' onclick=preguntarSiNo(".$ver[0].")>";
+		$tabla.="<span class='oi oi-trash'></span> Eliminar</button>";
+		$tabla.="</td>";
+
+		$tabla.="</tr>";
+		}
+
+	return $tabla;
+	}
 ?>
-	
-							
-							
-				
-	

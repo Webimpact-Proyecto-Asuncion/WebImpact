@@ -1,8 +1,7 @@
 <?php
 
 	require_once("tabla.php");
-    require_once("buscador.php");
-
+    
 
 
     $page = isset($_GET['page']) ? $_GET['page'] : 1;

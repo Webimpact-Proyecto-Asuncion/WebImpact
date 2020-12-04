@@ -15,7 +15,5 @@
 		return $result;
 	}
 
-}
-
 
 ?>

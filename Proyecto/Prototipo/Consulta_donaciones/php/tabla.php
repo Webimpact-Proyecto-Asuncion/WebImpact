@@ -10,11 +10,7 @@
 		$datos="";
 		$result = consulta();
 	
-		if(isset($_POST["consulta"])){
-			$result = buscar();
-		}
-
-
+		
 		while($ver=mysqli_fetch_row($result)){
 		$datos=$ver[0]."||".
 		 	$ver[1]."||".
@@ -52,9 +48,7 @@
 		$datos="";
 		$result = buscar($consulta)
 	
-		if(isset($_POST["consulta"])){
-			$result = buscar();
-		}
+		
 
 
 		while($ver=mysqli_fetch_row($result)){
