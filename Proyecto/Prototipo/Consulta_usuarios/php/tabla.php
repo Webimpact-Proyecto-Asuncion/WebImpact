@@ -1,25 +1,75 @@
 <?php
-	
-	require_once("controladorTabla.php");	
-	$tabla="";
 
-	$tabla.="<table class='table table-bordered table-hover'>";
-	$tabla.="<thead class='thead-dark'>";
-	$tabla.="<tr>";
-	$tabla.="<th>Num Empleado</th>";
-	$tabla.="<th>Nombre Empleado</th>";
-	$tabla.="<th>Correo</th>";
-	$tabla.="<th>Descripcion</th>";
-	$tabla.="<th>Modificar</th>";
-	$tabla.="<th>Eliminar</th>";
-	$tabla.="</tr";
-	$tabla.="</thead>";
 
+	require_once ("buscador.php");
+	require_once ("consulta.php");
+
+	function tabla($page){
+
+		$tabla="";
+		$datos="";
+		$result = consulta($page);
 		
-	$muestra = tabla();
-	
-	echo $tabla;
-	echo $muestra;
+		
+		while($ver=mysqli_fetch_row($result)){
+			$datos=$ver[0]."||".
+				 	$ver[1]."||".
+					$ver[2]."||".
+					$ver[3];
 
-?>
+			$tabla.="<tr>";
+			$tabla.="<td>".$ver[0]."</td>";
+			$tabla.="<td>".$ver[1]."</td>";
+			$tabla.="<td>".$ver[2]."</td>";
+			$tabla.="<td>".$ver[3]."</td>";
+			$tabla.="<td>
+				<button class='btn btn-warning' id='".$ver[0]."' onclick='modifyById(this.id)'><span class='oi oi-pencil'></span>Modificar </button>
+				</td>";
+			$tabla.="<td>";
+			$tabla.="<button class='btn btn-danger' onclick=preguntarSiNo(".$ver[0].")>";
+			$tabla.="<span class='oi oi-trash'></span> Eliminar</button>";
+			$tabla.="</td>";
+
+			$tabla.="</tr>";
+		}
 	
+	return $tabla;
+
+
+	}
+		
+
+	function tabla1($page, $consulta){
+
+		$tabla="";
+		$datos="";
+		$result = buscar($consulta);
+		
+		
+		while($ver=mysqli_fetch_row($result)){
+			$datos=$ver[0]."||".
+				 	$ver[1]."||".
+					$ver[2]."||".
+					$ver[3];
+
+			$tabla.="<tr>";
+			$tabla.="<td>".$ver[0]."</td>";
+			$tabla.="<td>".$ver[1]."</td>";
+			$tabla.="<td>".$ver[2]."</td>";
+			$tabla.="<td>".$ver[3]."</td>";
+			$tabla.="<td>
+				<button class='btn btn-warning' id='".$ver[0]."' onclick='modifyById(this.id)'><span class='oi oi-pencil'></span>Modificar </button>
+				</td>";
+			$tabla.="<td>";
+			$tabla.="<button class='btn btn-danger' onclick=preguntarSiNo(".$ver[0].")>";
+			$tabla.="<span class='oi oi-trash'></span> Eliminar</button>";
+			$tabla.="</td>";
+
+			$tabla.="</tr>";
+		}
+	
+	return $tabla;
+
+
+	}
+?>

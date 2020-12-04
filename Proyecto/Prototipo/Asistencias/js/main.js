@@ -62,7 +62,7 @@ function falta(datos) {
     done(function(data) {
         console.log(data);
         alertify.error("Falta registrada");
-        $('#tabla').load('php/tabla.php');
+        $('#tabla').load('php/controladorTabla.php');
     });
 
 
@@ -80,7 +80,7 @@ function asistencia(datos) {
     done(function(data) {
         console.log(data);
         alertify.success("Asistencia registrada");
-        $('#tabla').load('php/tabla.php');
+        $('#tabla').load('php/controladorTabla.php');
     });
 
 
@@ -97,7 +97,7 @@ function justificacion(datos) {
     done(function(data) {
         console.log(data);
         alertify.success("Registro justificado");
-        $('#tabla').load('php/tabla.php');
+        $('#tabla').load('php/controladorTabla.php');
     });
 }
 
