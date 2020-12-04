@@ -24,7 +24,7 @@
 	$muestra = tabla($page);
 	
 	if(isset($_POST["consulta"])){
-        $muestra = tabla1($page,$_POST["consulta"]);
+        $muestra = tabla1($page, $_POST["consulta"]);
         //echo $result;
     }
 	
