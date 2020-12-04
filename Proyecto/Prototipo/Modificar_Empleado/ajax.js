@@ -48,7 +48,7 @@ function queryRoles(){
 function modificarEmpleado(){
     console.log(flagPass);
     if(flagPass){
-        pass=$("#contrasena").val()
+        pass=$("#contrasena").val();
     }else{
         pass=oldpass;
     }
@@ -64,7 +64,7 @@ function modificarEmpleado(){
     done(function( data ) {
         console.log(data);
         alertify.success('Se modifico exitosamente');
-        setTimeout(()=>location.href="../dashboard/dashboard.php",2000);   
+        //setTimeout(()=>location.href="../dashboard/dashboard.php",2000);   
     });
 }
 
