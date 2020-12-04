@@ -2,7 +2,7 @@
     include "conexion.php";
     $conexion = conexion();
     $page = isset($_GET['page']) ? $_GET['page'] : 1;	
-    $result1 = $conexion->query("SELECT count(NumeroDonativos) as id FROM Donativos WHERE Visibilidad = 1");
+    $result1 = $conexion->query("SELECT count(NumeroDonativo) as id FROM Donativos WHERE Visibilidad = 1");
 	$custCount = $result1->fetch_all(MYSQLI_ASSOC);
 	$total = $custCount[0]['id'];
 	$pages = ceil( $total / 10 );
