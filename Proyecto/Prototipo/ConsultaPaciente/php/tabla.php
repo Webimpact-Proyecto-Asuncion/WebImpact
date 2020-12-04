@@ -8,7 +8,7 @@
 
 		$tabla="";
 		$datos="";
-		$result = consulta();
+		$result = consulta($page);
 	
 		
 
@@ -47,7 +47,7 @@
 	}
 
 
-	function tabla($page, $consulta){
+	function tabla1($page, $consulta){
 
 
 		$tabla="";
