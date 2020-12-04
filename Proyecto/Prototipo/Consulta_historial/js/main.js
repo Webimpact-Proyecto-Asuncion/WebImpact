@@ -43,7 +43,7 @@ function eliminarDatos(id){
     done(function( data ) {
     	
         alertify.success("Eliminado con exito!");
-        $('#tabla').load('php/tabla.php');
+        $('#tabla').load('php/controladorTabla.php');
     });
 }
 
