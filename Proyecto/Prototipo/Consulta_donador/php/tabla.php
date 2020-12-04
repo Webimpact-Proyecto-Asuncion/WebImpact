@@ -49,7 +49,7 @@
 		$tabla="";
 		$datos="";
 		$result = buscar($consulta);
-
+		
 		
 		while($ver=mysqli_fetch_row($result)){
 		$datos=$ver[0]."||'".
