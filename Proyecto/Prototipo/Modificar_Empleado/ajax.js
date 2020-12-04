@@ -46,7 +46,7 @@ function queryRoles(){
 }
 
 function modificarEmpleado(){
-    
+    console.log(flagPass);
     if(flagPass){
         pass=$("#contrasena").val()
     }else{
