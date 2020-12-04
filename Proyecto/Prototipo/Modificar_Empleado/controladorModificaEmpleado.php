@@ -4,7 +4,9 @@
         $NombreEmpleado=$_POST["NombreEmpleado"];
         $Correo=$_POST["Correo"];
         $Especialidad=$_POST["Especialidad"];
-        $Password=crypt($_POST["Password"],'AsuncionIAP$2020');
+        if($_POST["Password"]!="0"){
+            $Password=crypt($_POST["Password"],'AsuncionIAP$2020');
+        }
         $rol=$_POST["rol"];
         $id1=$_POST["id1"];
         modficarEmpleado($NombreEmpleado,$Correo,$Especialidad,$Password,$rol,$id1);

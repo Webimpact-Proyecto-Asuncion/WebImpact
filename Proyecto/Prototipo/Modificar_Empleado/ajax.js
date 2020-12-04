@@ -1,4 +1,5 @@
 var id;
+var flagPass=false;
 $( document ).ready(function() {
     queryEspecialidades();
     queryRoles();
@@ -43,10 +44,15 @@ function queryRoles(){
 }
 
 function modificarEmpleado(){
+    pass="0";
+    if(flagPass){
+        pass=$("#contrasena").val()
+    }
+    console.log(pass);
     $.post("./controladorModificaEmpleado.php",{NombreEmpleado:$("#nombre").val(),
                                                 Correo:$("#correo").val(),
                                                 Especialidad:$("#especialidad").val(),
-                                                Password:$("#contrasena").val(),
+                                                Password:pass,
                                                 rol:$("#rol option:selected").text(),
                                                 id1:id}).
     done(function( data ) {
@@ -66,3 +72,6 @@ function cancelarTodo(){
 
 $("#cancelar").on("click",cancelarTodo);
 $("#modificar").on("click",modificarEmpleado);
+$("#contrasena").change(function() {
+    flagPass=true;
+});
