@@ -12,4 +12,3 @@
     echo "ocurrio un error, contacte al administrador";
   }
 ?>
-  

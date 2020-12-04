@@ -3,8 +3,6 @@
 	require_once ("conexion.php");
 
 	function consulta($page){
-
-	
 	$conexion=conexion();
 
 	$limit = 10;
