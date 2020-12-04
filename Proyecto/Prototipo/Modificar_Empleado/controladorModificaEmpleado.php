@@ -11,6 +11,7 @@
             $Password=$_POST["Password"];
 
         }
+        echo $Password;
         $rol=$_POST["rol"];
         $id1=$_POST["id1"];
         modficarEmpleado($NombreEmpleado,$Correo,$Especialidad,$Password,$rol,$id1);
