@@ -46,7 +46,7 @@
 
 		$tabla="";
 		$datos="";
-		$result = buscar($consulta)
+		$result = buscar($consulta);
 	
 		
 
