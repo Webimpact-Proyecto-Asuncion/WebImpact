@@ -3,7 +3,7 @@
 	require_once ("conexion.php");
 	
 
-	function buscar(){
+	function buscar($consulta){
 		
 		$conexion=conexion($consulta);
 		
