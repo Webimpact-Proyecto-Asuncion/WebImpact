@@ -6,6 +6,7 @@
 
 	if(isset($_POST["consulta"])){
 			$result = buscar($_POST["consulta"]);
+			echo $result;
 	}
 
 
