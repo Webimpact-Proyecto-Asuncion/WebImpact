@@ -64,7 +64,7 @@ function modificarEmpleado(){
     done(function( data ) {
         console.log(data);
         alertify.success('Se modifico exitosamente');
-        //setTimeout(()=>location.href="../dashboard/dashboard.php",2000);   
+        setTimeout(()=>location.href="../dashboard/dashboard.php",2000);   
     });
 }
 
