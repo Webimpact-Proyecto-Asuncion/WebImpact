@@ -3,10 +3,10 @@
     /*
     echo($_SESSION["rol"]);
     if($_SESSION["rol"]=="Administracion"){*/
-        include_once("./_head.html");
-        include_once("../sidebar/_sidebarA.html");
-        include_once("./_videos.html");
-        include_once("./_footer.html");
+        include ('_head.html');
+        include ('../sidebar/_sidebarA.html');
+        include ('_videos.html');
+        include ('_footer.html');
     /*}else if ($_SESSION["rol"]=="Terapeuta") {
         //cerrar sesion?
         include_once("./_head.html");
