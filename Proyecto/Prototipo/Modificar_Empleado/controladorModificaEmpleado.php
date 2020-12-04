@@ -4,6 +4,7 @@
         $NombreEmpleado=$_POST["NombreEmpleado"];
         $Correo=$_POST["Correo"];
         $Especialidad=$_POST["Especialidad"];
+        echo $_POST["flagPass"];
         if($_POST["flagPass"]==true){
             $Password=crypt($_POST["Password"],'AsuncionIAP$2020');
         }else{
